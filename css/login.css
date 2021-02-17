@@ -39,3 +39,24 @@ img{
     width: 180px;
     height: 60px;
 }
+li{
+    padding-left: 20%;
+    color: black;
+}
+a{
+    color: black;
+    text-decoration: none;  
+}
+.icon{
+    height: 15px;
+    width: 15px;
+}
+.login-btn{
+    width: 300px;
+    height: 48px;
+    background-color: #0091FB;
+    border-radius: 10px;
+    border: white;
+    color: white;
+    font-size: 18px;
+}

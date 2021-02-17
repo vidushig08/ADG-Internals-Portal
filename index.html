@@ -11,14 +11,38 @@
 </head>
 <body>
     <div class="left">
-        <img src="icons/Group 2.svg">
+        <!--NAVBAR Starts-->
+		<nav class="nav-active" id="navbar">
+
+			<!-- Logo in Navbar -->
+			<img src="icons/Group 2.svg">
+            <br><br><br><br>
+			<!-- Nav Links -->
+			<ul class="navlinks">
+				<li>
+                    <img class="icon" src="icons/login.svg" alt="">
+					<a href="index" class="nav-link nav-link-grow-up" id="active">Admin Login</a>
+				</li>
+                
+				<li>
+                    <img class="icon" src="icons/signup.svg" alt="">
+					<a href="about" class="nav-link nav-link-grow-up">Sign Up</a>
+				</li>
+			</ul>
+		</nav>
+		<!--NAVBAR Ends-->
     </div>
 
     <div class="middle">
         <h2>Admin Login</h2>
         <h4>Login for only Admin/Board Members</h4>
+        <br><br><br><br>
         <form action="">
-
+            <label for="userid">User ID:</label>
+            <input type="text" id="userid" name="userid"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="lname" name="password"><br><br><br>
+            <button class="login-btn">Login</button>
         </form>
     </div>
 
