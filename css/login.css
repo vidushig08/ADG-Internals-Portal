@@ -60,3 +60,14 @@ a{
     color: white;
     font-size: 18px;
 }
+.post-meeting-btn{
+    width: 240px;
+    height: 40px;
+    background-color: #0091FB;
+    border-radius: 10px;
+    border: white;
+    color: white;
+    font-size: 18px;
+    margin-top: 3%;
+    margin-left: 20%;
+}

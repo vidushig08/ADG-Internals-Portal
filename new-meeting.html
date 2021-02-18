@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="css/login.css" />
+    <link type="text/css" rel="stylesheet" href="css/signup.css" />
+
+    <title>ADG | Admin Portal</title>
+</head>
+<body>
+    <div class="left">
+        <!--NAVBAR Starts-->
+		<nav class="nav-active" id="navbar">
+
+			<!-- Logo in Navbar -->
+			<img src="icons/Group 2.svg">
+            <br><br><br><br>
+			<!-- Nav Links -->
+			<ul class="navlinks">
+				<li>
+                    <img class="icon" src="icons/meetings.svg" alt="">
+					<a href="index" class="nav-link nav-link-grow-up" id="active">Meetings</a>
+				</li>
+                
+				<li>
+                    <img class="icon" src="icons/task.svg" alt="">
+					<a href="about" class="nav-link nav-link-grow-up">Tasks</a>
+				</li>
+
+                <li>
+                    <img class="icon" src="icons/mom.svg" alt="">
+					<a href="index" class="nav-link nav-link-grow-up" id="active">MOM</a>
+				</li>
+
+                <li>
+                    <img class="icon" src="icons/members.svg" alt="">
+					<a href="index" class="nav-link nav-link-grow-up" id="active">Members</a>
+				</li>
+			</ul>
+		</nav>
+		<!--NAVBAR Ends-->
+    </div>
+
+    <div class="middle">
+        <h2>Meetings</h2>
+        <h4>Schedule a New Meeting</h4>
+        <br><br><br>
+        <h3>Add Details</h3>
+        <br><br>
+        <form action="">
+            <label for="name">Date:</label>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label for="name">Time:</label>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label for="name">Title:</label>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label for="name">Venue:</label>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label for="name">Link:</label>
+            <input type="text" id="name" name="name"><br><br><br>
+
+            
+        </form>
+    </div>
+
+    <div class="right">
+        <h3>Add Teams</h3>
+        <br><br>
+        <form class="teams" action="">
+            <div class="one">
+                <input type="checkbox" name="" value="core" /> Core
+                <br>
+                <input type="checkbox" name="" value="ios" /> iOS
+                <br>
+                <input type="checkbox" name="" value="android" /> Android
+                <br>
+                <input type="checkbox" name="" value="web" /> Web
+                <br>
+                <input type="checkbox" name="" value="ml" /> Machine Learning
+                <br>
+                <input type="checkbox" name="" value="design" /> Design
+                <br>
+            </div>
+
+            <div class="two">
+                <input type="checkbox" name="" value="social" /> Social Media & Marketing
+                <br>
+                <input type="checkbox" name="" value="sponsorships" /> Sponsorships
+                <br>
+                <input type="checkbox" name="" value="logistics" /> Logistics
+                <br>
+            </div>
+        </form>
+    </div>
+    <button class="post-meeting-btn">Post Meeting</button>
+</body>
+</html>
