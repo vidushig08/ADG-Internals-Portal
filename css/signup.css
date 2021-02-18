@@ -1,0 +1,13 @@
+.right{
+    margin-top: 12%;
+}
+.one,.two{
+    width: 50%;
+    line-height: 28px;
+}
+.one{
+    float: left;
+}
+.two{
+    float: right;
+}
