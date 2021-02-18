@@ -1,8 +1,8 @@
 .right{
-    margin-top: 12%;
+    margin-top: 10%;
 }
-.one,.two{
-    width: 50%;
+.one,.two,.two-meeting{
+    width: 40%;
     line-height: 28px;
 }
 .one{
@@ -10,4 +10,8 @@
 }
 .two{
     float: right;
+}
+.two-meeting{
+    float: right;
+    margin-right: 15%;
 }
