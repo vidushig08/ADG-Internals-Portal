@@ -7,11 +7,17 @@
 }
 .one{
     float: left;
+    margin-top: -5%;
 }
 .two{
     float: right;
+    margin-right: 15%;
+    margin-top: -5%;
 }
 .two-meeting{
     float: right;
     margin-right: 15%;
+}
+.teamoptions{
+    line-height: 0px;
 }

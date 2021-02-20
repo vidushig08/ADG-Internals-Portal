@@ -13,81 +13,92 @@
     <title>ADG | Admin Portal</title>
 </head>
 <body>
+
     <div class="left">
         <!--NAVBAR Starts-->
-		<nav class="nav-active" id="navbar">
-
-			<!-- Logo in Navbar -->
-			<img src="icons/Group 2.svg">
-            <br><br><br><br>
-			<!-- Nav Links -->
-			<ul class="navlinks">
-				<li>
-                    <img class="icon" src="icons/login.svg" alt="">
-					<a href="index.html" class="">Admin Login</a>
-				</li>
-                
-				<li>
-                    <img class="icon" src="icons/signup.svg" alt="">
-					<a href="signup.html" class="">Sign Up</a>
-				</li>
-			</ul>
-		</nav>
-		<!--NAVBAR Ends-->
-    </div>
+        <nav class="nav-active" id="navbar">
+          <!-- Logo in Navbar -->
+          <div class="logonav">
+            <img class="logo" src="icons/Group 2.svg" />
+          </div>
+          <!-- Nav Links -->
+          <ul class="navlinks">
+            <li>
+              <img class="icon" src="icons/login.svg" alt="" />
+              <a href="index.html" class="">Admin Login</a>
+            </li>
+  
+            <li>
+              <img class="icon" src="icons/signup.svg" alt="" />
+              <a href="signup.html" class="">Sign Up</a>
+              
+            </li>
+          </ul>
+        </nav>
+        <!--NAVBAR Ends-->
+      </div>
 
     <div class="middle">
         <h2>User Sign Up</h2>
         <h4>Sign Up All Users</h4>
-        <br><br><br><br>
-        <form action="">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name"><br><br>
+        <br>
+        <form action="" role="form">
+            <label class="name" for="name">Name:</label>
+            <input type="text" id="signupName" name="name"><br><br>
 
-            <label for="name">VIT Email:</label>
-            <input type="text" id="name" name="name"><br><br>
+            <label class="email" for="email">VIT Email:</label>
+            <input type="text" id="signupEmail" name="name"><br><br>
 
-            <label for="name">Reg No:</label>
-            <input type="text" id="name" name="name"><br><br>
+            <label class="regno" for="regno">Reg No:</label>
+            <input type="text" id="signupRegno" name="name"><br><br>
 
-            <label for="name">Contact No:</label>
-            <input type="text" id="name" name="name"><br><br>
+            <label class="contact" for="contact">Contact No:</label>
+            <input type="text" id="signupContact" name="name"><br><br>
 
-            <label for="password">Password:</label>
-            <input type="password" id="lname" name="password"><br><br>
+            <label class="password" for="password">Password:</label>
+            <input type="password" id="signupPass" name="password1"><br><br>
 
-            <label for="name">Type:</label>
-            <input type="text" id="name" name="name"><br><br><br>
+            <label class="confirmpassword" for="password">Confirm Password:</label>
+            <input type="password" id="signupPassConfirm" name="password2"><br><br>
 
-            <button class="login-btn">SignUp</button>
+            <label class="type" for="type">Type:</label>
+            <select name="type" id="signupType">
+                <option value="blank"></option>
+                <option value="member">Member</option>
+                <option value="admin">Admin</option>
+            </select>
+            
+            <br><br><br>
+
+            <button class="login-btn">Sign Up</button>
         </form>
     </div>
 
     <div class="right">
-        <h3>Add Teams</h3>
+        <h3 class="add-teams-text">Add Teams</h3>
         <br><br>
         <form class="teams" action="">
             <div class="one">
-                <input type="checkbox" name="" value="core" /> Core
-                <br>
                 <input type="checkbox" name="" value="ios" /> iOS
-                <br>
-                <input type="checkbox" name="" value="android" /> Android
                 <br>
                 <input type="checkbox" name="" value="web" /> Web
                 <br>
-                <input type="checkbox" name="" value="ml" /> Machine Learning
+                <input type="checkbox" name="" value="android" /> Android
                 <br>
-                <input type="checkbox" name="" value="design" /> Design
+                <input type="checkbox" name="" value="ml" /> Machine Learning
                 <br>
             </div>
 
             <div class="two">
-                <input type="checkbox" name="" value="social" /> Social Media & Marketing
+                <input type="checkbox" name="" value="logistics" /> Logistics
                 <br>
                 <input type="checkbox" name="" value="sponsorships" /> Sponsorships
                 <br>
-                <input type="checkbox" name="" value="logistics" /> Logistics
+                <input type="checkbox" name="" value="social" /> Social Media & Marketing
+                <br>
+                <input type="checkbox" name="" value="design" /> Design
+                <br>
+                <input type="checkbox" name="" value="videoediting" /> Video Editing
                 <br>
             </div>
         </form>
