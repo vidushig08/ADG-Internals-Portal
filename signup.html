@@ -1,107 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link type="text/css" rel="stylesheet" href="css/login.css" />
-    <link type="text/css" rel="stylesheet" href="css/signup.css" />
-    <link type="text/css" rel="stylesheet" href="webfontkit-20201125-062530/stylesheet.css" />
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="icons/favicon.png" />
-    <title>ADG | Admin Portal</title>
-</head>
-<body>
+      <link type="text/css" rel="stylesheet" href="css/login.css" />
+      <link type="text/css" rel="stylesheet" href="css/signup.css" />
+      <link type="text/css" rel="stylesheet" href="webfontkit-20201125-062530/stylesheet.css" />
+      <!-- Favicon -->
+      <link rel="icon" type="image/png" href="icons/favicon.png" />
+      <title>ADG | Admin Portal</title>
+  </head>
+  <body>
+      <div class="left">
+          <!--NAVBAR Starts-->
+          <nav class="nav-active" id="navbar">
+            <!-- Logo in Navbar -->
+            <div class="logonav">
+              <img class="logo" src="icons/Group 2.svg" />
+            </div>
+            <!-- Nav Links -->
+            <ul class="navlinks">
+              <li>
+                <img class="icon" src="icons/login.svg" alt="" />
+                <a href="index.html" class="">Admin Login</a>
+              </li>
+    
+              <li>
+                <img class="icon" src="icons/signup.svg" alt="" />
+                <a href="signup.html" class="">Sign Up</a>
+                
+              </li>
+            </ul>
+          </nav>
+          <!--NAVBAR Ends-->
+        </div>
+      <form action="" role="form">
+        <div class="middle">
+            <h2>User Sign Up</h2>
+            <h4>Sign Up All Users</h4><br>
+              <label class="name" for="name">Name:</label>
+              <input type="text" id="signupName" name="name"><br><br>
 
-    <div class="left">
-        <!--NAVBAR Starts-->
-        <nav class="nav-active" id="navbar">
-          <!-- Logo in Navbar -->
-          <div class="logonav">
-            <img class="logo" src="icons/Group 2.svg" />
-          </div>
-          <!-- Nav Links -->
-          <ul class="navlinks">
-            <li>
-              <img class="icon" src="icons/login.svg" alt="" />
-              <a href="index.html" class="">Admin Login</a>
-            </li>
-  
-            <li>
-              <img class="icon" src="icons/signup.svg" alt="" />
-              <a href="signup.html" class="">Sign Up</a>
+              <label class="email" for="email">VIT Email:</label>
+              <input type="text" id="signupEmail" name="name"><br><br>
+
+              <label class="regno" for="regno">Reg No:</label>
+              <input type="text" id="signupRegno" name="name"><br><br>
+
+              <label class="contact" for="contact">Contact No:</label>
+              <input type="text" id="signupContact" name="name"><br><br>
+
+              <label class="password" for="password">Password:</label>
+              <input type="password" id="signupPass" name="password1"><br><br>
+
+              <label class="confirmpassword" for="password">Confirm Password:</label>
+              <input type="password" id="signupPassConfirm" name="password2"><br><br>
+
+              <label class="type" for="type">Type:</label>
+              <select name="type" id="signupType">
+                  <option value="blank"></option>
+                  <option value="member">Member</option>
+                  <option value="admin">Admin</option>
+              </select>
+              <br><br><br>
+              <button class="login-btn">Sign Up</button>
+        </div>
               
-            </li>
-          </ul>
-        </nav>
-        <!--NAVBAR Ends-->
-      </div>
-
-    <div class="middle">
-        <h2>User Sign Up</h2>
-        <h4>Sign Up All Users</h4>
-        <br>
-        <form action="" role="form">
-            <label class="name" for="name">Name:</label>
-            <input type="text" id="signupName" name="name"><br><br>
-
-            <label class="email" for="email">VIT Email:</label>
-            <input type="text" id="signupEmail" name="name"><br><br>
-
-            <label class="regno" for="regno">Reg No:</label>
-            <input type="text" id="signupRegno" name="name"><br><br>
-
-            <label class="contact" for="contact">Contact No:</label>
-            <input type="text" id="signupContact" name="name"><br><br>
-
-            <label class="password" for="password">Password:</label>
-            <input type="password" id="signupPass" name="password1"><br><br>
-
-            <label class="confirmpassword" for="password">Confirm Password:</label>
-            <input type="password" id="signupPassConfirm" name="password2"><br><br>
-
-            <label class="type" for="type">Type:</label>
-            <select name="type" id="signupType">
-                <option value="blank"></option>
-                <option value="member">Member</option>
-                <option value="admin">Admin</option>
-            </select>
-            
-            <br><br><br>
-
-            <button class="login-btn">Sign Up</button>
-        </form>
-    </div>
-
-    <div class="right">
-        <h3 class="add-teams-text">Add Teams</h3>
-        <br><br>
-        <form class="teams" action="">
-            <div class="one">
-                <input type="checkbox" name="" value="ios" /> iOS
-                <br>
-                <input type="checkbox" name="" value="web" /> Web
-                <br>
-                <input type="checkbox" name="" value="android" /> Android
-                <br>
-                <input type="checkbox" name="" value="ml" /> Machine Learning
-                <br>
-            </div>
-
-            <div class="two">
-                <input type="checkbox" name="" value="logistics" /> Logistics
-                <br>
-                <input type="checkbox" name="" value="sponsorships" /> Sponsorships
-                <br>
-                <input type="checkbox" name="" value="social" /> Social Media & Marketing
-                <br>
-                <input type="checkbox" name="" value="design" /> Design
-                <br>
-                <input type="checkbox" name="" value="videoediting" /> Video Editing
-                <br>
-            </div>
-        </form>
-    </div>
-</body>
+        <div class="right">
+          <h3 class="add-teams-text">Add Teams</h3><br>
+            <input class="check" type="checkbox" name="" value="ios" /> iOS
+            <br>
+            <input type="checkbox" name="" value="web" /> Web
+            <br>
+            <input type="checkbox" name="" value="android" /> Android
+            <br>
+            <input type="checkbox" name="" value="ml" /> Machine Learning
+            <br>
+            <input type="checkbox" name="" value="logistics" /> Logistics
+            <br>
+            <input type="checkbox" name="" value="sponsorships" /> Sponsorships
+            <br>
+            <input type="checkbox" name="" value="social" /> Social Media & Marketing
+            <br>
+            <input type="checkbox" name="" value="design" /> Design
+            <br>
+            <input type="checkbox" name="" value="videoediting" /> Video Editing
+            <br>
+        </div>
+      </form>
+  </body>
 </html>

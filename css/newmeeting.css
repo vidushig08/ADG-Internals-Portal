@@ -6,11 +6,10 @@
     font-family: "sf_pro_displayregular";
   }
 .right{
-    margin-top: 10%;
+    margin-top: 12%;
 }
 .one,.two,.two-meeting{
     width: 40%;
-    line-height: 28px;
 }
 .one{
     float: left;

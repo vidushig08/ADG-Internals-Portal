@@ -31,6 +31,7 @@ body {
 }
 .add-teams-text{
   margin-top: 1%;
+  text-align: center;
 }
 .teams{
   margin-top: -5%;
@@ -82,6 +83,9 @@ a {
   color: white;
   font-size: 16px;
   font-weight: bold;
+}
+.login-btn:hover{
+  cursor: pointer;
 }
 .post-meeting-btn {
   width: 240px;
