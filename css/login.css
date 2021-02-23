@@ -110,7 +110,7 @@ li.inner input[type="radio"] {
   margin-right: 3%;
 }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="time"], select {
+input[type="text"], input[type="password"], input[type="date"], input[type="time"], input[type="email"] select {
   width: 325px;
   height: 32px;
   font-size: 14px;
@@ -140,7 +140,6 @@ i{
 }
 
 /* SignUp Page inputs */
-
 label.name{
   padding-right: 20%;
   font-size: 16px;

@@ -24,3 +24,11 @@
     float: right;
     margin-right: 15%;
 }
+.alert {
+    text-align: center;
+    padding: 10px;
+    background: rgb(168, 240, 177);
+    color: green;
+    margin-bottom: 10px;
+    display: none;
+  }

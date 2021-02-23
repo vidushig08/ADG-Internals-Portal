@@ -36,27 +36,27 @@
           </nav>
           <!--NAVBAR Ends-->
         </div>
-      <form action="" role="form">
+      <form action="" role="form" id="signupForm">
         <div class="middle">
             <h2>User Sign Up</h2>
             <h4>Sign Up All Users</h4><br>
               <label class="name" for="name">Name:</label>
-              <input type="text" id="signupName" name="name"><br><br>
+              <input type="text" id="signupName" name="name" required><br><br>
 
               <label class="email" for="email">VIT Email:</label>
-              <input type="text" id="signupEmail" name="name"><br><br>
+              <input type="email" id="signupEmail" name="email" required><br><br>
 
               <label class="regno" for="regno">Reg No:</label>
-              <input type="text" id="signupRegno" name="name"><br><br>
+              <input type="text" id="signupRegno" name="regno" required><br><br>
 
               <label class="contact" for="contact">Contact No:</label>
-              <input type="text" id="signupContact" name="name"><br><br>
+              <input type="text" id="signupContact" name="contact" required><br><br>
 
               <label class="password" for="password">Password:</label>
-              <input type="password" id="signupPass" name="password1"><br><br>
+              <input type="password" id="signupPass" name="password1" required><br><br>
 
               <label class="confirmpassword" for="password">Confirm Password:</label>
-              <input type="password" id="signupPassConfirm" name="password2"><br><br>
+              <input type="password" id="signupPassConfirm" name="password2" required><br><br>
 
               <label class="type" for="type">Type:</label>
               <select name="type" id="signupType">
@@ -65,7 +65,7 @@
                   <option value="admin">Admin</option>
               </select>
               <br><br><br>
-              <button class="login-btn">Sign Up</button>
+              <button class="login-btn" type="submit" sendMessage()>Sign Up</button>
         </div>
               
         <div class="right">
@@ -90,5 +90,11 @@
             <br>
         </div>
       </form>
+
+    <script src="signup/signup.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
   </body>
 </html>
