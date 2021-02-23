@@ -28,26 +28,34 @@
 			<ul class="navlinks">
 				<li>
                     <img class="icon" src="icons/meetings.svg" alt="">
-					<a href="index" class="nav-link nav-link-grow-up" id="active">Meetings</a><br>
+					<a href="index" class="nav-link nav-link-grow-up" id="active"> Meetings</a><br>
 
                     <div class="meeting-radio">
+                    <ul>
+                        <li class="inner">
                         <input type="radio" name="gender" value="new">
                         <label for="new">New</label><br>
+                        </li>
+                        <li class="inner">
                         <input type="radio" name="gender" value="scheduled">
                         <label for="scheduled">Scheduled</label><br>
+                    </li>
+                    <li class="inner">
                         <input type="radio" name="gender" value="history">
                         <label for="history">History</label>
+                    </li>
+                    </ul>
                     </div>
 				</li>
                 
 				<li>
                     <img class="icon" src="icons/task.svg" alt="">
-					<a href="about" class="nav-link nav-link-grow-up">Tasks</a>
+					<a href="about" class="nav-link nav-link-grow-up"> Tasks</a>
 				</li>
 
                 <li>
                     <img class="icon" src="icons/mom.svg" alt="">
-					<a href="index" class="nav-link nav-link-grow-up" id="active">MOM</a>
+					<a href="index" class="nav-link nav-link-grow-up" id="active"> MOM</a>
 				</li>
 
                 <li>
@@ -57,6 +65,9 @@
 			</ul>
 		</nav>
 		<!--NAVBAR Ends-->
+        <div class="out">
+            <button class="logout">Log Out</button>
+        </div>
     </div>
 
     <form action=""></form>
@@ -64,11 +75,12 @@
             <h2>Meetings</h2>
             <h4>Schedule a New Meeting</h4><br><br>
             <h3>Add Details</h3><br>
+            <div class="newmeetform">
                 <label for="name">Date:</label>
-                <input type="text" id="date" name="date"><br><br>
+                <input type="date" id="date" name="date"><br><br>
 
                 <label for="name">Time:</label>
-                <input type="text" id="time" name="time"><br><br>
+                <input type="time" id="time" name="time"><br><br>
 
                 <label for="name">Title:</label>
                 <input type="text" id="title" name="title"><br><br>
@@ -78,7 +90,7 @@
 
                 <label for="name">Link:</label>
                 <input type="text" id="link" name="link">
-                <button class="post-meeting-btn">Post Meeting</button>
+            </div>
         </div>
 
         <div class="right">
@@ -106,6 +118,7 @@
                 <input type="checkbox" name="" value="logistics" /> Logistics
                 <br>
             </div>
+            <button class="post-meeting-btn">Post Meeting</button>
         </div>
     </form>
 </body>

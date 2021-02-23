@@ -1,12 +1,5 @@
-* {
-    padding: 0px;
-    margin: 0px;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: "sf_pro_displayregular";
-  }
 .right{
-    margin-top: 12%;
+    padding-top: 12%;
 }
 .one,.two,.two-meeting{
     width: 40%;
@@ -22,4 +15,7 @@
 .two-meeting{
     float: right;
     margin-right: 15%;
+}
+
+.newmeetform input{
 }

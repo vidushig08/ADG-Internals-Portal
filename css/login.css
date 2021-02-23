@@ -27,7 +27,6 @@ body {
 .right {
   float: left;
   background-color: rgb(247, 255, 255);
-  margin-bottom: 20%;
 }
 .add-teams-text{
   margin-top: 1%;
@@ -75,8 +74,8 @@ a {
   width: 18px;
 }
 .login-btn {
-  width: 240px;
-  height: 40px;
+  width: 300px;
+  height: 48px;
   background-color: #0091fb;
   border-radius: 10px;
   border: white;
@@ -99,17 +98,28 @@ a {
   margin-left: 20%;
 }
 .meeting-radio {
-  margin-left: 15%;
+  padding-left: 10%;
+  padding-top: 5%;
+  font-weight: 300;
+}
+li.inner{
+  padding: 2%;
 }
 
-input, select {
-  width: 250px;
+li.inner input[type="radio"] {
+  margin-right: 3%;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="time"], select {
+  width: 325px;
+  height: 32px;
   font-size: 14px;
   padding: 1%;
   border: solid 1px #000000;
   border-radius: 5px;
   outline: none;
 }
+
 label.user {
   padding-right: 6%;
   font-size: 16px;
@@ -158,4 +168,27 @@ label.confirmpassword{
 label.type{
   padding-right: 22%;
   font-size: 16px;
+}
+
+/* Logout button */
+.out{
+  margin-top: 25vh;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  vertical-align: baseline;
+}
+
+button.logout{
+  background: #FFF0F0;
+  border: 0.5px solid #FF0000;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  color: #FF0000;
+  font-weight: 800;
+  outline: none;
+  cursor: pointer;
 }
