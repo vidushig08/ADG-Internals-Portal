@@ -28,7 +28,7 @@
 			<ul class="navlinks">
 				<li>
                     <img class="icon" src="icons/meetings.svg" alt="">
-					<a href="new-meeting.html"> Meetings</a><br>
+					<a href="new-meeting.html" class="nav-link nav-link-grow-up" id="active"> Meetings</a><br>
 
                     <div class="meeting-radio">
                     <ul>
@@ -66,12 +66,12 @@
         </div>
     </div>
 
-    <form action="">
+    <form action=""></form>
         <div class="middle">
-            <h2>Meetings</h2>
-            <h4>Schedule a New Meeting</h4><br><br>
+            <h2>Tasks</h2>
+            <h4>Assign Tasks to specific members</h4><br><br>
             <h3>Add Details</h3><br>
-            <div class="newmeetform">
+            <div class="newtaskform">
                 <label for="name">Date:</label>
                 <input type="date" id="date" name="date"><br><br>
 
@@ -83,38 +83,14 @@
 
                 <label for="name">Venue:</label>
                 <input type="text" id="venue" name="venue"><br><br>
-
-                <label for="name">Link:</label>
-                <input type="text" id="link" name="link">
             </div>
         </div>
 
         <div class="right">
-            <h3 class="add-teams-text">Add Teams</h3>
+            <h3 class="add-teams-text">Add Members</h3>
             <br>
-            <div class="one">
-                <input type="checkbox" name="" value="core" /> Core
-                <br>
-                <input type="checkbox" name="" value="ios" /> iOS
-                <br>
-                <input type="checkbox" name="" value="android" /> Android
-                <br>
-                <input type="checkbox" name="" value="web" /> Web
-                <br>
-                <input type="checkbox" name="" value="ml" /> Machine Learning
-                <br>
-            </div>
-            <div class="two">
-                <input type="checkbox" name="" value="design" /> Design
-                <br>
-                <input type="checkbox" name="" value="social" /> Social Media & Marketing
-                <br>
-                <input type="checkbox" name="" value="sponsorships" /> Sponsorships
-                <br>
-                <input type="checkbox" name="" value="logistics" /> Logistics
-                <br>
-            </div>
-            <button class="post-meeting-btn">Post Meeting</button>
+            
+            <button class="post-meeting-btn">Post Task</button>
         </div>
     </form>
 </body>

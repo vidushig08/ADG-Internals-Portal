@@ -119,7 +119,15 @@ input[type="text"], input[type="password"], input[type="date"], input[type="time
   border-radius: 5px;
   outline: none;
 }
-
+#signupType, #signupEmail{
+  width: 325px;
+  height: 32px;
+  font-size: 14px;
+  padding: 1%;
+  border: solid 1px #000000;
+  border-radius: 5px;
+  outline: none;
+}
 label.user {
   padding-right: 6%;
   font-size: 16px;
