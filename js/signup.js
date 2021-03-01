@@ -1,4 +1,6 @@
-var firebaseConfig = {
+// Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
     apiKey: "AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ",
     authDomain: "internals-app-c0391.firebaseapp.com",
     databaseURL: "https://internals-app-c0391.firebaseio.com",
@@ -8,9 +10,9 @@ var firebaseConfig = {
     appId: "1:754737704023:web:5ec000ba7b9d08cea48712",
     measurementId: "G-YYZML2JL2J"
   };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 
 //Reference for form collection
 let formMessage = firebase.database().ref('register');
@@ -55,7 +57,7 @@ function sendMessage(name, email, regno, contact, password1, passwordConfirm, ty
       email: email,
       regno:regno,
       password1: password1,
-      passwordConfirm: passwordConfirm
+      passwordConfirm: passwordConfirm,
       type: type
     });
 }

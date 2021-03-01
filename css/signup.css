@@ -5,9 +5,10 @@
     box-sizing: border-box;
     font-family: "sf_pro_displayregular";
   }
-.right{
-    margin-top: 10%;
-}
+
+  .right{
+      padding-top: 8%;
+  }
 .one,.two,.two-meeting{
     width: 40%;
     line-height: 28px;
@@ -32,3 +33,20 @@
     margin-bottom: 10px;
     display: none;
   }
+
+  .signup-btn {
+    width: 300px;
+    height: 48px;
+    background-color: #0091fb;
+    border-radius: 10px;
+    border: white;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 25%;
+    margin-top: 30%;
+  }
+  .signup-btn:hover{
+    cursor: pointer;
+  }
+

@@ -65,14 +65,13 @@
                   <option value="admin">Admin</option>
               </select>
               <br><br><br>
-              <button class="login-btn" type="submit" sendMessage()>Sign Up</button>
         </div>
               
         <div class="right">
           <h3 class="add-teams-text">Add Teams</h3><br>
-            <input class="check" type="checkbox" name="" value="ios" /> iOS
+            <input type="checkbox" name="" value="ios" />iOS
             <br>
-            <input type="checkbox" name="" value="web" /> Web
+            <input type="checkbox" name="" value="web" />Web
             <br>
             <input type="checkbox" name="" value="android" /> Android
             <br>
@@ -88,14 +87,19 @@
             <br>
             <input type="checkbox" name="" value="videoediting" /> Video Editing
             <br>
+            <button class="signup-btn" type="submit" sendMessage()>Sign Up</button>
         </div>
+        
       </form>
 
-    <script src="signup/signup.js"></script>
-    
-    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
-    
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+    <script src="js/signup.js"></script>
+        
   </body>
 </html>
