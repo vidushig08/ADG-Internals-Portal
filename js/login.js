@@ -50,3 +50,7 @@ auth.onAuthStateChanged(function(user){
 });
 
     
+function logout(){
+  firebase.auth().signOut();
+  location.reload(); 
+}
