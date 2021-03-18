@@ -1,11 +1,12 @@
 //Validate password
-var password = document.getElementById("signupPass")
-  , confirm_password = document.getElementById("signupPassConfirm");
+var password = document.getElementById("signupPass"),
+confirm_password = document.getElementById("signupPassConfirm");
 
 function validatePassword(){
   if(signupPass.value != signupPassConfirm.value) {
     confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
+  } 
+  else {
     confirm_password.setCustomValidity('');
   }
 }
@@ -13,7 +14,7 @@ signupPass.onchange = validatePassword;
 signupPassConfirm.onkeyup = validatePassword;
 
 // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
     apiKey: "AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ",
     authDomain: "internals-app-c0391.firebaseapp.com",
@@ -24,8 +25,12 @@ signupPassConfirm.onkeyup = validatePassword;
     appId: "1:754737704023:web:5ec000ba7b9d08cea48712",
     measurementId: "G-YYZML2JL2J"
   };
+
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
+//Reference form collection
+var formRef=firebase.database().ref("Users");
 
 //Listen for form submit
 document.getElementById('signupForm').addEventListener('submit',submitForm);
@@ -37,18 +42,15 @@ function submitForm(e){
   //Get values
   var name=getInputValues('signupName');
   var email=getInputValues('signupEmail');
-  var regno=getInputValues('signupRegno');
-  var contact=getInputValues('signupContact');
+  var regNo=getInputValues('signupRegno');
+  var phone=getInputValues('signupContact');
   var password=getInputValues('signupPass');
   var passwordConfirm=getInputValues('signupPassConfirm');
   var type=getInputValues('signupType');
   //var team=getInputValues('signupTeam');
 
   //Save form
-  saveForm(name,email,regno,contact,password,passwordConfirm,type);
-
-  //Push to Authentication
-  pushtoAuth(email,password);
+  saveForm(name,email,regNo,phone);
 
   //Show alert
   document.querySelector('.alert').style.display = 'block';
@@ -67,37 +69,31 @@ function getInputValues(id){
   return document.getElementById(id).value;
 }
 
-//Reference form collection
-var formRef=firebase.database().ref('Users');
-
 //Save message to firebase
-function saveForm(name,email,regno,contact,password,passwordConfirm,type){
+function saveForm(name,email,regNo,phone){
   var newForm = formRef.push();
-  newFormRef.set({
+  newForm.set({
     name:name,
     email:email,
-    regno:regno,
-    contact:contact,
-    password:password,
-    passwordConfirm:passwordConfirm,
-    type:type,
-    //teams:teams
-  });
+    regNo:regNo,
+    phone:phone
+});
+}
+
+  function signupwithEmailandPassword() {
+    var email=getInputValues('signupEmail');
+    var password=getInputValues('signupPass');
+    console.log("hello");
 
   //Save email and password to authentication
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in 
+    var user = userCredential.user;
+  })
 
-  firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
-    var user = firebase.auth().currentUser;
-    user.updateProfile({
-      displayName: "Jane Q. User",
-      photoURL: "https://example.com/jane-q-user/profile.jpg"
-    }).then(function() {
-    // Update successful.
-    }, function(error) {
-    // An error happened.
-   });
-   
-  function pushtoAuth(email,password){
-    var newUser = 
-  });
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  }); 
 }
