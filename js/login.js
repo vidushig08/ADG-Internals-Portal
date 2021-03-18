@@ -51,6 +51,6 @@ auth.onAuthStateChanged(function(user){
 
     
 function logout(){
-  firebase.auth().signOut();
-  location.reload(); 
+  auth.signOut();
+  window.location.replace("new-meeting.html");
 }
