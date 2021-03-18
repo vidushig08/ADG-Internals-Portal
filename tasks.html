@@ -7,6 +7,7 @@
     <!-- css links -->
     <link type="text/css" rel="stylesheet" href="css/login.css" />
     <link type="text/css" rel="stylesheet" href="css/newmeeting.css" />
+    <link rel="stylesheet" href="./css/tasks.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -113,8 +114,15 @@
       <div class="right">
         <h3 class="add-teams-text">Add Members</h3>
         <br />
-        <input type="text" name="search" id="search" />
-        <button class="post-meeting-btn">Post Task</button>
+        <div class="members">
+          <div>
+            <input type="text" name="search" id="search" />
+            <div id="member-list"></div>
+          </div>
+          <div>
+            <button class="add-task-btn">Post Task</button>
+          </div>
+        </div>
       </div>
     </form>
   </body>
