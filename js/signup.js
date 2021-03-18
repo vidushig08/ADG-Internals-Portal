@@ -48,7 +48,18 @@ function submitForm(e){
   var passwordConfirm=getInputValues('signupPassConfirm');
   var type=getInputValues('signupType');
   //var team=getInputValues('signupTeam');
+  
+  var a=document.getElementById('1');
+  var b=document.getElementById('2');
+  var c=document.getElementById('3');
+  var d=document.getElementById('4');
+  var e=document.getElementById('5');
+  var f=document.getElementById('6');
+  var g=document.getElementById('7');
+  var h=document.getElementById('8');
+  var i=document.getElementById('9');
 
+  
   //Save form
   saveForm(name,email,regNo,phone);
 
