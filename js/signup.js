@@ -1,3 +1,17 @@
+//Validate password
+var password = document.getElementById("signupPass")
+  , confirm_password = document.getElementById("signupPassConfirm");
+
+function validatePassword(){
+  if(signupPass.value != signupPassConfirm.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+signupPass.onchange = validatePassword;
+signupPassConfirm.onkeyup = validatePassword;
+
 // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
@@ -13,51 +27,77 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
+//Listen for form submit
+document.getElementById('signupForm').addEventListener('submit',submitForm);
 
-//Reference for form collection
-let formMessage = firebase.database().ref('register');
+//Submit Form
+function submitForm(e){
+  e.preventDefault();
 
-//listen for submit event
-document.getElementById('signupForm').addEventListener('submit', formSubmit);
+  //Get values
+  var name=getInputValues('signupName');
+  var email=getInputValues('signupEmail');
+  var regno=getInputValues('signupRegno');
+  var contact=getInputValues('signupContact');
+  var password=getInputValues('signupPass');
+  var passwordConfirm=getInputValues('signupPassConfirm');
+  var type=getInputValues('signupType');
+  //var team=getInputValues('signupTeam');
 
-//Submit form
-function formSubmit(e) 
-{
-    e.preventDefault();
-    // Get Values from the DOM
-    let name = document.querySelector('#signupName').value;
-    let email = document.querySelector('#signupEmail').value;
-    let regno = document.querySelector('#signupRegno').value;
-    let contact = document.querySelector('#signupContact').value;
-    let password1 = document.querySelector('#signupPass').value;
-    let passwordConfirm = document.querySelector('#signupPassConfirm').value;
-    let type = document.querySelector('#signupType').value;
+  //Save form
+  saveForm(name,email,regno,contact,password,passwordConfirm,type);
 
-    //send message values
-    sendMessage(name, email, regno, contact, password1, passwordConfirm, type);
+  //Push to Authentication
+  pushtoAuth(email,password);
 
-    //Show Alert Message
-    document.querySelector('.alert').style.display = 'block';
+  //Show alert
+  document.querySelector('.alert').style.display = 'block';
 
-    //Hide Alert Message After Seven Seconds
-    setTimeout(function() 
-    {
-        document.querySelector('.alert').style.display = 'none';
-    }, 7000);
+  //Hide Alert after 3 seconds
+  setTimeout(function(){
+    document.querySelector('.alert').style.display = 'none';
+  },3000);
 
-    //Form Reset After Submission
-    document.getElementById('signupform').reset();
+  //Clear Form
+  document.getElementById('signupForm').reset();
 }
 
-//Send Message to Firebase
-function sendMessage(name, email, regno, contact, password1, passwordConfirm, type) {
-    let newFormMessage = formMessage.push();
-    newFormMessage.set({
-      name: name,
-      email: email,
-      regno:regno,
-      password1: password1,
-      passwordConfirm: passwordConfirm,
-      type: type
-    });
+//Function to get form values
+function getInputValues(id){
+  return document.getElementById(id).value;
+}
+
+//Reference form collection
+var formRef=firebase.database().ref('Users');
+
+//Save message to firebase
+function saveForm(name,email,regno,contact,password,passwordConfirm,type){
+  var newForm = formRef.push();
+  newFormRef.set({
+    name:name,
+    email:email,
+    regno:regno,
+    contact:contact,
+    password:password,
+    passwordConfirm:passwordConfirm,
+    type:type,
+    //teams:teams
+  });
+
+  //Save email and password to authentication
+
+  firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
+    var user = firebase.auth().currentUser;
+    user.updateProfile({
+      displayName: "Jane Q. User",
+      photoURL: "https://example.com/jane-q-user/profile.jpg"
+    }).then(function() {
+    // Update successful.
+    }, function(error) {
+    // An error happened.
+   });
+   
+  function pushtoAuth(email,password){
+    var newUser = 
+  });
 }
