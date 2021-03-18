@@ -80,6 +80,23 @@ function saveForm(name,email,regNo,phone){
 });
 }
 
+function authSignup(){
+
+ var email1=document.getElementById('signupEmail').value;
+ var password1=document.getElementById('signupPass').value;
+ 
+ //Create User with Email and Password
+ firebase.auth().createUserWithEmailAndPassword(email1, password1).catch(function(error) {
+
+   // Handle Errors here.
+   var errorCode = error.code;
+   var errorMessage = error.message;
+   console.log(errorCode);
+   console.log(errorMessage);
+ });
+
+}
+/*
   function signupwithEmailandPassword() {
     var email=getInputValues('signupEmail');
     var password=getInputValues('signupPass');
@@ -97,3 +114,4 @@ function saveForm(name,email,regNo,phone){
     var errorMessage = error.message;
   }); 
 }
+*/
