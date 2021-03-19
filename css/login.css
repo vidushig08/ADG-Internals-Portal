@@ -105,7 +105,7 @@ a {
   border: white;
   color: white;
   font-size: 18px;
-  margin-left: 100%;
+  margin-left: 45%;
 }
 .meeting-radio {
   padding-left: 10%;
@@ -120,7 +120,7 @@ li.inner input[type="radio"] {
   margin-right: 3%;
 }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="time"], input[type="email"] select, textarea{
+input[type="text"], input[type="password"], input[type="date"], input[type="time"], input[type="email"] select{
   width: 325px;
   height: 32px;
   font-size: 14px;
@@ -138,7 +138,15 @@ input[type="text"], input[type="password"], input[type="date"], input[type="time
   border-radius: 5px;
   outline: none;
 }
-
+textarea{
+  width: 325px;
+  height: 60px;
+  font-size: 14px;
+  padding: 1%;
+  border: solid 1px #000000;
+  border-radius: 5px;
+  outline: none;
+}
 label.user {
   padding-right: 6%;
   font-size: 16px;
@@ -221,7 +229,6 @@ button.logout{
   border-radius: 5px;
   outline: none;
 }
-
 label.choosemeeting{
   padding-right: 1%;
   font-size: 16px;
@@ -233,4 +240,9 @@ label.header{
 label.point{
   padding-right: 15%;
   font-size: 16px;
+}
+.addpoint{
+  width: 135px;
+  height: 30px;
+  margin-left: 78%;
 }
