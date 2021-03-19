@@ -7,6 +7,7 @@
     <!-- css links -->
     <link type="text/css" rel="stylesheet" href="css/login.css" />
     <link type="text/css" rel="stylesheet" href="css/newmeeting.css" />
+    <link type="text/css" rel="stylesheet" href="css/mom.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link type="text/css" rel="stylesheet" href="webfontkit-20201125-062530/stylesheet.css" />
     <!-- Favicon -->
@@ -67,13 +68,13 @@
     </div>
 
     <form action=""></form>
-        <div class="middle">
+        <div class="middle-mom">
             <h2>MOM</h2>
             <h4>Post MOM of a Meeting</h4><br><br>
             <h3>Add Details</h3><br>
             <div class="newmomform">
                 <label for="name" class="choosemeeting">Choose Meeting: </label>
-                <select id="meeting" name="meeting">
+                <select id="choosemeeting" name="meeting">
                     <option value="blank"></option>
                     <option value="m1">Meeting1</option>
                     <option value="m2">Meeting2</option>
@@ -82,25 +83,28 @@
                 </select><br><br>
 
                 <label for="name" class="header">Header:</label>
-                <textarea name="header" rows="10" cols="50"></textarea>
+                <textarea name="header"></textarea>
                 <br><br>
 
                 <label for="name" class="point">Point 1:</label>
-                <textarea name="point1" id="p1" rows="10" cols="50"></textarea><br><br>
-
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                <img src="icons/addpoint.svg" class="addpoint" alt="">
-
-                <label for="name" class="point" style="display: none;">Point 2:</label>
-                <textarea name="point2" id="p2"rows="10" cols="50" style="display: none;"></textarea><br><br>
-
-                <label for="name" class="point" style="display: none;">Point 3:</label>
-                <textarea name="point3" rows="10" cols="50" id="p3" style="display: none;"></textarea><br>
-
+                <textarea name="point1" id="p1"></textarea><br><br>
+                
+                <div class="addpoints">
+                    <div class="2">
+                        <label for="name" id="point2" class="point" style="display: none;" >Point 2:</label>
+                        <textarea name="point2" id="p2" style="display: none;" ></textarea><br><br>
+                    </div>
+                    <div class="3">
+                        <label for="name" id="point3" class="point" style="display: none;">Point 3:</label>
+                        <textarea name="point3" rows="10" cols="50" id="p3" style="display: none;"></textarea><br>
+                    </div>
+                </div>
+                <img src="icons/addpoint.svg" class="addpoint" id="addpoint" alt="">
+                <br><br>
                 <button class="post-mom-btn">Post MOM</button>                
             </div>
         </div>
     </form>
+    <script src="js/mom.js"></script>
 </body>
 </html>

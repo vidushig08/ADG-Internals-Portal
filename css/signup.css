@@ -48,3 +48,42 @@
   margin-bottom: 10px;
   display: none;
 }
+
+/* SignUp Page inputs */
+label.name{
+  padding-right: 20%;
+  font-size: 16px;
+}
+label.email{
+  padding-right: 15%;
+  font-size: 16px;
+}
+label.regno{
+  padding-right: 18%;
+  font-size: 16px;
+}
+label.contact{
+  padding-right: 12%;
+  font-size: 16px;
+}
+label.password{
+  padding-right: 15%;
+  font-size: 16px;
+}
+label.confirmpassword{
+  padding-right: 2%;
+  font-size: 16px;
+}
+label.type{
+  padding-right: 22%;
+  font-size: 16px;
+}
+#signupType, #signupEmail {
+  width: 325px;
+  height: 32px;
+  font-size: 14px;
+  padding: 1%;
+  border: solid 1px #000000;
+  border-radius: 5px;
+  outline: none;
+}

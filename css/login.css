@@ -97,16 +97,7 @@ a {
   margin-top: 3%;
   margin-left: 20%;
 }
-.post-mom-btn{
-  width: 240px;
-  height: 40px;
-  background-color: #0091fb;
-  border-radius: 10px;
-  border: white;
-  color: white;
-  font-size: 18px;
-  margin-left: 45%;
-}
+
 .meeting-radio {
   padding-left: 10%;
   padding-top: 5%;
@@ -129,24 +120,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="time
   border-radius: 5px;
   outline: none;
 }
-#signupType, #signupEmail {
-  width: 325px;
-  height: 32px;
-  font-size: 14px;
-  padding: 1%;
-  border: solid 1px #000000;
-  border-radius: 5px;
-  outline: none;
-}
-textarea{
-  width: 325px;
-  height: 60px;
-  font-size: 14px;
-  padding: 1%;
-  border: solid 1px #000000;
-  border-radius: 5px;
-  outline: none;
-}
+
 label.user {
   padding-right: 6%;
   font-size: 16px;
@@ -166,35 +140,6 @@ i{
     cursor: pointer;
 }
 
-/* SignUp Page inputs */
-label.name{
-  padding-right: 20%;
-  font-size: 16px;
-}
-label.email{
-  padding-right: 15%;
-  font-size: 16px;
-}
-label.regno{
-  padding-right: 18%;
-  font-size: 16px;
-}
-label.contact{
-  padding-right: 12%;
-  font-size: 16px;
-}
-label.password{
-  padding-right: 15%;
-  font-size: 16px;
-}
-label.confirmpassword{
-  padding-right: 2%;
-  font-size: 16px;
-}
-label.type{
-  padding-right: 22%;
-  font-size: 16px;
-}
 
 /* Logout button */
 .out{
@@ -219,30 +164,3 @@ button.logout{
   cursor: pointer;
 }
 
-/* MOM Page */
-#meeting{
-  width: 325px;
-  height: 32px;
-  font-size: 14px;
-  padding: 1%;
-  border: solid 1px #000000;
-  border-radius: 5px;
-  outline: none;
-}
-label.choosemeeting{
-  padding-right: 1%;
-  font-size: 16px;
-}
-label.header{
-  padding-right: 14%;
-  font-size: 16px;
-}
-label.point{
-  padding-right: 15%;
-  font-size: 16px;
-}
-.addpoint{
-  width: 135px;
-  height: 30px;
-  margin-left: 78%;
-}

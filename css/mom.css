@@ -1,0 +1,55 @@
+/* MOM Page */
+.middle-mom{
+  width: 100%;
+  background-color: rgb(247, 255, 255);
+}
+#choosemeeting{
+    width: 500px;
+    height: 32px;
+    font-size: 14px;
+    padding: 1%;
+    border: solid 1px #000000;
+    border-radius: 5px;
+    outline: none;
+  }
+  textarea{
+    width: 500px;
+    height: 65px;
+    font-size: 14px;
+    padding: 1%;
+    border: solid 1px #000000;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  /* Inputs for New MOM Form */
+  label.choosemeeting{
+    padding-right: 1%;
+    font-size: 16px;
+  }
+  label.header{
+    padding-right: 6%;
+    font-size: 16px;
+  }
+  label.point{
+    padding-right: 6.5%;
+    font-size: 16px;
+  }
+  .addpoint{
+    width: 135px;
+    height: 30px;
+    margin-left: 43%;
+  }
+  .addpoint:hover{
+    cursor: pointer;
+  }
+  .post-mom-btn{
+    width: 240px;
+    height: 40px;
+    background-color: #0091fb;
+    border-radius: 10px;
+    border: white;
+    color: white;
+    font-size: 18px;
+    margin-left: 32%;
+  }
