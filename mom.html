@@ -72,49 +72,36 @@
             <h4>Post MOM of a Meeting</h4><br><br>
             <h3>Add Details</h3><br>
             <div class="newmomform">
-                <label for="name">Date:</label>
-                <input type="date" id="date" name="date"><br><br>
+                <label for="name" class="choosemeeting">Choose Meeting: </label>
+                <select id="meeting" name="meeting">
+                    <option value="blank"></option>
+                    <option value="m1">Meeting1</option>
+                    <option value="m2">Meeting2</option>
+                    <option value="m3">Meeting3</option>
+                    <option value="m4">Meeting4</option>
+                </select><br><br>
 
-                <label for="name">Time:</label>
-                <input type="time" id="time" name="time"><br><br>
+                <label for="name" class="header">Header:</label>
+                <textarea name="header" rows="10" cols="50"></textarea>
+                <br><br>
 
-                <label for="name">Title:</label>
-                <input type="text" id="title" name="title"><br><br>
+                <label for="name" class="point">Point 1:</label>
+                <input type="text" id="p1" name="point1" ><br><br>
 
-                <label for="name">Venue:</label>
-                <input type="text" id="venue" name="venue"><br><br>
+                <label for="name" class="point" style="display: none;">Point 2:</label>
+                <input type="text" id="p2" name="point2" style="display: none;"><br><br>
 
-                <label for="name">Link:</label>
-                <input type="text" id="link" name="link">
+                <label for="name" class="point" style="display: none;">Point 3:</label>
+                <input type="text" id="p3" name="point3" style="display: none;">
+
+                <div class="addpoint">
+                    <span>+</span>
+                    <span id="addpoint">Add Point</span>
+                </div>
+                <br><br><br>
+
+                <button class="post-mom-btn">Post MOM</button>                
             </div>
-        </div>
-
-        <div class="right">
-            <h3 class="add-teams-text">Add Teams</h3>
-            <br>
-            <div class="one">
-                <input type="checkbox" name="" value="core" /> Core
-                <br>
-                <input type="checkbox" name="" value="ios" /> iOS
-                <br>
-                <input type="checkbox" name="" value="android" /> Android
-                <br>
-                <input type="checkbox" name="" value="web" /> Web
-                <br>
-                <input type="checkbox" name="" value="ml" /> Machine Learning
-                <br>
-            </div>
-            <div class="two">
-                <input type="checkbox" name="" value="design" /> Design
-                <br>
-                <input type="checkbox" name="" value="social" /> Social Media & Marketing
-                <br>
-                <input type="checkbox" name="" value="sponsorships" /> Sponsorships
-                <br>
-                <input type="checkbox" name="" value="logistics" /> Logistics
-                <br>
-            </div>
-            <button class="post-meeting-btn">Post MOM</button>
         </div>
     </form>
 </body>
