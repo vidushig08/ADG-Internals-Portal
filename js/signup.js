@@ -35,6 +35,26 @@ var formRef=firebase.database().ref("Users");
 //Listen for form submit
 document.getElementById('signupForm').addEventListener('submit',submitForm);
 
+
+
+//Authentication
+function authSignup(){
+
+  var email1=document.getElementById('signupEmail').value;
+  var password1=document.getElementById('signupPass').value;
+  
+  //Create User with Email and Password
+  firebase.auth().createUserWithEmailAndPassword(email1, password1).catch(function(error) {
+ 
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
+  });
+ }
+
+
 //Submit Form
 function submitForm(e){
   e.preventDefault();
@@ -48,6 +68,13 @@ function submitForm(e){
   var passwordConfirm=getInputValues('signupPassConfirm');
   var type=getInputValues('signupType');
   //var team=getInputValues('signupTeam');
+  var fcm= "";
+  //var checkedValue = document.querySelector('.checkbx:checked').value;
+  var user = firebase.auth().currentUser;
+  var uid;
+  if (user != null) {
+   uid = user.uid;
+  }
   
   var a=document.getElementById('1');
   var b=document.getElementById('2');
@@ -61,7 +88,7 @@ function submitForm(e){
 
   
   //Save form
-  saveForm(name,email,regNo,phone);
+  saveForm(name,email,regNo,phone,fcm, uid);
 
   //Show alert
   document.querySelector('.alert').style.display = 'block';
@@ -80,33 +107,33 @@ function getInputValues(id){
   return document.getElementById(id).value;
 }
 
+//Checkbox
+
+//var firebaseRef = firebase.database().ref('facility');
+// firebaseRef.push().set({
+//  timesession: checkedValue 
+//   });
+
+
 //Save message to firebase
-function saveForm(name,email,regNo,phone){
+function saveForm(name,email,regNo,phone,fcm, uid){
+  
+  
+  
+  console.log(uid);
   var newForm = formRef.push();
+  
   newForm.set({
     name:name,
     email:email,
     regNo:regNo,
-    phone:phone
+    phone:phone,
+    //teams: checkedValue,
+    fcm:fcm,
+    uid:uid
 });
 }
 
-function authSignup(){
-
- var email1=document.getElementById('signupEmail').value;
- var password1=document.getElementById('signupPass').value;
- 
- //Create User with Email and Password
- firebase.auth().createUserWithEmailAndPassword(email1, password1).catch(function(error) {
-
-   // Handle Errors here.
-   var errorCode = error.code;
-   var errorMessage = error.message;
-   console.log(errorCode);
-   console.log(errorMessage);
- });
-
-}
 /*
   function signupwithEmailandPassword() {
     var email=getInputValues('signupEmail');
