@@ -15,14 +15,14 @@ togglePassword.addEventListener("click", function (e) {
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
-    apiKey: "AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ",
-    authDomain: "internals-app-c0391.firebaseapp.com",
-    databaseURL: "https://internals-app-c0391.firebaseio.com",
-    projectId: "internals-app-c0391",
-    storageBucket: "internals-app-c0391.appspot.com",
-    messagingSenderId: "754737704023",
-    appId: "1:754737704023:web:5ec000ba7b9d08cea48712",
-    measurementId: "G-YYZML2JL2J"
+    apiKey: "AIzaSyATTBiIr3ejGcjXlpLz_mIFV-D3uTv_hnU",
+    authDomain: "internal-demo-f3701.firebaseapp.com",
+    databaseURL: "https://internal-demo-f3701-default-rtdb.firebaseio.com",
+    projectId: "internal-demo-f3701",
+    storageBucket: "internal-demo-f3701.appspot.com",
+    messagingSenderId: "981293967243",
+    appId: "1:981293967243:web:3f3d4c137d12018cb3b18e",
+    measurementId: "G-GMC40LHFBJ"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -35,6 +35,7 @@ function login(){
     var loginID = document.getElementById("loginID");
     var loginPass = document.getElementById("loginPass");
     
+        
     const promise = auth.signInWithEmailAndPassword(loginID.value, loginPass.value);
     promise.catch(e => alert(e.message));
 }
@@ -55,3 +56,24 @@ function logout(){
   console.log("signed out");
   window.location.replace("index.html");
 }
+/*
+//Test Code
+firebase.database().ref('Users/' + uid + '/isAdmin').on('value', (snapshot)=>{
+  console.log(snapshot.val())
+})
+
+
+var fb = firebase.database.ref();
+
+/**
+ * @param {string} loginID
+ * @return {Object} the object contains zero or more user records, the keys are the users' ids
+ */
+/*
+function findUsersMatchingEmail( loginID, callback ) {
+    fb.child('Users').orderByChild('email').equalTo(loginID).once('value', function(snap) {
+        callback( snap.val() );
+    });
+}
+
+*/

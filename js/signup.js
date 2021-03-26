@@ -13,143 +13,95 @@ function validatePassword(){
 signupPass.onchange = validatePassword;
 signupPassConfirm.onkeyup = validatePassword;
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ",
-    authDomain: "internals-app-c0391.firebaseapp.com",
-    databaseURL: "https://internals-app-c0391.firebaseio.com",
-    projectId: "internals-app-c0391",
-    storageBucket: "internals-app-c0391.appspot.com",
-    messagingSenderId: "754737704023",
-    appId: "1:754737704023:web:5ec000ba7b9d08cea48712",
-    measurementId: "G-YYZML2JL2J"
-  };
 
+// Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyATTBiIr3ejGcjXlpLz_mIFV-D3uTv_hnU",
+    authDomain: "internal-demo-f3701.firebaseapp.com",
+    databaseURL: "https://internal-demo-f3701-default-rtdb.firebaseio.com",
+    projectId: "internal-demo-f3701",
+    storageBucket: "internal-demo-f3701.appspot.com",
+    messagingSenderId: "981293967243",
+    appId: "1:981293967243:web:3f3d4c137d12018cb3b18e",
+    measurementId: "G-GMC40LHFBJ"
+  };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
-//Reference form collection
-var formRef=firebase.database().ref("Users");
-
-//Listen for form submit
-document.getElementById('signupForm').addEventListener('submit',submitForm);
-
-
+  firebase.analytics();
 
 //Authentication
-function authSignup(){
+  document.getElementById("sign-up").addEventListener('click', authSignup)
 
-  var email1=document.getElementById('signupEmail').value;
-  var password1=document.getElementById('signupPass').value;
-  
-  //Create User with Email and Password
-  firebase.auth().createUserWithEmailAndPassword(email1, password1).catch(function(error) {
- 
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorMessage);
-  });
- }
+  function authSignup(){
+    console.log("1");
+      //Taking Values from Form
+      let email = document.getElementById("signupEmail").value;
+      let password = document.getElementById("signupPass").value;
+      //Create User with Email and Password
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+    waitTime();
+  }   
 
+function waitTime(){
+    var delayInMilliseconds = 2000;
 
-//Submit Form
-function submitForm(e){
-  e.preventDefault();
+    setTimeout(function() {
+      userData();
+    }, delayInMilliseconds);
+}
 
-  //Get values
-  var name=getInputValues('signupName');
-  var email=getInputValues('signupEmail');
-  var regNo=getInputValues('signupRegno');
-  var phone=getInputValues('signupContact');
-  var password=getInputValues('signupPass');
-  var passwordConfirm=getInputValues('signupPassConfirm');
-  var type=getInputValues('signupType');
-  //var team=getInputValues('signupTeam');
-  var fcm= "";
-  //var checkedValue = document.querySelector('.checkbx:checked').value;
-  var user = firebase.auth().currentUser;
-  var uid;
-  if (user != null) {
-   uid = user.uid;
+  function userData(){
+    console.log("2");
+    var user = firebase.auth().currentUser;
+    if (user != null){
+       var userID = user.uid;
+    }
+    let name = document.getElementById("signupName").value;
+    let email = document.getElementById("signupEmail").value;
+    let regNo = document.getElementById("signupRegno").value;
+    let phone = document.getElementById("signupContact").value;
+    let fcm = "";
+    var isAdmin = "false";
+    var teamArr = {};
+    $("input").each(function(index, el) {
+      if (el.checked) {
+        var id = $(el).data("id");
+        var val = $(el).data("value");
+        if (!teamArr[id]) teamArr[id] = [];
+        teamArr[id].push(val);
+      }
+    });
+    console.log(name);
+    console.log(email);
+    console.log(phone);
+    console.log(fcm);
+    console.log(isAdmin);
+    console.log(userID);
+    console.log(teamArr);
+    writeUserData(userID, name, email, regNo, phone, fcm, isAdmin, teamArr);
   }
-  
-  var a=document.getElementById('1');
-  var b=document.getElementById('2');
-  var c=document.getElementById('3');
-  var d=document.getElementById('4');
-  var e=document.getElementById('5');
-  var f=document.getElementById('6');
-  var g=document.getElementById('7');
-  var h=document.getElementById('8');
-  var i=document.getElementById('9');
 
-  
-  //Save form
-  saveForm(name,email,regNo,phone,fcm, uid);
-
-  //Show alert
-  document.querySelector('.alert').style.display = 'block';
-
-  //Hide Alert after 3 seconds
-  setTimeout(function(){
-    document.querySelector('.alert').style.display = 'none';
-  },3000);
-
-  //Clear Form
-  document.getElementById('signupForm').reset();
+function writeUserData(userID, name, email, regNo, phone, fcm, isAdmin, teamArr){
+  console.log("3");
+  firebase.database().ref('Users/' + userID).set({
+    uid: userID,
+    name: name,
+    email: email, 
+    regNo: regNo, 
+    phone: phone,
+    fcm: fcm,
+    isAdmin: isAdmin, 
+    teams: teamArr
+  });
+  signOut();
 }
-
-//Function to get form values
-function getInputValues(id){
-  return document.getElementById(id).value;
+function signOut(){
+  firebase.auth().signOut();
 }
-
-//Checkbox
-
-//var firebaseRef = firebase.database().ref('facility');
-// firebaseRef.push().set({
-//  timesession: checkedValue 
-//   });
-
-
-//Save message to firebase
-function saveForm(name,email,regNo,phone,fcm, uid){
-  
-  
-  
-  console.log(uid);
-  var newForm = formRef.push();
-  
-  newForm.set({
-    name:name,
-    email:email,
-    regNo:regNo,
-    phone:phone,
-    //teams: checkedValue,
-    fcm:fcm,
-    uid:uid
-});
-}
-
-/*
-  function signupwithEmailandPassword() {
-    var email=getInputValues('signupEmail');
-    var password=getInputValues('signupPass');
-    console.log("hello");
-
-  //Save email and password to authentication
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    // Signed in 
-    var user = userCredential.user;
-  })
-
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  }); 
-}
-*/
