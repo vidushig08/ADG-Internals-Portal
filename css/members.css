@@ -1,13 +1,37 @@
 #members {
   display: flex;
   align-items: center;
+  max-height: 100vh;
+  max-width: 100vw;
   justify-content: flex-start;
-  overflow-y: scroll;
+  align-items: flex-start;
+  overflow: scroll;
 }
 
 #members .team {
+  padding: 0.5em 0.25em;
+  margin: 1em 0.5em 0 0.5em;
+  max-height: 100%;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
+}
+.member-card {
+  margin: 0.25em;
+  padding: 1em 0.5em;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.member-name {
+  margin: 0 1em;
+  font-size: larger;
+  font-weight: 600;
+}
+.member-details {
+  margin: 0 1em;
+  font-size: larger;
+  font-weight: 500;
 }
