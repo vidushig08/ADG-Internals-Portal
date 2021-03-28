@@ -12,6 +12,9 @@
     <link type="text/css" rel="stylesheet" href="webfontkit-20201125-062530/stylesheet.css" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="icons/favicon.png" />
+
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- title -->
     <title>ADG | Admin Portal</title>
 </head>
@@ -86,24 +89,23 @@
                 <textarea name="header"></textarea>
                 <br><br>
 
-                <label for="name" class="point">Point 1:</label>
-                <textarea name="point1" id="p1"></textarea><br><br>
-                
-                <div class="addpoints">
-                    <div class="2">
-                        <label for="name" id="point2" class="point" style="display: none;" >Point 2:</label>
-                        <textarea name="point2" id="p2" style="display: none;" ></textarea><br><br>
-                    </div>
-                    <div class="3">
-                        <label for="name" id="point3" class="point" style="display: none;">Point 3:</label>
-                        <textarea name="point3" rows="10" cols="50" id="p3" style="display: none;"></textarea><br>
-                    </div>
+                <div class="newpoint">
+                    <label for="name" class="point">Point 1:</label>
+                    <textarea name="point1" id="p1"></textarea><br><br>
                 </div>
-                <img src="icons/addpoint.svg" class="addpoint" id="addpoint" alt="">
-                <br><br>
-                <button class="post-mom-btn">Post MOM</button>                
+
+                <div class="newpoint">
+                    <label for="name" class="point" style="display: none;">Point 2:</label>
+                    <textarea name="point1" id="p2" style="display: none;"></textarea><br><br>
+                </div>
+
+                <button type="button" id="addpoint" onclick="add(1);">+ Add Point</button>
+                <!--<img src="icons/addpoint.svg" class="addpoint" id="addpoint" alt="">-->
+                <br>          
             </div>
+            <br><br><br>
         </div>
+        <button class="post-mom-btn">Post MOM</button>   
     </form>
     <script src="js/mom.js"></script>
 </body>
