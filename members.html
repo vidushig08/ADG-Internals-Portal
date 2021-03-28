@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css links -->
+    <link type="text/css" rel="stylesheet" href="css/login.css" />
+    <link type="text/css" rel="stylesheet" href="css/newmeeting.css" />
+    <link rel="stylesheet" href="./css/members.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="webfontkit-20201125-062530/stylesheet.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icons/favicon.png" />
+    <!-- title -->
+    <title>ADG | Admin Portal</title>
+  </head>
+  <body>
+    <div class="left">
+      <!--NAVBAR Starts-->
+      <nav class="nav-active" id="navbar">
+        <!-- Logo in Navbar -->
+        <div class="logonav">
+          <img class="logo" src="icons/Group 2.svg" />
+        </div>
+
+        <!-- Nav Links -->
+        <ul class="navlinks">
+          <li>
+            <img class="icon" src="icons/meetings.svg" alt="" />
+            <a
+              href="new-meeting.html"
+              class="nav-link nav-link-grow-up"
+              id="active"
+            >
+              Meetings</a
+            ><br />
+
+            <div class="meeting-radio">
+              <ul>
+                <li class="inner">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="new"
+                    onclick="javascript:window.location.href='new-meeting.html'; return false;"
+                  />
+                  <label for="new">New</label><br />
+                </li>
+                <li class="inner">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="scheduled"
+                    onclick="javascript:window.location.href='scheduled-meeting.html'; return false;"
+                  />
+                  <label for="scheduled">Scheduled</label><br />
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <img class="icon" src="icons/task.svg" alt="" />
+            <a href="tasks.html"> Tasks</a>
+          </li>
+
+          <li>
+            <img class="icon" src="icons/mom.svg" alt="" />
+            <a href="mom.html"> MOM</a>
+          </li>
+
+          <li>
+            <img class="icon" src="icons/members.svg" alt="" />
+            <a href="members.html">Members</a>
+          </li>
+        </ul>
+      </nav>
+      <!--NAVBAR Ends-->
+      <div class="out">
+        <button class="logout">Log Out</button>
+      </div>
+    </div>
+    <div id="members">
+      <div id="team0" class="team">
+        <h2>Team 0</h2>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+      </div>
+      <div class="team">
+        <h2>Team 1</h2>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+      </div>
+      <div class="team">
+        <h2>Team 2</h2>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+      </div>
+      <div class="team">
+        <h2>Team 3</h2>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+      </div>
+      <div class="team">
+        <h2>Team 4</h2>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+        <div>Dev</div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/members.js"></script>
+</html>
