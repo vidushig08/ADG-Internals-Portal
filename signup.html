@@ -8,6 +8,7 @@
       <link type="text/css" rel="stylesheet" href="css/login.css" />
       <link type="text/css" rel="stylesheet" href="css/signup.css" />
       <link type="text/css" rel="stylesheet" href="webfontkit-20201125-062530/stylesheet.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <!-- Favicon -->
       <link rel="icon" type="image/png" href="icons/favicon.png" />
       <title>ADG | Admin Portal</title>
@@ -36,6 +37,8 @@
           </nav>
           <!--NAVBAR Ends-->
         </div>
+
+      <div class="alert">Your form has been submitted</div>
       <form action="" role="form" id="signupForm">
         <div class="middle">
             <h2>User Sign Up</h2>
@@ -50,7 +53,7 @@
               <input type="text" id="signupRegno" name="regno" required><br><br>
 
               <label class="contact" for="contact">Contact No:</label>
-              <input type="text" id="signupContact" name="contact" required><br><br>
+              <input type="text" id="signupContact" name="contact" required maxlength="10"><br><br>
 
               <label class="password" for="password">Password:</label>
               <input type="password" id="signupPass" name="password1" required><br><br>
@@ -58,48 +61,48 @@
               <label class="confirmpassword" for="password">Confirm Password:</label>
               <input type="password" id="signupPassConfirm" name="password2" required><br><br>
 
-              <label class="type" for="type">Type:</label>
+              <!-- <label class="type" for="type">Type:</label>
               <select name="type" id="signupType">
                   <option value="blank"></option>
                   <option value="member">Member</option>
                   <option value="admin">Admin</option>
-              </select>
+              </select> -->
               <br><br><br>
         </div>
               
         <div class="right">
           <h3 class="add-teams-text">Add Teams</h3><br>
-            <input type="checkbox" name="" value="ios" />iOS
+            <input type="checkbox" class="checkbx" name="" data-value="0" data-id="teams"/>iOS
             <br>
-            <input type="checkbox" name="" value="web" />Web
+            <input type="checkbox" class="checkbx" name="" data-value="1" data-id="teams"/>Web
             <br>
-            <input type="checkbox" name="" value="android" /> Android
+            <input type="checkbox" class="checkbx" name="" data-value="2" data-id="teams"/> Android
             <br>
-            <input type="checkbox" name="" value="ml" /> Machine Learning
+            <input type="checkbox" class="checkbx" name="" data-value="3" data-id="teams"/> Machine Learning
             <br>
-            <input type="checkbox" name="" value="logistics" /> Logistics
+            <input type="checkbox" class="checkbx" name="" data-value="4" data-id="teams" /> Logistics
             <br>
-            <input type="checkbox" name="" value="sponsorships" /> Sponsorships
+            <input type="checkbox" class="checkbx" name="" data-value="5" data-id="teams"/> Sponsorships
             <br>
-            <input type="checkbox" name="" value="social" /> Social Media & Marketing
+            <input type="checkbox" class="checkbx" name="" data-value="6" data-id="teams"/> Social Media & Marketing
             <br>
-            <input type="checkbox" name="" value="design" /> Design
+            <input type="checkbox" class="checkbx" name="" data-value="7" data-id="teams"/> Design
             <br>
-            <input type="checkbox" name="" value="videoediting" /> Video Editing
+            <input type="checkbox" class="checkbx" name="" data-value="8" data-id="teams"/> Video Editing
             <br>
-            <button class="signup-btn" type="submit" sendMessage()>Sign Up</button>
+            <button class="signup-btn" type="submit" id="sign-up">Sign Up</button>
         </div>
         
       </form>
 
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+    
     <script src="js/signup.js"></script>
-        
   </body>
 </html>

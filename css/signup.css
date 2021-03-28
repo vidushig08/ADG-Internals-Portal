@@ -1,52 +1,89 @@
 * {
-    padding: 0px;
-    margin: 0px;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: "sf_pro_displayregular";
-  }
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "sf_pro_displayregular";
+}
 
-  .right{
-      padding-top: 8%;
-  }
+.right{
+  padding-top: 8%;
+}
 .one,.two,.two-meeting{
-    width: 40%;
-    line-height: 28px;
+  width: 40%;
+  line-height: 28px;
 }
 .one{
-    float: left;
-    margin-top: -5%;
+  float: left;
+  margin-top: -5%;
 }
 .two{
-    float: right;
-    margin-top: -5%;
+  float: right;
+  margin-top: -5%;
 }
 .two-meeting{
-    float: right;
-    margin-right: 15%;
+  float: right;
+  margin-right: 15%;
 }
-.alert {
-    text-align: center;
-    padding: 10px;
-    background: rgb(168, 240, 177);
-    color: green;
-    margin-bottom: 10px;
-    display: none;
+.signup-btn {
+  width: 300px;
+  height: 48px;
+  background-color: #0091fb;
+  border-radius: 10px;
+  border: white;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 25%;
+  margin-top: 30%;
   }
+.signup-btn:hover{
+  cursor: pointer;
+}
+.alert{
+  text-align: center;
+  padding: 10px;
+  background-color: #79c879;
+  color: #fff;
+  margin-bottom: 10px;
+  display: none;
+}
 
-  .signup-btn {
-    width: 300px;
-    height: 48px;
-    background-color: #0091fb;
-    border-radius: 10px;
-    border: white;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    margin-left: 25%;
-    margin-top: 30%;
-  }
-  .signup-btn:hover{
-    cursor: pointer;
-  }
-
+/* SignUp Page inputs */
+label.name{
+  padding-right: 20%;
+  font-size: 16px;
+}
+label.email{
+  padding-right: 15%;
+  font-size: 16px;
+}
+label.regno{
+  padding-right: 18%;
+  font-size: 16px;
+}
+label.contact{
+  padding-right: 12%;
+  font-size: 16px;
+}
+label.password{
+  padding-right: 15%;
+  font-size: 16px;
+}
+label.confirmpassword{
+  padding-right: 2%;
+  font-size: 16px;
+}
+label.type{
+  padding-right: 22%;
+  font-size: 16px;
+}
+#signupType, #signupEmail {
+  width: 325px;
+  height: 32px;
+  font-size: 14px;
+  padding: 1%;
+  border: solid 1px #000000;
+  border-radius: 5px;
+  outline: none;
+}

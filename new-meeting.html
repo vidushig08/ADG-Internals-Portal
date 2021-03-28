@@ -62,7 +62,7 @@
 		</nav>
 		<!--NAVBAR Ends-->
         <div class="out">
-            <button class="logout">Log Out</button>
+            <button class="logout" onclick="logout()"> Log Out </button>
         </div>
     </div>
 
@@ -72,19 +72,19 @@
             <h4>Schedule a New Meeting</h4><br><br>
             <h3>Add Details</h3><br>
             <div class="newmeetform">
-                <label for="name">Date:</label>
+                <label for="name" class="date">Date:</label>
                 <input type="date" id="date" name="date"><br><br>
 
-                <label for="name">Time:</label>
+                <label for="name" class="time">Time:</label>
                 <input type="time" id="time" name="time"><br><br>
 
-                <label for="name">Title:</label>
+                <label for="name" class="title">Title:</label>
                 <input type="text" id="title" name="title"><br><br>
 
-                <label for="name">Venue:</label>
+                <label for="name" class="venue">Venue:</label>
                 <input type="text" id="venue" name="venue"><br><br>
 
-                <label for="name">Link:</label>
+                <label for="name" class="link">Link:</label>
                 <input type="text" id="link" name="link">
             </div>
         </div>
@@ -93,29 +93,56 @@
             <h3 class="add-teams-text">Add Teams</h3>
             <br>
             <div class="one">
-                <input type="checkbox" name="" value="core" /> Core
+                <input type="radio" name="t" value="core" /> Core
                 <br>
-                <input type="checkbox" name="" value="ios" /> iOS
+                <input type="radio" name="t" value="ios" /> iOS
                 <br>
-                <input type="checkbox" name="" value="android" /> Android
+                <input type="radio" name="t" value="android" /> Android
                 <br>
-                <input type="checkbox" name="" value="web" /> Web
+                <input type="radio" name="t" value="web" /> Web
                 <br>
-                <input type="checkbox" name="" value="ml" /> Machine Learning
+                <input type="radio" name="t" value="ml" /> Machine Learning
                 <br>
             </div>
             <div class="two">
-                <input type="checkbox" name="" value="design" /> Design
+                <input type="radio" name="t" value="design" /> Design
                 <br>
-                <input type="checkbox" name="" value="social" /> Social Media & Marketing
+                <input type="radio" name="t" value="social" /> Social Media & Marketing
                 <br>
-                <input type="checkbox" name="" value="sponsorships" /> Sponsorships
+                <input type="radio" name="t" value="sponsorships" /> Sponsorships
                 <br>
-                <input type="checkbox" name="" value="logistics" /> Logistics
+                <input type="radio" name="t" value="logistics" /> Logistics
                 <br>
             </div>
             <button class="post-meeting-btn">Post Meeting</button>
         </div>
     </form>
 </body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ",
+    authDomain: "internals-app-c0391.firebaseapp.com",
+    databaseURL: "https://internals-app-c0391.firebaseio.com",
+    projectId: "internals-app-c0391",
+    storageBucket: "internals-app-c0391.appspot.com",
+    messagingSenderId: "754737704023",
+    appId: "1:754737704023:web:5ec000ba7b9d08cea48712",
+    measurementId: "G-YYZML2JL2J"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+</script>
+
+  <script src="js/login.js"></script>
 </html>

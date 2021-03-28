@@ -17,5 +17,23 @@
     margin-right: 15%;
 }
 
-.newmeetform input{
+/*New Meeting Inputs */
+label.date{
+    padding-right: 2%;
+    font-size: 16px;
+}
+label.time{
+    padding-right: 2%;
+    font-size: 16px;
+}
+label.title{
+    padding-right: 3%;
+    font-size: 16px;
+}
+label.venue{
+    font-size: 16px;
+}
+label.link{
+    padding-right: 3%;
+    font-size: 16px;
 }

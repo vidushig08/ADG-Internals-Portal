@@ -7,10 +7,14 @@
     <!-- css links -->
     <link type="text/css" rel="stylesheet" href="css/login.css" />
     <link type="text/css" rel="stylesheet" href="css/newmeeting.css" />
+    <link type="text/css" rel="stylesheet" href="css/mom.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link type="text/css" rel="stylesheet" href="webfontkit-20201125-062530/stylesheet.css" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="icons/favicon.png" />
+
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- title -->
     <title>ADG | Admin Portal</title>
 </head>
@@ -67,55 +71,42 @@
     </div>
 
     <form action=""></form>
-        <div class="middle">
+        <div class="middle-mom">
             <h2>MOM</h2>
             <h4>Post MOM of a Meeting</h4><br><br>
             <h3>Add Details</h3><br>
             <div class="newmomform">
-                <label for="name">Date:</label>
-                <input type="date" id="date" name="date"><br><br>
+                <label for="name" class="choosemeeting">Choose Meeting: </label>
+                <select id="choosemeeting" name="meeting">
+                    <option value="blank"></option>
+                    <option value="m1">Meeting1</option>
+                    <option value="m2">Meeting2</option>
+                    <option value="m3">Meeting3</option>
+                    <option value="m4">Meeting4</option>
+                </select><br><br>
 
-                <label for="name">Time:</label>
-                <input type="time" id="time" name="time"><br><br>
+                <label for="name" class="header">Header:</label>
+                <textarea name="header"></textarea>
+                <br><br>
 
-                <label for="name">Title:</label>
-                <input type="text" id="title" name="title"><br><br>
+                <div class="newpoint">
+                    <label for="name" class="point">Point 1:</label>
+                    <textarea name="point1" id="p1"></textarea><br><br>
+                </div>
 
-                <label for="name">Venue:</label>
-                <input type="text" id="venue" name="venue"><br><br>
+                <div class="newpoint">
+                    <label for="name" class="point" style="display: none;">Point 2:</label>
+                    <textarea name="point1" id="p2" style="display: none;"></textarea><br><br>
+                </div>
 
-                <label for="name">Link:</label>
-                <input type="text" id="link" name="link">
+                <button type="button" id="addpoint" onclick="add(1);">+ Add Point</button>
+                <!--<img src="icons/addpoint.svg" class="addpoint" id="addpoint" alt="">-->
+                <br>          
             </div>
+            <br><br><br>
         </div>
-
-        <div class="right">
-            <h3 class="add-teams-text">Add Teams</h3>
-            <br>
-            <div class="one">
-                <input type="checkbox" name="" value="core" /> Core
-                <br>
-                <input type="checkbox" name="" value="ios" /> iOS
-                <br>
-                <input type="checkbox" name="" value="android" /> Android
-                <br>
-                <input type="checkbox" name="" value="web" /> Web
-                <br>
-                <input type="checkbox" name="" value="ml" /> Machine Learning
-                <br>
-            </div>
-            <div class="two">
-                <input type="checkbox" name="" value="design" /> Design
-                <br>
-                <input type="checkbox" name="" value="social" /> Social Media & Marketing
-                <br>
-                <input type="checkbox" name="" value="sponsorships" /> Sponsorships
-                <br>
-                <input type="checkbox" name="" value="logistics" /> Logistics
-                <br>
-            </div>
-            <button class="post-meeting-btn">Post MOM</button>
-        </div>
+        <button class="post-mom-btn">Post MOM</button>   
     </form>
+    <script src="js/mom.js"></script>
 </body>
 </html>

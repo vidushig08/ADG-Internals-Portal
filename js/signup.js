@@ -1,63 +1,107 @@
+//Validate password
+var password = document.getElementById("signupPass"),
+confirm_password = document.getElementById("signupPassConfirm");
+
+function validatePassword(){
+  if(signupPass.value != signupPassConfirm.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } 
+  else {
+    confirm_password.setCustomValidity('');
+  }
+}
+signupPass.onchange = validatePassword;
+signupPassConfirm.onkeyup = validatePassword;
+
+
 // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
-    apiKey: "AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ",
-    authDomain: "internals-app-c0391.firebaseapp.com",
-    databaseURL: "https://internals-app-c0391.firebaseio.com",
-    projectId: "internals-app-c0391",
-    storageBucket: "internals-app-c0391.appspot.com",
-    messagingSenderId: "754737704023",
-    appId: "1:754737704023:web:5ec000ba7b9d08cea48712",
-    measurementId: "G-YYZML2JL2J"
+    apiKey: "AIzaSyATTBiIr3ejGcjXlpLz_mIFV-D3uTv_hnU",
+    authDomain: "internal-demo-f3701.firebaseapp.com",
+    databaseURL: "https://internal-demo-f3701-default-rtdb.firebaseio.com",
+    projectId: "internal-demo-f3701",
+    storageBucket: "internal-demo-f3701.appspot.com",
+    messagingSenderId: "981293967243",
+    appId: "1:981293967243:web:3f3d4c137d12018cb3b18e",
+    measurementId: "G-GMC40LHFBJ"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
 
+//Authentication
+  document.getElementById("sign-up").addEventListener('click', authSignup)
 
-//Reference for form collection
-let formMessage = firebase.database().ref('register');
+  function authSignup(){
+    console.log("1");
+      //Taking Values from Form
+      let email = document.getElementById("signupEmail").value;
+      let password = document.getElementById("signupPass").value;
+      //Create User with Email and Password
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+    waitTime();
+  }   
 
-//listen for submit event
-document.getElementById('signupForm').addEventListener('submit', formSubmit);
+function waitTime(){
+    var delayInMilliseconds = 2000;
 
-//Submit form
-function formSubmit(e) 
-{
-    e.preventDefault();
-    // Get Values from the DOM
-    let name = document.querySelector('#signupName').value;
-    let email = document.querySelector('#signupEmail').value;
-    let regno = document.querySelector('#signupRegno').value;
-    let contact = document.querySelector('#signupContact').value;
-    let password1 = document.querySelector('#signupPass').value;
-    let passwordConfirm = document.querySelector('#signupPassConfirm').value;
-    let type = document.querySelector('#signupType').value;
-
-    //send message values
-    sendMessage(name, email, regno, contact, password1, passwordConfirm, type);
-
-    //Show Alert Message
-    document.querySelector('.alert').style.display = 'block';
-
-    //Hide Alert Message After Seven Seconds
-    setTimeout(function() 
-    {
-        document.querySelector('.alert').style.display = 'none';
-    }, 7000);
-
-    //Form Reset After Submission
-    document.getElementById('signupform').reset();
+    setTimeout(function() {
+      userData();
+    }, delayInMilliseconds);
 }
 
-//Send Message to Firebase
-function sendMessage(name, email, regno, contact, password1, passwordConfirm, type) {
-    let newFormMessage = formMessage.push();
-    newFormMessage.set({
-      name: name,
-      email: email,
-      regno:regno,
-      password1: password1,
-      passwordConfirm: passwordConfirm,
-      type: type
+  function userData(){
+    console.log("2");
+    var user = firebase.auth().currentUser;
+    if (user != null){
+       var userID = user.uid;
+    }
+    let name = document.getElementById("signupName").value;
+    let email = document.getElementById("signupEmail").value;
+    let regNo = document.getElementById("signupRegno").value;
+    let phone = document.getElementById("signupContact").value;
+    let fcm = "";
+    var isAdmin = "false";
+    var teamArr = {};
+    $("input").each(function(index, el) {
+      if (el.checked) {
+        var id = $(el).data("id");
+        var val = $(el).data("value");
+        if (!teamArr[id]) teamArr[id] = [];
+        teamArr[id].push(val);
+      }
     });
+    console.log(name);
+    console.log(email);
+    console.log(phone);
+    console.log(fcm);
+    console.log(isAdmin);
+    console.log(userID);
+    console.log(teamArr);
+    writeUserData(userID, name, email, regNo, phone, fcm, isAdmin, teamArr);
+  }
+
+function writeUserData(userID, name, email, regNo, phone, fcm, isAdmin, teamArr){
+  console.log("3");
+  firebase.database().ref('Users/' + userID).set({
+    uid: userID,
+    name: name,
+    email: email, 
+    regNo: regNo, 
+    phone: phone,
+    fcm: fcm,
+    isAdmin: isAdmin, 
+    teams: teamArr
+  });
+  signOut();
+}
+function signOut(){
+  firebase.auth().signOut();
 }
