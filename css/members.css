@@ -10,7 +10,7 @@
 
 #members .team {
   padding: 0.5em 0.25em;
-  margin: 1em 0.5em 0 0.5em;
+  margin: 1em 2em 0 2em;
   max-height: 100%;
   display: flex;
   flex-flow: column nowrap;
@@ -18,11 +18,11 @@
   justify-content: flex-start;
 }
 .member-card {
-  margin: 0.25em;
-  padding: 1em 0.5em;
-  background: #eee;
+  margin: 0.25em 0;
+  padding: 0.25em 0.5em 0.25em 0;
   display: flex;
-  align-items: center;
+  flex-flow: column nowrap;
+  align-items: flex-start;
   justify-content: space-between;
 }
 .member-name {
