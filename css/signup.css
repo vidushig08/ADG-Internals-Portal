@@ -7,7 +7,7 @@
 }
 
 .right{
-  padding-top: 8%;
+  padding-top: 7%;
 }
 .one,.two,.two-meeting{
   width: 40%;
@@ -35,7 +35,7 @@
   font-size: 16px;
   font-weight: bold;
   margin-left: 25%;
-  margin-top: 30%;
+  margin-top: 15%;
   }
 .signup-btn:hover{
   cursor: pointer;
@@ -51,31 +51,27 @@
 
 /* SignUp Page inputs */
 label.name{
-  padding-right: 20%;
+  padding-right: 110.8px;
   font-size: 16px;
 }
 label.email{
-  padding-right: 15%;
+  padding-right: 88.31px;
   font-size: 16px;
 }
 label.regno{
-  padding-right: 18%;
+  padding-right: 101.3px;
   font-size: 16px;
 }
 label.contact{
-  padding-right: 12%;
+  padding-right: 74.44px;
   font-size: 16px;
 }
 label.password{
-  padding-right: 15%;
+  padding-right: 86.04px;
   font-size: 16px;
 }
 label.confirmpassword{
-  padding-right: 2%;
-  font-size: 16px;
-}
-label.type{
-  padding-right: 22%;
+  padding-right: 28.95px;
   font-size: 16px;
 }
 #signupType, #signupEmail {
@@ -86,4 +82,92 @@ label.type{
   border: solid 1px #000000;
   border-radius: 5px;
   outline: none;
+}
+
+/* Teams Checkbox Design */
+.right-1{
+  display: inline;
+  width: 50%;
+  float: left;
+  padding: 5%;
+}
+
+.right-2{
+  display: inline;
+  width: 50%;
+  float: right;
+  padding: 5%;
+}
+
+h3.add-teams-text{
+  float: left;
+  width: 100%;
+  padding-right: 80%;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: rgb(219, 219, 219);
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #0091fb;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 5px;
+  
+  width: 3px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
