@@ -6,22 +6,24 @@
   font-family: "sf_pro_displayregular";
 }
 
-.right{
+.right {
   padding-top: 7%;
 }
-.one,.two,.two-meeting{
+.one,
+.two,
+.two-meeting {
   width: 40%;
   line-height: 28px;
 }
-.one{
+.one {
   float: left;
   margin-top: -5%;
 }
-.two{
+.two {
   float: right;
   margin-top: -5%;
 }
-.two-meeting{
+.two-meeting {
   float: right;
   margin-right: 15%;
 }
@@ -36,11 +38,11 @@
   font-weight: bold;
   margin-left: 25%;
   margin-top: 15%;
-  }
-.signup-btn:hover{
+}
+.signup-btn:hover {
   cursor: pointer;
 }
-.alert{
+.alert {
   text-align: center;
   padding: 10px;
   background-color: #79c879;
@@ -50,31 +52,32 @@
 }
 
 /* SignUp Page inputs */
-label.name{
+label.name {
   padding-right: 110.8px;
   font-size: 16px;
 }
-label.email{
+label.email {
   padding-right: 88.31px;
   font-size: 16px;
 }
-label.regno{
+label.regno {
   padding-right: 101.3px;
   font-size: 16px;
 }
-label.contact{
+label.contact {
   padding-right: 74.44px;
   font-size: 16px;
 }
-label.password{
+label.password {
   padding-right: 86.04px;
   font-size: 16px;
 }
-label.confirmpassword{
+label.confirmpassword {
   padding-right: 28.95px;
   font-size: 16px;
 }
-#signupType, #signupEmail {
+#signupType,
+#signupEmail {
   width: 325px;
   height: 32px;
   font-size: 14px;
@@ -85,21 +88,21 @@ label.confirmpassword{
 }
 
 /* Teams Checkbox Design */
-.right-1{
+.right-1 {
   display: inline;
   width: 50%;
   float: left;
   padding: 5%;
 }
 
-.right-2{
+.right-2 {
   display: inline;
   width: 50%;
   float: right;
   padding: 5%;
 }
 
-h3.add-teams-text{
+h3.add-teams-text {
   float: left;
   width: 100%;
   padding-right: 80%;
@@ -118,7 +121,6 @@ h3.add-teams-text{
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
 .container input {
   position: absolute;
   opacity: 0;
@@ -127,7 +129,6 @@ h3.add-teams-text{
   width: 0;
 }
 
-/* Create a custom checkbox */
 .checkmark {
   position: absolute;
   top: 0;
@@ -137,32 +138,27 @@ h3.add-teams-text{
   background-color: rgb(219, 219, 219);
 }
 
-/* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
   background-color: #0091fb;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
 .container .checkmark:after {
   left: 5px;
-  
+
   width: 3px;
   height: 10px;
   border: solid white;
