@@ -89,18 +89,12 @@
                 <textarea name="header"></textarea>
                 <br><br>
 
-                <div class="newpoint">
+                <div class="newpoint" id="newpoint">
                     <label for="name" class="point">Point 1:</label>
                     <textarea name="point1" id="p1"></textarea><br><br>
                 </div>
-
-                <div class="newpoint">
-                    <label for="name" class="point" style="display: none;">Point 2:</label>
-                    <textarea name="point1" id="p2" style="display: none;"></textarea><br><br>
-                </div>
-
-                <button type="button" id="addpoint" onclick="add(1);">+ Add Point</button>
-                <!--<img src="icons/addpoint.svg" class="addpoint" id="addpoint" alt="">-->
+                <!--<button type="button" id="plus">+ Add Point</button>-->
+                <img src="icons/addpoint.svg" class="addpoint" id="plus" alt="">
                 <br>          
             </div>
             <br><br><br>
@@ -108,5 +102,15 @@
         <button class="post-mom-btn">Post MOM</button>   
     </form>
     <script src="js/mom.js"></script>
+    <script>
+        $(function() {
+        function addMore() {
+            $('#newpoint').append('<label for="name" class="point">Point 2:</label>');
+            $('#newpoint').append('<textarea name="point1" id="p1"></textarea><br><br>');
+        }           
+
+        $("#plus").click(addMore);
+        })
+    </script>
 </body>
 </html>
