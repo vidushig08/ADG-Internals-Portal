@@ -30,8 +30,24 @@ signupPassConfirm.onkeyup = validatePassword;
   firebase.analytics();
 
 //Authentication
-  document.getElementById("signupForm").addEventListener('submit', authSignup)
+  document.getElementById("signupForm").addEventListener('submit', handleData)
 
+  //Validate checkbox
+  function handleData()
+  {
+      var form_data = new FormData(document.querySelector("form"));
+      if(!form_data.has("langs[]"))
+      {
+        alert('Select atleast one team');
+        return false;
+      }
+      else
+      {
+        //document.getElementById("chk_option_error").style.visibility = "hidden";
+        authSignup();
+        return true;
+      }
+  }
   function authSignup(){
     console.log("1");
       //Taking Values from Form
@@ -50,7 +66,6 @@ signupPassConfirm.onkeyup = validatePassword;
 
 function waitTime(){
     var delayInMilliseconds = 2000;
-
     setTimeout(function() {
       userData();
     }, delayInMilliseconds);
@@ -107,6 +122,7 @@ function writeUserData(userID, name, email, regNo, phone, fcm, bestFuture, isAdm
 function signOut(){
   console.log("Logged Out");
   firebase.auth().signOut();
+  alert('Signed up successfully');
 }
 
 $("#signupForm").submit(function(e) {
