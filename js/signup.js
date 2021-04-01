@@ -29,8 +29,24 @@ signupPassConfirm.onkeyup = validatePassword;
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
+
+
 //Authentication
-  document.getElementById("signupForm").addEventListener('submit', handleData)
+  document.getElementById("signupForm").addEventListener('submit', regValidation)
+
+  //validate reg no
+  function regValidation(){
+    var regNoCheck = document.getElementById("signupRegno").value;
+    var n = regNoArr.includes(regNoCheck);
+    if(!n){
+      alert("You are not a member of ADG");
+      return false;
+    }
+    else{
+      handleData();
+      return true;
+    }
+  }
 
   //Validate checkbox
   function handleData()
