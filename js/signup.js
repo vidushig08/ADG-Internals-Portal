@@ -13,7 +13,6 @@ function validatePassword(){
 signupPass.onchange = validatePassword;
 signupPassConfirm.onkeyup = validatePassword;
 
-
 // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
@@ -31,7 +30,7 @@ signupPassConfirm.onkeyup = validatePassword;
   firebase.analytics();
 
 //Authentication
-  document.getElementById("sign-up").addEventListener('click', authSignup)
+  document.getElementById("signupForm").addEventListener('submit', authSignup)
 
   function authSignup(){
     console.log("1");
@@ -44,7 +43,7 @@ signupPassConfirm.onkeyup = validatePassword;
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorCode);
-      console.log(errorMessage);
+      alert(errorMessage);
     });
     waitTime();
   }   
@@ -68,8 +67,8 @@ function waitTime(){
     let regNo = document.getElementById("signupRegno").value;
     let phone = document.getElementById("signupContact").value;
     let fcm = "";
-    let bestFuture = false;
-    var isAdmin = false;
+    let bestFuture = "false";
+    var isAdmin = "false";
     var teamArr = {};
     $("input").each(function(index, el) {
       if (el.checked) {
@@ -106,5 +105,11 @@ function writeUserData(userID, name, email, regNo, phone, fcm, bestFuture, isAdm
   signOut();
 }
 function signOut(){
+  console.log("Logged Out");
   firebase.auth().signOut();
 }
+
+$("#signupForm").submit(function(e) {
+  e.preventDefault();
+});
+
