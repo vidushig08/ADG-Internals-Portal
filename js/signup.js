@@ -68,7 +68,8 @@ function waitTime(){
     let regNo = document.getElementById("signupRegno").value;
     let phone = document.getElementById("signupContact").value;
     let fcm = "";
-    var isAdmin = "false";
+    let bestFuture = false;
+    var isAdmin = false;
     var teamArr = {};
     $("input").each(function(index, el) {
       if (el.checked) {
@@ -82,13 +83,14 @@ function waitTime(){
     console.log(email);
     console.log(phone);
     console.log(fcm);
+    console.log(bestFuture);
     console.log(isAdmin);
     console.log(userID);
     console.log(teamArr);
-    writeUserData(userID, name, email, regNo, phone, fcm, isAdmin, teamArr);
+    writeUserData(userID, name, email, regNo, phone, fcm, bestFuture, isAdmin, teamArr);
   }
 
-function writeUserData(userID, name, email, regNo, phone, fcm, isAdmin, teamArr){
+function writeUserData(userID, name, email, regNo, phone, fcm, bestFuture, isAdmin, teamArr){
   console.log("3");
   firebase.database().ref('Users/' + userID).set({
     uid: userID,
@@ -97,6 +99,7 @@ function writeUserData(userID, name, email, regNo, phone, fcm, isAdmin, teamArr)
     regNo: regNo, 
     phone: phone,
     fcm: fcm,
+    bestFuture: bestFuture,
     isAdmin: isAdmin, 
     teams: teamArr
   });
