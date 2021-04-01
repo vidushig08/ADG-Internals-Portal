@@ -7,10 +7,12 @@
 .one{
     float: left;
     margin-top: -5%;
+    margin-left: 15%;
 }
 .two{
     float: right;
     margin-top: -5%;
+    margin-right: 5%;
 }
 .two-meeting{
     float: right;
@@ -36,4 +38,11 @@ label.venue{
 label.link{
     padding-right: 3%;
     font-size: 16px;
+}
+
+.add-teams-text{
+    margin-right: 60%;
+}
+.post-meeting-btn{
+    margin-left: 45%;
 }
