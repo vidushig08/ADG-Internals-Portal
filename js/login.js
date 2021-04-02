@@ -42,7 +42,8 @@ function login(){
 
 auth.onAuthStateChanged(function(user){
     if(user){
-        window.location.replace("new-meeting.html");
+        alert('hi');
+        //window.location.replace("new-meeting.html");
         //is signed in
     }else{   
         alert("User not found");

@@ -98,8 +98,9 @@ function waitTime(){
     let regNo = document.getElementById("signupRegno").value;
     let phone = document.getElementById("signupContact").value;
     let fcm = "";
-    let bestFuture = "false";
-    var isAdmin = "false";
+    var x;
+    let bestFuture = Boolean(x);
+    var isAdmin = Boolean(x);
     var teamArr = {};
     $("input").each(function(index, el) {
       if (el.checked) {
