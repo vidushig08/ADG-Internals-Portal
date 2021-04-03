@@ -78,3 +78,24 @@ function findUsersMatchingEmail( loginID, callback ) {
 }
 
 */
+
+// var ref = firebase.database().ref();
+
+// ref.on("value", function(snapshot) {
+//    console.log(snapshot.val());
+// }, function (error) {
+//    console.log("Error: " + error.code);
+// });
+
+
+firebase.database().ref().child("Users").on("value", function (snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+   var name=childSnapshot.val().name;
+   console.log(name);
+  });
+});
+
+// var loginID = document.getElementById("")
+// function findAdmin(loginID, callback){
+
+// }

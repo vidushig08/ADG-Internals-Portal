@@ -4,5 +4,4 @@ var regNoArr = [
     "Orange", 
     "Apple", 
     "Mango",
-    
 ];
