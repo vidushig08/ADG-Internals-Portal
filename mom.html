@@ -70,36 +70,36 @@
         </div>
     </div>
 
-    <form action="">
         <div class="middle-mom">
             <h2>MOM</h2>
             <h4>Post MOM of a Meeting</h4><br><br>
             <h3>Add Details</h3><br>
-            <div class="newmomform">
-                <label for="name" class="choosemeeting">Choose Meeting: </label>
-                <select id="choosemeeting" name="meeting">
-                    <option value="blank"></option>
-                    <option value="m1">Meeting1</option>
-                    <option value="m2">Meeting2</option>
-                    <option value="m3">Meeting3</option>
-                    <option value="m4">Meeting4</option>
-                </select><br><br>
+            <form action="">
+                <div class="newmomform">
+                    <label for="name" class="choosemeeting">Choose Meeting: </label>
+                    <select id="choosemeeting" name="meeting">
+                        <option value="blank"></option>
+                        <option value="m1">Meeting1</option>
+                        <option value="m2">Meeting2</option>
+                        <option value="m3">Meeting3</option>
+                        <option value="m4">Meeting4</option>
+                    </select><br><br>
 
-                <label for="name" class="header">Header:</label>
-                <textarea name="header"></textarea>
-                <br><br>
+                    <label for="name" class="header" >Header:</label>
+                    <textarea name="header" id="header"></textarea>
+                    <br><br>
 
-                <div class="newpoint" id="newpoint">
-                    <label for="name" class="point">Point 1:</label>
-                    <textarea name="point1"></textarea><br><br>
+                    <div class="newpoint" id="newpoint">
+                        <label for="name" class="point">Point 1:</label>
+                        <textarea name="point1" id="p1"></textarea><br><br>
+                    </div>
+                    <!--<button type="button" id="plus">+ Add Point</button>-->
+                    <img src="icons/addpoint.svg" class="addpoint" id="plus" alt="">
+                    <br><br><br>
+                    <button class="post-mom-btn">Post MOM</button>  
                 </div>
-                <!--<button type="button" id="plus">+ Add Point</button>-->
-                <img src="icons/addpoint.svg" class="addpoint" id="plus" alt="">
-                <br><br><br>
-                <button class="post-mom-btn">Post MOM</button>  
-            </div>
+            </form>
         </div>
-    </form>
     <script src="js/mom.js"></script>
 </body>
 </html>

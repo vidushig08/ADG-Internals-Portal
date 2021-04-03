@@ -1,7 +1,13 @@
 /* MOM Page */
+
 .middle-mom{
-  width: 100%;
+  width: 82%;
+  float: right;
+  height: 100vh;
+  padding-left: 5%;
   background-color: rgb(247, 255, 255);
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 #choosemeeting{
     width: 500px;
@@ -24,21 +30,21 @@
 
   /* Inputs for New MOM Form */
   label.choosemeeting{
-    padding-right: 1%;
+    padding-right: 16px;
     font-size: 16px;
   }
   label.header{
-    padding-right: 6%;
+    padding-right: 76.53px;
     font-size: 16px;
   }
   label.point{
-    padding-right: 6.5%;
+    padding-right: 81.7px;
     font-size: 16px;
   }
   .addpoint{
     width: 135px;
     height: 30px;
-    margin-left: 43%;
+    margin-left: 540px;
   }
   .addpoint:hover{
     cursor: pointer;
