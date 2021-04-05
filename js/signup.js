@@ -145,4 +145,3 @@ function signOut(){
 $("#signupForm").submit(function(e) {
   e.preventDefault();
 });
-

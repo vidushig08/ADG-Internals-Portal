@@ -34,6 +34,7 @@ const auth = firebase.auth();
 document.getElementById("signinForm").addEventListener('submit', login);
 
 function login(){
+  console.log("1");
     var ref = firebase.database().ref().child("Users");
     var loginID = document.getElementById("loginID").value;
     var loginPass = document.getElementById("loginPass").value;
@@ -42,11 +43,24 @@ function login(){
       console.log(snapshot.val().isAdmin);
       var admin = snapshot.val().isAdmin;
       if (admin == true){
-        const promise = auth.signInWithEmailAndPassword(loginID, loginPass);
-        promise.catch(e => alert(e.message));
+          console.log("2");
+          firebase.auth().signInWithEmailAndPassword(loginID, loginPass)
+          .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            alert("Signed in Successfully");
+            // ...
+          })
+          .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert(errorMessage);
+          });
+
       }
       else if (admin == false){
-        alert("Hehe");
+        console.log("3");
+        alert("You are not an Admin !");
       }
     });
 }
@@ -54,10 +68,10 @@ function login(){
 auth.onAuthStateChanged(function(user){
     if(user){
         //window.location.replace("new-meeting.html");
-        alert("User is signed in");
+        //alert("Signed in Successfully");
         //is signed in
     }else{   
-        alert("User not found");
+        //alert("User not found");
         //no user is signed in
     }
 });
