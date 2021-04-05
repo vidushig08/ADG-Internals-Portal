@@ -106,12 +106,12 @@ a {
 li.inner{
   padding: 2%;
 }
-
-li.inner input[type="radio"] {
+li.inner input[type="radio"]:checked{
   margin-right: 3%;
+  background-color: #000000;
 }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="time"], input[type="email"] select{
+input[type="text"], input[type="password"], input[type="date"], input[type="time"], input[type="email"], #link, #date, select{
   width: 325px;
   height: 32px;
   font-size: 14px;

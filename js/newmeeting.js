@@ -13,35 +13,35 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-  console.log("hello");
-  document.getElementById("post-meeting-btn").addEventListener('submit', readData)
+  //document.getElementById("post-meeting-btn").addEventListener('submit', readData)
 
     function readData() {
-    // Get input values from each of the form elements
-        var database = firebase.database();
-        alert('function called');
-        //var obj = {name: "sample_data"}
-        //database().ref("Core/").push(obj);
-
+        // Get input values from each of the form elements
+        
         let date = document.getElementById("date").value;
-        let time = document.getElementById("time").value;
+        var unixdate = new Date(date).valueOf();
         let title = document.getElementById("title").value;
         let venue = document.getElementById("venue").value;
         let link = document.getElementById("link").value;
-        let type = "Duties";
-        writeUserData(date,time,title,venue,link, type);
+        var type1 = "Duties";
+
+        writeUserData(unixdate,link,venue,title,type1);
     }
 
-    function writeUserData(date,time,title,venue,link, type){
+    function writeUserData(unixdate,link,venue,title,type1){
         console.log("3");
-        firebase.database().ref('Core/' + userID).set({
-        id: userID,
-        link: link,
-        location: location, 
-        time: time, 
+        var newMeetingKey = firebase.database().ref().child('Alerts/Core/').push().key;
+        firebase.database().ref('Alerts/Core/').push({
+        id: newMeetingKey,
+        date: unixdate,
         title: title,
-        type: type
+        location: venue, 
+        link: link,
+        type: type1
     });
     }
 
-
+    $("#newMeetingForm").submit(function(e) {
+      e.preventDefault();
+    });
+    
