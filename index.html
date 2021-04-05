@@ -15,6 +15,7 @@
       rel="stylesheet"
       href="webfontkit-20201125-062530/stylesheet.css"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="icons/favicon.png" />
     <!-- title -->
@@ -48,7 +49,7 @@
       <h2>Admin Login</h2>
       <h4>Login for only Admin/Board Members</h4>
       <br /><br /><br />
-      <form role="form">
+      <form role="form" id="signinForm">
         <label class="user" for="userid">User ID:</label>
         <input
           type="text"
@@ -67,7 +68,7 @@
         />
         <i class="far fa-eye" id="togglePassword"></i>
         <br /><br /><br />
-        <button class="login-btn" onclick="login()">Login</button>
+        <button class="login-btn" type="submit">Login</button>
         <!-- <button class="login-btn" id="logout" onclick="signOut()">Out</button> -->
       </form>
     </div>

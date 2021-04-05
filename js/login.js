@@ -31,19 +31,30 @@ togglePassword.addEventListener("click", function (e) {
 //Authentication - Firebase - Login 
 const auth = firebase.auth();
 
+document.getElementById("signinForm").addEventListener('submit', login);
+
 function login(){
-    var loginID = document.getElementById("loginID");
-    var loginPass = document.getElementById("loginPass");
-    
-        
-    const promise = auth.signInWithEmailAndPassword(loginID.value, loginPass.value);
-    promise.catch(e => alert(e.message));
+    var ref = firebase.database().ref().child("Users");
+    var loginID = document.getElementById("loginID").value;
+    var loginPass = document.getElementById("loginPass").value;
+    ref.orderByChild("email").equalTo(loginID).on("child_added", function(snapshot) {
+      console.log(snapshot.key);
+      console.log(snapshot.val().isAdmin);
+      var admin = snapshot.val().isAdmin;
+      if (admin == true){
+        const promise = auth.signInWithEmailAndPassword(loginID, loginPass);
+        promise.catch(e => alert(e.message));
+      }
+      else if (admin == false){
+        alert("Hehe");
+      }
+    });
 }
 
 auth.onAuthStateChanged(function(user){
     if(user){
-        alert('hi');
         //window.location.replace("new-meeting.html");
+        alert("User is signed in");
         //is signed in
     }else{   
         alert("User not found");
@@ -57,45 +68,8 @@ function logout(){
   console.log("signed out");
   window.location.replace("index.html");
 }
-/*
-//Test Code
-firebase.database().ref('Users/' + uid + '/isAdmin').on('value', (snapshot)=>{
-  console.log(snapshot.val())
-})
 
 
-var fb = firebase.database.ref();
-
-/**
- * @param {string} loginID
- * @return {Object} the object contains zero or more user records, the keys are the users' ids
- */
-/*
-function findUsersMatchingEmail( loginID, callback ) {
-    fb.child('Users').orderByChild('email').equalTo(loginID).once('value', function(snap) {
-        callback( snap.val() );
-    });
-}
-
-*/
-
-// var ref = firebase.database().ref();
-
-// ref.on("value", function(snapshot) {
-//    console.log(snapshot.val());
-// }, function (error) {
-//    console.log("Error: " + error.code);
-// });
-
-
-firebase.database().ref().child("Users").on("value", function (snapshot) {
-  snapshot.forEach(function(childSnapshot) {
-   var name=childSnapshot.val().name;
-   console.log(name);
-  });
+$("#signinForm").submit(function(e) {
+  e.preventDefault();
 });
-
-// var loginID = document.getElementById("")
-// function findAdmin(loginID, callback){
-
-// }
