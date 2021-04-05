@@ -1,32 +1,31 @@
-.right{
-    padding-top: 160px;
+.right {
+  padding-top: 160px;
 }
-
 
 /*New Meeting Inputs */
-label.date{
-    padding-right: 2%;
-    font-size: 16px;
+label.date {
+  padding-right: 2%;
+  font-size: 16px;
 }
-label.time{
-    padding-right: 2%;
-    font-size: 16px;
+label.time {
+  padding-right: 2%;
+  font-size: 16px;
 }
-label.title{
-    padding-right: 3%;
-    font-size: 16px;
+label.title {
+  padding-right: 3%;
+  font-size: 16px;
 }
-label.venue{
-    font-size: 16px;
+label.venue {
+  font-size: 16px;
 }
-label.link{
-    padding-right: 3%;
-    font-size: 16px;
+label.link {
+  padding-right: 3%;
+  font-size: 16px;
 }
 
-.add-teams-text{
-    margin-right: 82%;
+.add-teams-text {
+  margin-right: 82%;
 }
-.post-meeting-btn{
-    margin-left: 45%;
+.post-meeting-btn {
+  margin-left: 45%;
 }

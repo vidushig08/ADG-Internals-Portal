@@ -1,6 +1,6 @@
 /* MOM Page */
 
-.middle-mom{
+.middle-mom {
   width: 82%;
   float: right;
   height: 100vh;
@@ -9,53 +9,53 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
-#choosemeeting{
-    width: 500px;
-    height: 32px;
-    font-size: 14px;
-    padding: 1%;
-    border: solid 1px #000000;
-    border-radius: 5px;
-    outline: none;
-  }
-  textarea{
-    width: 500px;
-    height: 65px;
-    font-size: 14px;
-    padding: 1%;
-    border: solid 1px #000000;
-    border-radius: 5px;
-    outline: none;
-  }
+#choosemeeting {
+  width: 500px;
+  height: 32px;
+  font-size: 14px;
+  padding: 1%;
+  border: solid 1px #000000;
+  border-radius: 5px;
+  outline: none;
+}
+textarea {
+  width: 500px;
+  height: 65px;
+  font-size: 14px;
+  padding: 1%;
+  border: solid 1px #000000;
+  border-radius: 5px;
+  outline: none;
+}
 
-  /* Inputs for New MOM Form */
-  label.choosemeeting{
-    padding-right: 16px;
-    font-size: 16px;
-  }
-  label.header{
-    padding-right: 76.53px;
-    font-size: 16px;
-  }
-  label.point{
-    padding-right: 81.7px;
-    font-size: 16px;
-  }
-  .addpoint{
-    width: 135px;
-    height: 30px;
-    margin-left: 540px;
-  }
-  .addpoint:hover{
-    cursor: pointer;
-  }
-  .post-mom-btn{
-    width: 240px;
-    height: 40px;
-    background-color: #0091fb;
-    border-radius: 10px;
-    border: white;
-    color: white;
-    font-size: 18px;
-    margin-left: 52%;
-  }
+/* Inputs for New MOM Form */
+label.choosemeeting {
+  padding-right: 16px;
+  font-size: 16px;
+}
+label.header {
+  padding-right: 76.53px;
+  font-size: 16px;
+}
+label.point {
+  padding-right: 81.7px;
+  font-size: 16px;
+}
+.addpoint {
+  width: 135px;
+  height: 30px;
+  margin-left: 540px;
+}
+.addpoint:hover {
+  cursor: pointer;
+}
+.post-mom-btn {
+  width: 240px;
+  height: 40px;
+  background-color: #0091fb;
+  border-radius: 10px;
+  border: white;
+  color: white;
+  font-size: 18px;
+  margin-left: 52%;
+}
