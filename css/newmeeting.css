@@ -1,23 +1,7 @@
 .right{
-    padding-top: 12%;
+    padding-top: 160px;
 }
-.one,.two,.two-meeting{
-    width: 40%;
-}
-.one{
-    float: left;
-    margin-top: -5%;
-    margin-left: 15%;
-}
-.two{
-    float: right;
-    margin-top: -5%;
-    margin-right: 5%;
-}
-.two-meeting{
-    float: right;
-    margin-right: 15%;
-}
+
 
 /*New Meeting Inputs */
 label.date{
@@ -41,7 +25,7 @@ label.link{
 }
 
 .add-teams-text{
-    margin-right: 60%;
+    margin-right: 82%;
 }
 .post-meeting-btn{
     margin-left: 45%;

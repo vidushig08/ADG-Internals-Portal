@@ -7,6 +7,7 @@
     <!-- css links -->
     <link type="text/css" rel="stylesheet" href="css/login.css" />
     <link type="text/css" rel="stylesheet" href="css/newmeeting.css" />
+    <link type="text/css" rel="stylesheet" href="css/checkbox.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link type="text/css" rel="stylesheet" href="webfontkit-20201125-062530/stylesheet.css" />
 
@@ -93,26 +94,50 @@
         <div class="right">
             <h3 class="add-teams-text">Add Teams</h3>
             <br><br>
-            <div class="one">
-                <input type="radio" name="t" value="core" /> Core
-                <br><br>
-                <input type="radio" name="t" value="ios" /> iOS
-                <br><br>
-                <input type="radio" name="t" value="android" /> Android
-                <br><br>
-                <input type="radio" name="t" value="web" /> Web
-                <br><br>
-                <input type="radio" name="t" value="ml" /> Machine Learning
-                <br><br>
-                <input type="radio" name="t" value="design" /> Design
-                <br><br><br>
-            </div>
-            <div class="two">
-                <input type="radio" name="t" value="social" /> Social Media & Marketing
-                <br><br>
-                <input type="radio" name="t" value="sponsorships" /> Sponsorships
-                <br><br>
-                <input type="radio" name="t" value="logistics" /> Logistics
+            <div class="container">
+                <ul class="ks-cboxtags">
+                    <li>
+                        <input type="radio" id="checkboxOne" name="t" value="Rainbow Dash">
+                        <label for="checkboxOne">Core</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="checkboxTwo" name="t" value="Cotton Candy">
+                        <label for="checkboxTwo">iOS</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="checkboxThree" name="t" value="Rarity">
+                        <label for="checkboxThree">Web</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="checkboxFour" name="t" value="Moondancer">
+                        <label for="checkboxFour">Android</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="checkboxFive" name="t" value="Surprise">
+                        <label for="checkboxFive">ML</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="checkboxSix" name="t" value="Twilight Sparkle">
+                        <label for="checkboxSix">Design</label>
+                    </li>
+                    <br>
+                    <li>
+                        <input type="radio" id="checkboxSeven" name="t" value="Fluttershy">
+                        <label for="checkboxSeven">Logistics</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="checkboxEight" name="t" value="Derpy Hooves">
+                        <label for="checkboxEight">Sponsorships</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="checkboxNine" name="t" value="Princess Celestia">
+                        <label for="checkboxNine">Marketing</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="checkboxTen" name="t" value="Gusty">
+                        <label for="checkboxTen">Video Editing</label>
+                    </li>
+                </ul>
             </div>
             <button class="post-meeting-btn" id="post-meeting-btn" type="submit" onclick="readData()">Post Meeting</button>
         </div>
