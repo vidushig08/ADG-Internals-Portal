@@ -70,10 +70,9 @@ function AddItemsToTable(member){
   var trow = document.createElement('tr');
   var td1 = document.createElement('label');
   td1.innerHTML = member;
-  var checkbox = document.getElementById("check");
-  //var cbm = document.createElement('input');
-  //cbm.innerHTML = member;
-  checkbox.appendChild(td1);
+  var x = document.createElement("INPUT");
+  x.setAttribute("type", "checkbox");
+  trow.appendChild(x);
   trow.appendChild(td1);
   table.appendChild(trow);
 }

@@ -109,6 +109,15 @@
           <label for="name" class="link">Link:</label>
           <input type="url" id="link" name="link" />
         </div>
+        <br><br>
+        <button
+          class="post-meeting-btn"
+          id="post-meeting-btn"
+          type="submit"
+          onclick="readData()"
+        >
+          Post Meeting
+        </button>
       </div>
 
       <div class="right">
@@ -119,8 +128,9 @@
               <input
                 type="radio"
                 id="checkboxOne"
-                name="t"
-                value="Rainbow Dash"
+                name="t[]"
+                data-value=""
+                data-id="teams"
               />
               <label for="checkboxOne">Core</label>
             </li>
@@ -128,34 +138,49 @@
               <input
                 type="radio"
                 id="checkboxTwo"
-                name="t"
-                value="Cotton Candy"
+                name="t[]"
+                data-value="0" 
+                data-id="teams"
               />
               <label for="checkboxTwo">iOS</label>
             </li>
             <li>
-              <input type="radio" id="checkboxThree" name="t" value="Rarity" />
+              <input 
+              type="radio" 
+              id="checkboxThree" 
+              name="t[]"
+              data-value="1" 
+              data-id="teams"
+              />
               <label for="checkboxThree">Web</label>
             </li>
             <li>
               <input
                 type="radio"
                 id="checkboxFour"
-                name="t"
-                value="Moondancer"
+                name="t[]"
+                data-value="2" 
+                data-id="teams"
               />
               <label for="checkboxFour">Android</label>
             </li>
             <li>
-              <input type="radio" id="checkboxFive" name="t" value="Surprise" />
+              <input 
+              type="radio" 
+              id="checkboxFive" 
+              name="t[]"
+              data-value="3" 
+              data-id="teams"
+              />
               <label for="checkboxFive">ML</label>
             </li>
             <li>
               <input
                 type="radio"
                 id="checkboxSix"
-                name="t"
-                value="Twilight Sparkle"
+                name="t[]"
+                data-value="7" 
+                data-id="teams"
               />
               <label for="checkboxSix">Design</label>
             </li>
@@ -164,8 +189,9 @@
               <input
                 type="radio"
                 id="checkboxSeven"
-                name="t"
-                value="Fluttershy"
+                name="t[]"
+                data-value="4" 
+                data-id="teams"
               />
               <label for="checkboxSeven">Logistics</label>
             </li>
@@ -173,8 +199,9 @@
               <input
                 type="radio"
                 id="checkboxEight"
-                name="t"
-                value="Derpy Hooves"
+                name="t[]"
+                data-value="5" 
+                data-id="teams"
               />
               <label for="checkboxEight">Sponsorships</label>
             </li>
@@ -182,13 +209,19 @@
               <input
                 type="radio"
                 id="checkboxNine"
-                name="t"
-                value="Princess Celestia"
+                name="t[]"
+                data-value="6" 
+                data-id="teams"
               />
               <label for="checkboxNine">Marketing</label>
             </li>
             <li>
-              <input type="radio" id="checkboxTen" name="t" value="Gusty" />
+              <input 
+              type="radio" 
+              id="checkboxTen" 
+              name="t[]" 
+              data-value="8" 
+              data-id="teams"/>
               <label for="checkboxTen">Video Editing</label>
             </li>
           </ul>
@@ -203,32 +236,22 @@
           <!-- Modal content -->
           <div class="modal-content">
             <span class="close">&times;</span>
-              <input type="checkbox" name="" id=""><label for="">one</label><br>
-              <input type="checkbox" name="" id=""><label for="">two</label><br>
-              <input type="checkbox" name="" id=""><label for="">three</label><br>
-              <input type="checkbox" name="" id=""><label for="">four</label><br>
-              <input type="checkbox" name="" id=""><label for="">five</label><br>
-              <input type="checkbox" name="" id=""><label for="">six</label><br>
-              <input type="checkbox" name="" id=""><label for="">seven</label><br>
-              <input type="checkbox" name="" id=""><label for="">eight</label><br>
-              <input type="checkbox" name="" id=""><label for="">nine</label><br>
-              <input type="checkbox" name="" id=""><label for="">ten</label><br>
-              <input type="checkbox" id="check">
+            <input type="checkbox" name="" id="all">
+            <label for="">Select All</label>
+            <div class="fetchmemberslist">
               <table id="memberslist">
-                
+                <td>
+                  <tr>
+                    
+                  </tr>
+                </td>
               </table>
-            <button class="add">Add</button><br><br>
+            </div>
+            <br>
+            <button class="add">Add</button>
           </div>
         </div>
         <br><br>
-        <button
-          class="post-meeting-btn"
-          id="post-meeting-btn"
-          type="submit"
-          onclick="readData()"
-        >
-          Post Meeting
-        </button>
       </div>
     </form>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
