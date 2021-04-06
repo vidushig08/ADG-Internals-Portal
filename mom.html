@@ -106,14 +106,20 @@
           <textarea name="header" id="header"></textarea>
           <br /><br />
 
+          <label for="time" class="time">Time</label>
+          <input type="datetime-local" id="time" />
+          <br /><br />
+
           <div class="newpoint" id="newpoint">
-            <label for="name" class="point">Point 1:</label>
-            <textarea name="point1" id="p1"></textarea><br /><br />
+            <label for="p1" class="point">Point 1:</label>
+            <textarea class="p" name="point1" id="p1"></textarea><br /><br />
           </div>
           <!--<button type="button" id="plus">+ Add Point</button>-->
           <img src="icons/addpoint.svg" class="addpoint" id="plus" alt="" />
           <br /><br /><br />
-          <button class="post-mom-btn">Post MOM</button>
+          <button class="post-mom-btn" onclick="handleSubmit(event)">
+            Post MOM
+          </button>
         </div>
       </form>
     </div>

@@ -4,9 +4,15 @@ $(function () {
   function addMore() {
     id++;
     $("#newpoint").append(
-      '<label for="name" class="point">Point ' + id + ":</label>"
+      '<label for="p' + id + '" class="point">Point ' + id + ":</label>"
     );
-    $("#newpoint").append('<textarea name="point1"></textarea><br><br>');
+    $("#newpoint").append(
+      '<textarea class="p" name="point' +
+        id +
+        '" id="p' +
+        id +
+        '"></textarea><br><br>'
+    );
     console.log(id);
   }
   $("#plus").click(addMore);
@@ -36,7 +42,7 @@ const renderMeetings = async () => {
   TeamsMeetings = Teams.map(
     (t) =>
       `<option value="${t.id}">
-        ${t.title} ${new Date(t.time * 1000).toLocaleDateString()}
+        ${t.title} on ${new Date(t.time * 1000).toLocaleDateString()}
       </option>`
   );
 
@@ -46,7 +52,7 @@ const renderMeetings = async () => {
   CoreMeetings = Core.map(
     (c) =>
       `<option value="${c.id}">
-        ${c.title} ${new Date(c.time * 1000).toLocaleDateString()}
+        ${c.title} on ${new Date(c.time * 1000).toLocaleDateString()}
       </option>`
   );
   console.log(Teams, Core);
@@ -55,6 +61,31 @@ const renderMeetings = async () => {
 };
 
 renderMeetings();
+
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  const meeting = document.getElementById("choosemeeting");
+  const id = meeting.value;
+  const title = meeting.options[meeting.selectedIndex].text;
+  const header = document.getElementById("header").value;
+  let time = document.getElementById("time").value;
+  time = Math.round(new Date(time).getTime() / 1000).toString();
+  let points = [];
+  const pointEls = document.getElementsByClassName("p");
+  for (point of pointEls) {
+    points.push(point.value);
+  }
+
+  console.log(id, title, header, time, points);
+  const newMoM = await fetch(
+    "https://internals-app-c0391.firebaseio.com/MOMS.json",
+    {
+      method: "POST",
+      body: JSON.stringify({ id, title, header, points, time }),
+    }
+  );
+  console.log(newMoM);
+};
 
 // const getUsers = async () => {
 //   try {
