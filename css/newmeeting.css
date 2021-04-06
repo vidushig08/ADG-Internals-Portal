@@ -1,7 +1,19 @@
 .right {
   padding-top: 160px;
 }
-
+.add-teams-text{
+text-align: left;
+padding-bottom: 5px;
+}
+.add-members{
+  padding-bottom: 5px;
+}
+.plus{
+  align-items: center;
+  text-align: center;
+  height: 30px;
+  width: 30px;
+}
 /*New Meeting Inputs */
 label.date {
   padding-right: 2%;
@@ -21,10 +33,6 @@ label.venue {
 label.link {
   padding-right: 3%;
   font-size: 16px;
-}
-
-.add-teams-text {
-  margin-right: 82%;
 }
 .post-meeting-btn {
   margin-left: 45%;
