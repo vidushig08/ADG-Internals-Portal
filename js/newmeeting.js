@@ -1,4 +1,7 @@
 // Your web app's Firebase configuration
+
+//const { default: firebase } = require("firebase");
+
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
     apiKey: "AIzaSyATTBiIr3ejGcjXlpLz_mIFV-D3uTv_hnU",
@@ -45,3 +48,32 @@
       e.preventDefault();
     });
     
+//Fetching Data in a table in Modal
+
+function SelectAllData(){
+  firebase.database().ref('Users').once('value',
+  function(AllRecords){
+    AllRecords.forEach(
+      function(CurrentRecord){
+        var member = CurrentRecord.val().name;
+        AddItemsToTable(member);
+      }
+    );
+  });
+}
+window.onload = SelectAllData;
+
+//Filling the table 
+
+function AddItemsToTable(member){
+  var table = document.getElementById('memberslist');
+  var trow = document.createElement('tr');
+  var td1 = document.createElement('label');
+  td1.innerHTML = member;
+  var checkbox = document.getElementById("check");
+  //var cbm = document.createElement('input');
+  //cbm.innerHTML = member;
+  checkbox.appendChild(td1);
+  trow.appendChild(td1);
+  table.appendChild(trow);
+}
