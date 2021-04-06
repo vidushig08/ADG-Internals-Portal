@@ -141,3 +141,34 @@ h3.add-teams-text {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+@media only screen and (max-width: 800px) {
+  
+  .middle, .right, .right-1,.right-2{
+    width: 100%  !important;
+    height: auto !important;
+    display: block;
+    float: none;
+  }
+  .right{
+    padding-top: 0%;
+  }
+  .right-1{
+    padding-bottom: 0%;
+  }
+  .right-2{
+    margin-top: 0%;
+    padding-top: 0%;
+  }
+  .add-teams-text{
+    width: 100%;
+    padding-right: 0 !important;
+    margin: 0;
+    text-align: left;
+  }
+  .signup-btn{
+    margin-left: 14%;
+    margin-top: 0%;
+    align-items: center;
+  }
+}
