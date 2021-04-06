@@ -1,8 +1,9 @@
-.members {
+/* .members { 
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
 }
+*/
 
 .add-task-btn {
   width: 240px;

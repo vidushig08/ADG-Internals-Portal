@@ -8,11 +8,19 @@ padding-bottom: 5px;
 .add-members{
   padding-bottom: 5px;
 }
-.plus{
-  align-items: center;
-  text-align: center;
+#myBtn{
+  background-color: #0091FB;
+  color: white;
+  border: none;
+  border-radius: 20px;
   height: 30px;
   width: 30px;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+#myBtn:hover{
+  cursor: pointer;
+  border: none;
 }
 /*New Meeting Inputs */
 label.date {
@@ -35,5 +43,5 @@ label.link {
   font-size: 16px;
 }
 .post-meeting-btn {
-  margin-left: 45%;
+  margin-left: 0;
 }

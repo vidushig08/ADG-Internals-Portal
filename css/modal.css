@@ -21,6 +21,7 @@
     border: 1px solid #888;
     width: 35%;
     border-radius: 20px;
+    height: 80%;
 }
   
 /* The Close Button */
@@ -42,4 +43,8 @@
 }
 #myBtn{
     display: inline-block;
+}
+.fetchmemberslist{
+    overflow-x: auto;
+    overflow-y: scroll;
 }
