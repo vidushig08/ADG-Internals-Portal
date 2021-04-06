@@ -38,13 +38,13 @@ signupPassConfirm.onkeyup = validatePassword;
   function regValidation(){
     var regNoCheck = document.getElementById("signupRegno").value;
     var n = regNoArr.includes(regNoCheck);
-    if(!n){
-      alert("You are not a member of ADG");
-      return false;
+    var i = regNoArr.indexOf(regNoCheck);
+    var emailCheck = document.getElementById("signupEmail").value;
+    if (emailArr[i] == emailCheck){
+        handleData();
     }
     else{
-      handleData();
-      return true;
+        alert("You are not a member of ADG");
     }
   }
 
@@ -101,13 +101,11 @@ function waitTime(){
     var x;
     let bestFuture = Boolean(x);
     var isAdmin = Boolean(x);
-    var teamArr = {};
+    var teamArr = [];
     $("input").each(function(index, el) {
       if (el.checked) {
-        var id = $(el).data("id");
         var val = $(el).data("value");
-        if (!teamArr[id]) teamArr[id] = [];
-        teamArr[id].push(val);
+        teamArr.push(val);
       }
     });
     console.log(name);
