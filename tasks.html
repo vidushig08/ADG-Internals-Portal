@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- css links -->
-    <link type="text/css" rel="stylesheet" href="css/login.css" />
+    <link type="text/css" rel="stylesheet" href="css/navbar.css" />
     <link type="text/css" rel="stylesheet" href="css/newmeeting.css" />
-    <link rel="stylesheet" href="./css/tasks.css" />
+    <link rel="stylesheet" href="css/tasks.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -105,19 +105,22 @@
 
           <label for="venue" class="venue">Venue:</label>
           <input type="text" id="venue" name="venue" /><br /><br />
+
+          <label for="link" class="link">Link:</label>
+          <input type="url" id="link" name="link" /><br /><br />
         </div>
+        <button class="add-task-btn">Post Task</button>
       </div>
 
       <div class="right">
-        <h3 class="add-teams-text">Add Members</h3>
-        <br />
+        <h3 class="add-members">Add Members
+          <button id="myBtn">+</button>
+        </h3><br>
+
         <div class="members">
           <div>
             <input type="text" name="search" id="search" />
             <div id="member-list"></div>
-          </div>
-          <div>
-            <button class="add-task-btn">Post Task</button>
           </div>
         </div>
       </div>
