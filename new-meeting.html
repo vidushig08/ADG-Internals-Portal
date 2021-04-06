@@ -8,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="css/navbar.css" />
     <link type="text/css" rel="stylesheet" href="css/newmeeting.css" />
     <link type="text/css" rel="stylesheet" href="css/checkbox.css" />
+    <link type="text/css" rel="stylesheet" href="css/modal.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -192,9 +193,31 @@
             </li>
           </ul>
         </div>
-        <h3 class="add-members">Add Members &nbsp;
-          <a href=""><img src="icons/plusicon.svg" class="plus" alt=""></a>
-        </h3>
+
+        <span style="display: inline;">
+        <h3 class="add-members">Add Members</h3>
+        <button id="myBtn" style="display: inline-block;">+</button>
+        </span>
+        <!-- The Modal -->
+        <div id="myModal" class="modal" style="display: none;">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div>
+              <input type="checkbox" name="" id=""><label for="">one</label><br>
+              <input type="checkbox" name="" id=""><label for="">two</label><br>
+              <input type="checkbox" name="" id=""><label for="">three</label><br>
+              <input type="checkbox" name="" id=""><label for="">four</label><br>
+              <input type="checkbox" name="" id=""><label for="">five</label><br>
+              <input type="checkbox" name="" id=""><label for="">six</label><br>
+              <input type="checkbox" name="" id=""><label for="">seven</label><br>
+              <input type="checkbox" name="" id=""><label for="">eight</label><br>
+              <input type="checkbox" name="" id=""><label for="">nine</label><br>
+              <input type="checkbox" name="" id=""><label for="">ten</label><br>
+            </div>
+            <button class="add">Add</button><br><br>
+          </div>
+        </div>
         <br><br>
         <button
           class="post-meeting-btn"
@@ -218,5 +241,6 @@
     <script src="js/logout.js"></script>
     <script src="js/login.js"></script>
     <script src="js/newmeeting.js"></script>
+    <script src="js/modal.js"></script>
   </body>
 </html>
