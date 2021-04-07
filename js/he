@@ -70,7 +70,7 @@ signupPassConfirm.onkeyup = validatePassword;
       let email = document.getElementById("signupEmail").value;
       let password = document.getElementById("signupPass").value;
       //Create User with Email and Password
-      //var promise = firebase.auth().createUserWithEmailAndPassword(email, password);
+      
       firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
@@ -78,28 +78,24 @@ signupPassConfirm.onkeyup = validatePassword;
       console.log(errorCode);
       alert(errorMessage);
     });
-     waitTime();
-  }
+    /*promise.then(function(user) {// You are forgetting this reference.
+      user.sendEmailVerification().then(function() {
+      // Email sent.
+      console.log("Sent");
+    }, function(error) {
+      // An error happened.
+      console.log("naah");
+    });*/
+//}};
+//});
+    waitTime();
+  }   
 
 function waitTime(){
     var delayInMilliseconds = 2000;
     setTimeout(function() {
-      sendMail();
+      userData();
     }, delayInMilliseconds);
-}
-
-function sendMail(){
-  console.log("mail");
-  var user = firebase.auth().currentUser;
-  console.log(user);
-  user.sendEmailVerification().then(function() {
-    // Email sent.
-    console.log("Sent");
-  }).catch(function(error) {
-    // An error happened.
-    console.log("Not Sent");
-  });
-  userData();
 }
 
   function userData(){
