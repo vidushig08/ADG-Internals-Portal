@@ -4,14 +4,14 @@
 
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
-    apiKey: "AIzaSyATTBiIr3ejGcjXlpLz_mIFV-D3uTv_hnU",
-    authDomain: "internal-demo-f3701.firebaseapp.com",
-    databaseURL: "https://internal-demo-f3701-default-rtdb.firebaseio.com",
-    projectId: "internal-demo-f3701",
-    storageBucket: "internal-demo-f3701.appspot.com",
-    messagingSenderId: "981293967243",
-    appId: "1:981293967243:web:3f3d4c137d12018cb3b18e",
-    measurementId: "G-GMC40LHFBJ"
+    apiKey: "AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ",
+    authDomain: "internals-app-c0391.firebaseapp.com",
+    databaseURL: "https://internals-app-c0391.firebaseio.com",
+    projectId: "internals-app-c0391",
+    storageBucket: "internals-app-c0391.appspot.com",
+    messagingSenderId: "754737704023",
+    appId: "1:754737704023:web:5ec000ba7b9d08cea48712",
+    measurementId: "G-YYZML2JL2J"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -56,7 +56,8 @@ function SelectAllData(){
     AllRecords.forEach(
       function(CurrentRecord){
         var member = CurrentRecord.val().name;
-        AddItemsToTable(member);
+        var meetuserid = CurrentRecord.val().uid;
+        AddItemsToTable(member, meetuserid);
       }
     );
   });
@@ -65,14 +66,39 @@ window.onload = SelectAllData;
 
 //Filling the table 
 
-function AddItemsToTable(member){
+function AddItemsToTable(member, meetuserid){
   var table = document.getElementById('memberslist');
   var trow = document.createElement('tr');
   var td1 = document.createElement('label');
   td1.innerHTML = member;
   var x = document.createElement("INPUT");
+  console.log(x);
   x.setAttribute("type", "checkbox");
+  //x.setAttribute("id", "human");
+  x.setAttribute("data-value", meetuserid);
+  console.log("5");
+  console.log(meetuserid);
   trow.appendChild(x);
   trow.appendChild(td1);
   table.appendChild(trow);
+}
+
+function test(){
+  var meetuserArr = [];
+    $("input[type='checkbox']").each(function(index, el) {
+      if (el.checked) {
+        var val = $(el).data("value");
+        meetuserArr.push(val);
+      }
+    });
+    console.log(meetuserArr);
+
+    var meetteamArr = [];
+    $("input[type='radio']").each(function(index, el) {
+      if (el.checked) {
+        var val = $(el).data("value");
+        meetteamArr.push(val);
+      }
+    });
+    console.log(meetteamArr);
 }
