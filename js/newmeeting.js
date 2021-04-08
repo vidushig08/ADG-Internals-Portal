@@ -69,7 +69,8 @@ window.onload = SelectAllData;
 function AddItemsToTable(member, meetuserid){
   var table = document.getElementById('memberslist');
   var trow = document.createElement('tr');
-  var td1 = document.createElement('label');
+  //Changed from Label to th
+  var td1 = document.createElement('th');
   td1.innerHTML = member;
   var x = document.createElement("INPUT");
   console.log(x);
@@ -101,4 +102,24 @@ function test(){
       }
     });
     console.log(meetteamArr);
+}
+
+
+function searchTable() {
+  var input, filter, table, tr, th, i, txtValue;
+  input = document.getElementById("searchBar");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("memberslist");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    th = tr[i].getElementsByTagName("th")[0];
+    if (th) {
+      txtValue = th.textContent || th.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
 }
