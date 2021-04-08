@@ -8,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="css/navbar.css" />
     <link type="text/css" rel="stylesheet" href="css/newmeeting.css" />
     <link rel="stylesheet" href="css/tasks.css" />
+    <link rel="stylesheet" href="css/modal.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -117,14 +118,40 @@
           <button id="myBtn">+</button>
         </h3><br>
 
+        <!-- The Modal -->
+        <div id="myModal" class="modal" style="display: none;">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            
+            <div class="fetchmemberslist">
+              <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for names.." title="Type in a name"><br>
+              <table id="memberslist">
+                <td>
+                  <tr>
+                    <input type="checkbox" name="" id="all">
+                    <label for="">Select All</label>
+                  </tr>
+                </td>
+              </table>
+            </div>
+            <br>
+            <button class="add" onclick="test()">Add</button>
+          </div>
+        </div>
+        <!-- Modal Ends -->
+
         <div class="members">
           <div>
             <input type="text" name="search" id="search" />
-            <div id="member-list"></div>
+            <div id="member-list">
+              
+            </div>
           </div>
         </div>
       </div>
     </form>
+    <script src="./js/tasks.js"></script>
+    <script src="./js/modal.js"></script>
   </body>
-  <script src="./js/tasks.js"></script>
 </html>

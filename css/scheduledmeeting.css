@@ -11,16 +11,18 @@
 .available{
     float: left;
     background-color:blue;
-    width: 320px;
+    width: 50%;
     height: 100vh;
+    padding-left: 5%;
 }
 .unavailable{
     float: right;
     background-color:red;
-    width: 320px;
+    width: 50%;
     align-items: left;
     text-align: left;
     height: 100vh;
+    padding-left: 5%;
 }
 .meeting{
     padding: 15px;
