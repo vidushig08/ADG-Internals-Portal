@@ -117,6 +117,7 @@
       console.log(x);
       x.setAttribute("type", "checkbox");
       x.setAttribute("class", "human");
+      x.setAttribute("name", "item[]");
       x.setAttribute("data-value", meetuserid);
       console.log("5");
       console.log(meetuserid);
@@ -147,6 +148,7 @@ function searchTable() {
 }
 
 //Select All Checkboxes in Modal
+/*
 function checkAll(ele) {
   //var checkboxes = document.getElementsByTagName('input');
   var checkboxes = document.getElementsByClassName('human');
@@ -166,6 +168,7 @@ function checkAll(ele) {
   }
 }
 
+*/
 
 function test(){
   var meetuserArr = [];
@@ -219,4 +222,18 @@ function readData() {
   //Prevent form from refreshing on submit
   $("#newMeetingForm").submit(function(e) {
     e.preventDefault();
+  });
+
+
+  $(document).ready(function () {
+    $("#checkAll").change(function () {
+      $("input:checkbox").prop('checked', $(this).prop("checked"));
+    });
+    $('.human').on('click', function () {
+      if ($('.human:checked').length == $('.human').length) {
+        $('#checkAll').prop('checked', true);
+      } else {
+        $('#checkAll').prop('checked', false);
+      }
+    });
   });
