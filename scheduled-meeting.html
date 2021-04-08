@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- css links -->
         <link type="text/css" rel="stylesheet" href="css/navbar.css" />
+        <link type="text/css" rel="stylesheet" href="css/scheduledmeeting.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link type="text/css" rel="stylesheet" href="webfontkit-20201125-062530/stylesheet.css" />
         <!-- Favicon -->
@@ -66,17 +67,35 @@
     <div class="middle">
         <h2>Meetings</h2>
         <h4>Already Scheduled Meetings</h4>
-        <br><br><br>
+        <br><br>
+        <div class="fetchedMeetings">
+            <div class="meeting">
+                <p class="bold">Core Meeting
+                    <a class="post" href="">Post Attendance</a>
+                </p>
+                <p>08 Mar 2021, 09 PM</p>
+            </div>
+            <div class="meeting">
+                <p class="bold">Core Meeting
+                    <a class="post" href="">Attendance Posted</a>
+                </p>
+                <p>08 Mar 2021, 09 PM</p>
+            </div>
+            <div class="meeting">
+                <p class="bold">Core Meeting</p>
+                <p>08 Mar 2021, 09 PM</p>
+            </div>
+        </div>
     </div>
 
-    <div class="right">
-            <div class="one">
-                <h3>Acknowledged</h3>  
-            </div>
+    <div class="right" style="display: none;">
+        <div class="available">
+            <h3>Acknowledged</h3>  
+        </div>
             
-            <div class="two-meeting">
-                <h3>Unavailable</h3>
-            </div>
+        <div class="unavailable">
+            <h3>Unavailable</h3>
+        </div>
     </div>
 </body>
 </html>
