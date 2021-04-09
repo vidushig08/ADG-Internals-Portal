@@ -60,7 +60,60 @@ ul.ks-cboxtags li input[type="radio"] {
   position: absolute;
   opacity: 0;
 }
-ul.ks-cboxtags li input[type="radio"]:focus + label {
-  /* border: 1px solid #0091FB; */
+
+/*ul.ks-cboxtags li input[type="radio"]:focus + label {
+  /* border: 1px solid #0091FB; 
   ;
+}*/
+/*
+.pill{
+    display: inline-block;
+    background-color: #F2F2F2;
+    /*border: 1px solid black; 
+    color:black;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 3px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+    font-weight: normal !important; 
+}
+*/
+.pill {
+  background-color: #0091FB;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  margin: 3px 3px;
+  cursor: pointer;
+  border-radius: 25px;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 24px;
+  cursor: default;
+}
+
+div.selectedMembers{
+  width: 80%;
+  height: 53%;
+  overflow-y: scroll;
+}
+
+
+.selectedMembers::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.selectedMembers {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

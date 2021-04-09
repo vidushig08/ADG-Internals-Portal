@@ -62,11 +62,11 @@
       var span = document.getElementsByClassName("close")[0];
 
       // When the user clicks the button, open the modal 
-        modal.style.display = "block";
+      modal.style.display = "block";
 
       // When the user clicks on <span> (x), close the modal
       span.onclick = function() {
-        modal.style.display = "none";
+      modal.style.display = "none";
       }
 
       // When the user clicks anywhere outside of the modal, close it
@@ -119,6 +119,7 @@
       x.setAttribute("class", "human");
       x.setAttribute("name", "item[]");
       x.setAttribute("data-value", meetuserid);
+      x.setAttribute("value", member);
       console.log("5");
       console.log(meetuserid);
       trow.appendChild(x);
@@ -173,15 +174,37 @@ function checkAll(ele) {
 //To display names of chosen members
 function test(){
   var meetuserArr = [];
+  // var nameuserArr = [];
     $("input[type='checkbox']").each(function(index, el) {
       if (el.checked) {
         var val = $(el).data("value");
+        //var mname = $(el).data("value");
         meetuserArr.push(val);
+        //nameuserArr.push(mname);
       }
     });
     console.log(meetuserArr);
 
-    var meetteamArr = [];
+   /*var nameuserArr = [];
+    $("input[type='checkbox']").each(function(index, el) {
+      if (el.checked) {
+        var mname = $(el).data("value");
+        nameuserArr.push(mname);
+      }
+    });
+    console.log(nameuserArr);*/
+
+    var nameuserArr = $("input[name='item[]']:checked").map(function () {
+      return this.value;
+    }).get();
+    console.log(nameuserArr);
+
+    nameuserArr.forEach(el => {
+         document.getElementById('selectedMembers').innerHTML +=`<button class="pill">${el}</button>`;
+         // here result is the id of the div present in the dom
+      });
+
+      var meetteamArr = [];
     $("input[type='radio']").each(function(index, el) {
       if (el.checked) {
         var val = $(el).data("value");
@@ -189,7 +212,10 @@ function test(){
       }
     });
     console.log(meetteamArr);
-}
+   };
+
+    
+
 
 //To read values of the form
 function readData() {
@@ -228,7 +254,7 @@ function readData() {
 
   $(document).ready(function () {
     $("#checkAll").change(function () {
-      $("input:checkbox").prop('checked', $(this).prop("checked"));
+      $("input.human").prop('checked', $(this).prop("checked"));
     });
     $('.human').on('click', function () {
       if ($('.human:checked').length == $('.human').length) {

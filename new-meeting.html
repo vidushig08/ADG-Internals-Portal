@@ -131,6 +131,7 @@
                 name="t[]"
                 data-value=""
                 data-id="teams"
+                value="z"
               />
               <label for="checkboxOne">Core</label>
             </li>
@@ -163,6 +164,7 @@
                 name="t[]"
                 data-value="2" 
                 data-id="teams"
+                value="2"
               />
               <label for="checkboxFour">Android</label>
             </li>
@@ -173,6 +175,7 @@
               name="t[]"
               data-value="3" 
               data-id="teams"
+              value="3"
               />
               <label for="checkboxFive">ML</label>
             </li>
@@ -183,6 +186,7 @@
                 name="t[]"
                 data-value="7" 
                 data-id="teams"
+                value="7"
               />
               <label for="checkboxSix">Design</label>
             </li>
@@ -194,6 +198,7 @@
                 name="t[]"
                 data-value="4" 
                 data-id="teams"
+                value="4"
               />
               <label for="checkboxSeven">Logistics</label>
             </li>
@@ -204,6 +209,7 @@
                 name="t[]"
                 data-value="5" 
                 data-id="teams"
+                value="5"
               />
               <label for="checkboxEight">Sponsorships</label>
             </li>
@@ -214,6 +220,7 @@
                 name="t[]"
                 data-value="6" 
                 data-id="teams"
+                value="6"
               />
               <label for="checkboxNine">Marketing</label>
             </li>
@@ -223,7 +230,8 @@
               id="checkboxTen" 
               name="t[]" 
               data-value="8" 
-              data-id="teams"/>
+              data-id="teams"
+              value="8"/>
               <label for="checkboxTen">Video Editing</label>
             </li>
           </ul>
@@ -234,8 +242,7 @@
         <button id="myBtn" onclick="handleData1()">+</button>
         </h3>
     
-        <div class="selectedMembers">
-
+        <div class="selectedMembers" id="selectedMembers">
         </div>
         
         <!-- The Modal -->
@@ -244,12 +251,19 @@
           <div class="modal-content">
             <span class="close">&times;</span>
             
+            <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for names.." autofocus title="Type in a name"><br><br>
             <div class="fetchmemberslist">
-              <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for names.." title="Type in a name"><br>
               <table id="memberslist">
-                  <tr>
-                    <th><input type="checkbox" onchange="checkAll(this)" name="chk[]" id="checkAll"/> <label for="">Select All</label>  </th>
-                  </tr>
+                <th><input type="checkbox" id="checkAll" /> Select All</th>
+                
+              <!-- <tr><input class="human" type="checkbox"/> Item 1</tr>
+              <tr><input class="human" type="checkbox"/> Item 2</tr>
+              <tr><input class="human" type="checkbox"/> Item 3</tr>
+              <tr><input class="human" type="checkbox"/> Item 4</tr>
+              <tr><input class="human" type="checkbox"/> Item 5</tr> -->
+                  <!-- <tr>
+                    <th><input type="checkbox" id="checkAll"/> <label for="">Select All</label>  </th>
+                  </tr> -->
               </table>
             </div>
             <br>
