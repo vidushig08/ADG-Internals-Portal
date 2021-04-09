@@ -10,6 +10,7 @@
       <link type="text/css" rel="stylesheet" href="css/signup.css" />
       <link type="text/css" rel="stylesheet" href="webfontkit-20201125-062530/stylesheet.css" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
       <!-- Favicon -->
       <link rel="icon" type="image/png" href="icons/favicon.png" />
       <title>ADG | Admin Portal</title>
@@ -60,7 +61,8 @@
               <input type="text" id="signupContact" name="contact" required maxlength="10"><br><br>
 
               <label class="password" for="password">Password:</label>
-              <input type="password" id="signupPass" name="password1" required><br><br>
+              <input type="password" id="signupPass" name="password1" required>
+              <i class="far fa-eye" id="togglePassword1"></i><br><br>
 
               <label class="confirmpassword" for="password">Confirm Password:</label>
               <input type="password" id="signupPassConfirm" name="password2" required><br><br>
@@ -130,15 +132,6 @@
     
     <script src="js/reg.js"></script>
     <script src="js/signup.js"></script>
-    <!-- <script>    
-      $(document).ready(function(){
-          $("signupForm").submit(function(){
-      if ($('input:checkbox').filter(':checked').length < 1){
-              alert("Check your teams!");
-      return false;
-      }
-          });
-      });
-    </script> -->
+    
   </body>
 </html>

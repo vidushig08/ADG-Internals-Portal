@@ -29,11 +29,11 @@ h4 {
 .middle {
   float: left;
   padding-left: 5%;
-  background-color: rgb(247, 255, 255);
+  background-color: #F4FBFF;
 }
 .right {
   float: left;
-  background-color: rgb(247, 255, 255);
+  background-color: #F4FBFF;
 }
 .left {
   float: left;
@@ -109,7 +109,7 @@ input[type="email"],
 #link,
 #date,
 select {
-  width: 325px;
+  width: 305px;
   height: 32px;
   font-size: 14px;
   padding: 1%;
@@ -151,13 +151,14 @@ button.logout {
 
 button.privacy{
   background-color: #ffffff;
-  border: 0;
+  border: 0.5px solid #000000;
   box-sizing: border-box;
   border-radius: 5px;
-  width: 100%;
+  width: 150px;
   height: auto;
   text-align: center;
   font-weight: 800;
   outline: none;
   cursor: pointer;
+  padding: 2%;
 }

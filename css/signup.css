@@ -28,32 +28,32 @@
 
 /* SignUp Page inputs */
 label.name {
-  padding-right: 110.8px;
+  padding-right: 88.8px;
   font-size: 16px;
 }
 label.email {
-  padding-right: 88.31px;
+  padding-right: 66.31px;
   font-size: 16px;
 }
 label.regno {
-  padding-right: 101.3px;
+  padding-right: 79.3px;
   font-size: 16px;
 }
 label.contact {
-  padding-right: 74.44px;
+  padding-right: 52.44px;
   font-size: 16px;
 }
 label.password {
-  padding-right: 86.04px;
+  padding-right: 64.04px;
   font-size: 16px;
 }
 label.confirmpassword {
-  padding-right: 28.95px;
+  padding-right: 6.95px;
   font-size: 16px;
 }
 #signupType,
 #signupEmail {
-  width: 325px;
+  width: 305px;
   height: 32px;
   font-size: 14px;
   padding: 1%;
@@ -171,4 +171,15 @@ h3.add-teams-text {
     margin-top: 0%;
     align-items: center;
   }
+}
+
+/* Password */
+.fa,
+.far,
+.fas {
+  display: inline;
+}
+i {
+  margin-left: -30px;
+  cursor: pointer;
 }

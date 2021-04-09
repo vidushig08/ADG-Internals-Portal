@@ -52,7 +52,7 @@ function readData() {
       var newMeetingKey = firebase.database().ref().child('Alerts/Core/').push().key;
       firebase.database().ref('Alerts/Core/').push({
       id: newMeetingKey,
-      date: unixdate,
+      time: unixdate,
       title: title,
       location: venue, 
       link: link,
@@ -66,7 +66,7 @@ function readData() {
       var newMeetingKey = firebase.database().ref().child('Alerts/Team/').push().key;
       firebase.database().ref('Alerts/Team/').push({
       id: newMeetingKey,
-      date: unixdate,
+      time: unixdate,
       title: title,
       location: venue, 
       link: link,

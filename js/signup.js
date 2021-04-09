@@ -13,6 +13,22 @@ function validatePassword(){
 signupPass.onchange = validatePassword;
 signupPassConfirm.onkeyup = validatePassword;
 
+
+// JS for Password Visibility
+// fa-eye fa-eye-slash
+const togglePassword1 = document.querySelector("#togglePassword1");
+const password1 = document.querySelector("#signupPass");
+
+togglePassword1.addEventListener("click", function (e) {
+  // toggle the type attribute
+  const type =
+    password1.getAttribute("type") === "password" ? "text" : "password";
+  password1.setAttribute("type", type);
+  // toggle the icon
+  this.classList.toggle("fa-eye-slash");
+});
+
+
 // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
