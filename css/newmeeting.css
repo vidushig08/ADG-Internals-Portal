@@ -44,4 +44,5 @@ label.link {
 }
 .post-meeting-btn {
   margin-left: 0;
+  cursor: pointer;
 }
