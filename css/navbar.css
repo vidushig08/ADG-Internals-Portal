@@ -140,3 +140,24 @@ button.logout {
   outline: none;
   cursor: pointer;
 }
+
+.out1{
+  margin-top: 60vh;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  vertical-align: baseline;
+}
+
+button.privacy{
+  background-color: #ffffff;
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-weight: 800;
+  outline: none;
+  cursor: pointer;
+}
