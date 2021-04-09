@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- css links -->
+
+    <!-- CSS links -->
     <link type="text/css" rel="stylesheet" href="css/navbar.css" />
     <link type="text/css" rel="stylesheet" href="css/newmeeting.css" />
     <link rel="stylesheet" href="css/tasks.css" />
@@ -18,11 +19,18 @@
       rel="stylesheet"
       href="webfontkit-20201125-062530/stylesheet.css"
     />
+
+    <!--jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="icons/favicon.png" />
+
     <!-- title -->
     <title>ADG | Admin Portal</title>
+
   </head>
+
   <body>
     <div class="left">
       <!--NAVBAR Starts-->
@@ -85,9 +93,11 @@
         </ul>
       </nav>
       <!--NAVBAR Ends-->
+
       <div class="out">
         <button class="logout">Log Out</button>
       </div>
+      
     </div>
 
     <form action="">
@@ -115,7 +125,7 @@
 
       <div class="right">
         <h3 class="add-members">Add Members
-          <button id="myBtn">+</button>
+          <button id="myBtn" onclick="openModal()">+</button>
         </h3><br>
 
         <!-- The Modal -->
@@ -127,20 +137,20 @@
             <div class="fetchmemberslist">
               <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for names.." title="Type in a name"><br>
               <table id="memberslist">
-                <td>
                   <tr>
-                    <input type="checkbox" name="" id="all">
-                    <label for="">Select All</label>
+                    <th>
+                      <input type="checkbox" onchange="checkAll(this)" name="chk[]" id="checkAll"/> 
+                      <label for="">Select All</label>  
+                    </th>
                   </tr>
-                </td>
               </table>
             </div>
             <br>
             <button class="add" onclick="test()">Add</button>
           </div>
         </div>
-        <!-- Modal Ends -->
-
+        
+        <!--
         <div class="members">
           <div>
             <input type="text" name="search" id="search" />
@@ -149,9 +159,21 @@
             </div>
           </div>
         </div>
+        -->
       </div>
     </form>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
     <script src="./js/tasks.js"></script>
-    <script src="./js/modal.js"></script>
+    <!-- <script src="./js/newmeeting.js"></script> -->
+    <!-- <script src="./js/modal.js"></script> -->
   </body>
 </html>

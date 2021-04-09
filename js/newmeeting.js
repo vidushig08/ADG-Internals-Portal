@@ -170,6 +170,7 @@ function checkAll(ele) {
 
 */
 
+//To display names of chosen members
 function test(){
   var meetuserArr = [];
     $("input[type='checkbox']").each(function(index, el) {
