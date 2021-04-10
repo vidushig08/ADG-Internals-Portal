@@ -46,6 +46,15 @@ function handleData1()
     span.onclick = function() {
     modal.style.display = "none";
     }
+    // //When the user clicks on add close the modal
+    // button.add.onclick = function() {
+    // modal.style.display = "none";
+    // }
+
+    // var addBtn = document.getElementById("add");
+    // addBtn.onclick = function() {
+    //   modal.style.display = "none";
+    // }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
@@ -171,7 +180,7 @@ var meetuserArr = [];
   console.log(nameuserArr);
 
   nameuserArr.forEach(el => {
-       document.getElementById('selectedMembers').innerHTML +=`<button class="pill">${el}</button>`;
+       document.getElementById('selectedMembers').innerHTML +=`<button class="pill" type="button">${el}</button>`;
        // here result is the id of the div present in the dom
     });
 
@@ -183,6 +192,11 @@ var meetuserArr = [];
       }
     });
     console.log(meetteamArr);
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+    var content = document.getElementById("fetchmemberslist");
+  
+    console.log("Heyya");    
   };
 
 
