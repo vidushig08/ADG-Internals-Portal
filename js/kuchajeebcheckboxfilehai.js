@@ -1,12 +1,4 @@
-/**
- * Public properties:
- *
- * name (string)            : The HTML name of the checkbox group.  You passed this into the constructor.
- *
- * checkboxElements (array) : All checkboxes in the group - in other words, all checkboxes with the name of $groupName.  The select-all checkbox is not considered part of the group.
- *
- * state (string)           : Reflects the checked status of the group as a whole.  Possible values are "none", "some" and "all".
- */
+
  class CheckboxGroup {
 
     /**

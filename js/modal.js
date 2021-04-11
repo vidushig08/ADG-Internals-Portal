@@ -45,7 +45,15 @@ function handleData1()
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
     modal.style.display = "none";
-    }
+    /*var tableDel = document.getElementById('memberslist');
+    //var trowDel = document.getElementById("membertable1");
+    //trowDel.remove();   
+    for (var i = 1, row; row = tableDel.rows[i]; i++) {
+      row.remove();
+      console.log(i);
+    } */ 
+}
+    
     // //When the user clicks on add close the modal
     // button.add.onclick = function() {
     // modal.style.display = "none";
@@ -123,19 +131,10 @@ function handleData1()
   function AddItemsToTable(member, meetuserid){
     var table = document.getElementById('memberslist');
     var trow = document.createElement('tr');
+    trow.setAttribute("id", "membertable1");
     //Changed from Label to th
     var td1 = document.createElement('td');
-    td1.innerHTML = member;
-    var x = document.createElement("INPUT");
-    console.log(x);
-    x.setAttribute("type", "checkbox");
-    x.setAttribute("class", "human");
-    x.setAttribute("name", "item[]");
-    x.setAttribute("data-value", meetuserid);
-    x.setAttribute("value", member);
-    console.log("5");
-    console.log(meetuserid);
-    trow.appendChild(x);
+    td1.innerHTML = "<input type='checkbox' id='human' class='human' name='item[]' data-value='" + meetuserid + "' value='" + member +"'>" + member;
     trow.appendChild(td1);
     table.appendChild(trow);
   }

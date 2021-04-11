@@ -5,12 +5,12 @@ function onChange( checkboxes, checkedState ) {
        var box = checkboxes[i];
        var line = box.id + " : " + ( box.checked ? "checked" : "unchecked" ) + "<br/>";
 
-       html += line;
+       //html += line;
     }
 
-    html += ("</p><p>Checked state of group is: " + checkedState + "</p>");
+    //html += ("</p><p>Checked state of group is: " + checkedState + "</p>");
 
-    document.getElementById( "log" ).innerHTML = html;
+    //document.getElementById( "log" ).innerHTML = html;
  }
 
  window.addEventListener( "DOMContentLoaded", () => {

@@ -87,23 +87,37 @@ togglePassword1.addEventListener("click", function (e) {
       let password = document.getElementById("signupPass").value;
       //Create User with Email and Password
       //var promise = firebase.auth().createUserWithEmailAndPassword(email, password);
-      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      /*firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorCode);
-      alert(errorMessage);
-    });
-     waitTime();
+      alert(errorMessage);*/
+
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in 
+        //var user = userCredential.user;
+        waitTime();
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        alert(errorMessage);
+        // ..
+      });
+    // waitTime();
   }
 
 function waitTime(){
     var delayInMilliseconds = 2000;
     setTimeout(function() {
-      sendMail();
+      userData();
     }, delayInMilliseconds);
 }
-
+/*
 function sendMail(){
   console.log("mail");
   var user = firebase.auth().currentUser;
@@ -117,7 +131,7 @@ function sendMail(){
   });
   userData();
 }
-
+*/
   function userData(){
     console.log("2");
     var user = firebase.auth().currentUser;
