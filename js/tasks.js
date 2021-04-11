@@ -208,7 +208,7 @@ type: type1
 }
 
 //Prevent form from refreshing on submit
-$("#newMeetingForm").submit(function(e) {
+$("#newTaskForm").submit(function(e) {
 e.preventDefault();
 });
 

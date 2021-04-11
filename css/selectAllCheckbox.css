@@ -1,0 +1,27 @@
+html, body { padding-top: 0; margin-top: 0; }
+
+         label {
+            display: block;
+         }
+         .selectAllLabel {
+            font-size: larger;
+            font-weight: bold;
+         }
+         #container {
+            width: 400px;
+         }
+         #container, #checkboxes, #log {
+            display: table-cell;
+            min-width: 350px;
+            vertical-align: middle;
+            padding: 10px;
+         }
+         #checkboxes, #log {
+            border: 1px solid #000000;
+         }
+         #log {
+            position : fixed;
+            top: 10px;
+            left: 430px;
+            height: 150px;
+         }

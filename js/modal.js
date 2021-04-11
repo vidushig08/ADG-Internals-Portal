@@ -65,7 +65,6 @@ function handleData1()
     sortTeam();
   }
 
-
   //Fetch Data according to team (Core/Team ID)
   function sortTeam(){
     var chosenCore = getCheckedValue(document.getElementsByName('t[]'));
