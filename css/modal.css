@@ -52,6 +52,21 @@
     padding: 7px;
     cursor: pointer;
 }
+#checkAll{
+    background-color: #0091FB;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    height: auto;
+    width: 90px;
+    font-size: 14px;
+    padding: 7px;
+    cursor: pointer;
+    outline: none;
+}
+#checkAll:hover{
+    border: none;
+}
 #myBtn{
     display: inline-block;
     border: none;

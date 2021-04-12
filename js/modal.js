@@ -45,6 +45,7 @@ function handleData1()
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
     modal.style.display = "none";
+    
     /*var tableDel = document.getElementById('memberslist');
     //var trowDel = document.getElementById("membertable1");
     //trowDel.remove();   
@@ -134,7 +135,7 @@ function handleData1()
     trow.setAttribute("id", "membertable1");
     //Changed from Label to th
     var td1 = document.createElement('td');
-    td1.innerHTML = "<label><input type='checkbox' id='human' class='human' name='item[]' data-value='" + meetuserid + "' value='" + member +"'></label>" + member;
+    td1.innerHTML = "<input type='checkbox' id='human' class='human' name='item[]' data-value='" + meetuserid + "' value='" + member +"'>" + " " + member;
     trow.appendChild(td1);
     table.appendChild(trow);
   }
@@ -197,81 +198,16 @@ var meetuserArr = [];
     console.log("Heyya");    
   };
 
-
- //Select All Checkbox
- /*
- $(document).ready(function () {
-  $("#checkAll").change(function () {
-    $("input.human").prop('checked', $(this).prop("checked"));
-  });
-  $('.human').on('click', function () {
-    if ($('.human:checked').length == $('.human').length) {
-      $('#checkAll').prop('checked', true);
-    } else {
-      $('#checkAll').prop('checked', false);
-    }
-  });
-});
-*/
-
-/*
-$('.selectall').on('change', function(e) {
-  var $inputs = $('#memberslist input[type=checkbox]');
-  if(e.originalEvent === undefined) {
-      var allChecked = true;
-      $inputs.each(function(){
-          allChecked = allChecked && this.checked;
-      });
-      this.checked = allChecked;
-  } else {
-      $inputs.prop('checked', this.checked);
-  }
-});
-
-$('#memberslist input[type=checkbox]').on('change', function(){
-  $('.selectall').trigger('change');
-});
-*/
-/*
-$(document).ready(function() {
-  $("#selectAll").change(function() {
-      if($(this).is(":checked")) {
-         $(".human").prop('checked', true);
-      }
-      else {
-          $(".human").prop('checked', false);
-      }
-  });
+  $(function() {
   
-  $(".human").on("change", function() {
-      if(!$(this).is(":checked")){
-       $("#selectAll").prop('checked', false);
+    $(document).on('click', '#checkAll', function() {
+    
+      if ($(this).val() == 'Check All') {
+        $('.fetchmemberslist input[type="checkbox"]').prop('checked', true);
+        $(this).val('Uncheck All');
+      } else {
+        $('.fetchmemberslist input[type="checkbox"]').prop('checked', false);
+        $(this).val('Check All');
       }
-      if($(".human:checked").length == $(".human").length) {
-          $("#selectAll").prop('checked', true);
-      }
+    });
   });
-});
-*/
-
-$(document).ready(function() {
-  $("#selectAll").change(function() {
-     
-      if($(this).is(":checked")) {
-         $(".human").prop('checked', true);
-      }
-      else {
-          $(".human").prop('checked', false);
-      }
-  });
-  
-  $(".human").on("change", function() {
-      if(!$(this).is(":checked")){
-       $("#selectAll").prop('checked', false);
-      }
-      if($(".human:checked").length == $(".human").length) {
-          $("#selectAll").prop('checked', true);
-      }
-      
-  });
-});
