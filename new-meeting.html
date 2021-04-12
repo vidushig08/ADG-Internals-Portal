@@ -22,6 +22,8 @@
     <!--jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="icons/favicon.png" />
     <!-- title -->
@@ -247,18 +249,14 @@
             <span class="close">&times;</span>
             
             <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for names.." autofocus title="Type in a name"><br><br>
-            <div class="fetchmemberslist">
+            <div class="fetchmemberslist" id="fetchmemberslist">
+              <input type="checkbox" class="human" id="selectAll" name="item[]" /> Select all
               <table id="memberslist">
-                <th><input type="checkbox" id="checkAll" /> Select All</th>
                 
-              <!-- <tr><input class="human" type="checkbox"/> Item 1</tr>
-              <tr><input class="human" type="checkbox"/> Item 2</tr>
-              <tr><input class="human" type="checkbox"/> Item 3</tr>
-              <tr><input class="human" type="checkbox"/> Item 4</tr>
-              <tr><input class="human" type="checkbox"/> Item 5</tr> -->
-                  <!-- <tr>
-                    <th><input type="checkbox" id="checkAll"/> <label for="">Select All</label>  </th>
-                  </tr> -->
+                <!-- <label><input type="checkbox" name="item[]" class="selectall"/> Select all</label> -->
+                <!-- <th><input type="checkbox" id="checkAll"/> Select All</th> -->
+                
+                <!-- <th><input type="checkbox" id="checkAll"/> <label for="">Select All</label>  </th> -->
               </table>
             </div>
             <br>

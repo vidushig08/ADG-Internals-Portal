@@ -44,6 +44,7 @@
              }
           } );
  
+          /*
           let newState = null;
  
           if( howManyChecked === 0 ) {
@@ -61,13 +62,11 @@
           if( changedBoxes.length > 0 && typeof onChangeCallback === "function" ) {
              onChangeCallback( changedBoxes, newState );
           }
-       } );
+          */
+       });
  
+       
        this.checkboxElements.forEach( function(box) {
-          // Updates the select-all checkbox's state and invokes the user-supplied callback.  If you set a checkbox's state
-          // via script, you must trigger change() on the modified checkbox to ensure the select-all checkbox's state is
-          // updated.  JQuery does not fire change() for you.  The select-all checkbox is different:  it responds to the
-          // click event instead of the change event because IE doesn't fire the change event for indeterminate checkboxes.
  
           box.addEventListener( "change", event => {
              let someChecked = false,
@@ -98,7 +97,7 @@
                 onChangeCallback( changedBoxes, status );
              }
           } );
-       }, this );
+       }, this ); 
  
        setSelectAllCheckboxInitialState( this );
  
@@ -127,7 +126,6 @@
        }
  
        // Sets the select-all checkbox to checked, unchecked or partially checked
- 
        function updateSelectAllCheckboxState( instance, state ) {
           if( state === CheckboxGroup.GROUP_STATE_SOME ) {
              selectAllCheckbox.checked = false;
@@ -139,17 +137,15 @@
              selectAllCheckbox.indeterminate = false;
              selectAllCheckbox.checked = false;
           }
- 
           instance.state = state;
        }
     }
  
-    /**
-     * Returns the checkbox elements in an array
-     */
-    get checkboxElements() {
-       return Array.from( document.querySelectorAll("input[type='checkbox'][name='" + this.name + "']") );
-    }
+    //Returns the checkbox elements in an array
+   
+   get checkboxElements() {
+      return Array.from( document.querySelectorAll("input[type='checkbox'][name='" + this.name + "']") );
+   }
  }
  
  Object.defineProperty( CheckboxGroup, "GROUP_STATE_NONE", {

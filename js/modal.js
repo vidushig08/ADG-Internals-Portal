@@ -134,7 +134,7 @@ function handleData1()
     trow.setAttribute("id", "membertable1");
     //Changed from Label to th
     var td1 = document.createElement('td');
-    td1.innerHTML = "<input type='checkbox' id='human' class='human' name='item[]' data-value='" + meetuserid + "' value='" + member +"'>" + member;
+    td1.innerHTML = "<label><input type='checkbox' id='human' class='human' name='item[]' data-value='" + meetuserid + "' value='" + member +"'></label>" + member;
     trow.appendChild(td1);
     table.appendChild(trow);
   }
@@ -199,6 +199,7 @@ var meetuserArr = [];
 
 
  //Select All Checkbox
+ /*
  $(document).ready(function () {
   $("#checkAll").change(function () {
     $("input.human").prop('checked', $(this).prop("checked"));
@@ -209,5 +210,68 @@ var meetuserArr = [];
     } else {
       $('#checkAll').prop('checked', false);
     }
+  });
+});
+*/
+
+/*
+$('.selectall').on('change', function(e) {
+  var $inputs = $('#memberslist input[type=checkbox]');
+  if(e.originalEvent === undefined) {
+      var allChecked = true;
+      $inputs.each(function(){
+          allChecked = allChecked && this.checked;
+      });
+      this.checked = allChecked;
+  } else {
+      $inputs.prop('checked', this.checked);
+  }
+});
+
+$('#memberslist input[type=checkbox]').on('change', function(){
+  $('.selectall').trigger('change');
+});
+*/
+/*
+$(document).ready(function() {
+  $("#selectAll").change(function() {
+      if($(this).is(":checked")) {
+         $(".human").prop('checked', true);
+      }
+      else {
+          $(".human").prop('checked', false);
+      }
+  });
+  
+  $(".human").on("change", function() {
+      if(!$(this).is(":checked")){
+       $("#selectAll").prop('checked', false);
+      }
+      if($(".human:checked").length == $(".human").length) {
+          $("#selectAll").prop('checked', true);
+      }
+  });
+});
+*/
+
+$(document).ready(function() {
+  $("#selectAll").change(function() {
+     
+      if($(this).is(":checked")) {
+         $(".human").prop('checked', true);
+      }
+      else {
+          $(".human").prop('checked', false);
+      }
+  });
+  
+  $(".human").on("change", function() {
+      if(!$(this).is(":checked")){
+       $("#selectAll").prop('checked', false);
+      }
+      if($(".human:checked").length == $(".human").length) {
+          $("#selectAll").prop('checked', true);
+      }
+      
   });
 });

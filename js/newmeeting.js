@@ -2,7 +2,7 @@
 
 //const { default: firebase } = require("firebase");
 
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
     apiKey: "AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ",
     authDomain: "internals-app-c0391.firebaseapp.com",
@@ -13,13 +13,13 @@
     appId: "1:754737704023:web:5ec000ba7b9d08cea48712",
     measurementId: "G-YYZML2JL2J"
   };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-  document.getElementById("newMeetingForm").addEventListener('submit', TDate)
+document.getElementById("newMeetingForm").addEventListener('submit', TDate)
 
-  //Date Checker to be Greater than Today's
- function TDate() {
+//Date Checker to be Greater than Today's
+function TDate() {
     var UserDate = document.getElementById("date").value;
     var ToDate = new Date();
       
@@ -31,13 +31,13 @@
       handleData2();
     }
     else("Vidu");
-    }
+  }
 
-    function handleData2()
+  function handleData2()
   {
-    var form_data = new FormData(document.querySelector("form"));
-    var meetuserArr = [];
-    $("input[type='checkbox']").each(function(index, el) {
+  var form_data = new FormData(document.querySelector("form"));
+  var meetuserArr = [];
+  $("input[type='checkbox']").each(function(index, el) {
     if (el.checked) {
       var val = $(el).data("value");
       meetuserArr.push(val);
@@ -46,32 +46,32 @@
   });
     //var user_data = document.getElementById('selectedMembers').innerHTML === "";
     //var meetuserArr.length = 
-    if(!form_data.has("t[]"))
-    {
-      alert('Select a team first');
-      return false;
-    }
-    else if(meetuserArr.length === 0)
-    {
-      //document.getElementById("chk_option_error").style.visibility = "hidden";
-      alert("Choose");
-    }
-    else{
-      readData();
-      return true;
-    }
+  if(!form_data.has("t[]"))
+  {
+    alert('Select a team first');
+    return false;
+  }
+  else if(meetuserArr.length === 0)
+  {
+    //document.getElementById("chk_option_error").style.visibility = "hidden";
+    alert("Choose Members");
+  }
+  else{
+    readData();
+    return true;
+  }
 }
     
 //Get radio button value
-  function getCheckedValue(el) {
-    for (var i = 0, length = el.length; i < length; i++) {
-      if (el[i].checked) {
-        return el[i].value;
-        break;
-      }
+function getCheckedValue(el) {
+  for (var i = 0, length = el.length; i < length; i++) {
+    if (el[i].checked) {
+      return el[i].value;
+      break;
     }
-    return '';
   }
+  return '';
+}
 
 
 //To read values of the form
@@ -141,7 +141,6 @@ function readData() {
       alert("Fill");
     }
   }
-
 
   //Prevent form from refreshing on submit
   $("#newMeetingForm").submit(function(e) {

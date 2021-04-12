@@ -10,6 +10,7 @@
     <link type="text/css" rel="stylesheet" href="css/newmeeting.css" />
     <link rel="stylesheet" href="css/tasks.css" />
     <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/checkbox.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -120,13 +121,18 @@
           <label for="link" class="link">Link:</label>
           <input type="url" id="link" name="link" /><br /><br />
         </div>
-        <button class="add-task-btn">Post Task</button>
+        <button class="add-task-btn" onclick="TDate()">
+          Post Task
+        </button>
       </div>
 
       <div class="right">
         <h3 class="add-members">Add Members
           <button id="myBtn" onclick="openModal()">+</button>
         </h3><br>
+
+        <div class="selectedMembers" id="selectedMembers">
+        </div>
 
         <!-- The Modal -->
         <div id="myModal" class="modal" style="display: none;">
@@ -137,12 +143,10 @@
             <div class="fetchmemberslist">
               <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for names.." title="Type in a name"><br>
               <table id="memberslist">
-                  <tr>
-                    <th>
-                      <input type="checkbox" onchange="checkAll(this)" name="chk[]" id="checkAll"/> 
-                      <label for="">Select All</label>  
-                    </th>
-                  </tr>
+                <tr>
+                  <input type="checkbox" name="item[]" id="selectall" class="human"/>
+                  <label>Select All</label>  
+                </tr>
               </table>
             </div>
             <br>
