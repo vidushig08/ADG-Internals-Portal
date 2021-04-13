@@ -30,7 +30,7 @@ function TDate() {
     else if (new Date(UserDate).getTime() >= ToDate.getTime()){
       handleData2();
     }
-    else("Vidu");
+    else("Vidushi");
   }
 
   function handleData2()

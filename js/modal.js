@@ -1,3 +1,35 @@
+var first_click = true;
+var plus = document.getElementById("myBtn");
+var chosenCoreFirst;
+plus.onclick = function() {
+    if (first_click) {
+        // do stuff for first click
+        console.log("1click");
+        chosenCoreFirst = getCheckedValue(document.getElementsByName('t[]'));
+        //console.log(chosenCoreFirst);
+        handleData1();
+        first_click = false;
+        return chosenCoreFirst;
+    } else {
+      console.log("2click");
+      console.log(chosenCoreFirst);
+      // do stuff for second click
+      var chosenCoreSecond = getCheckedValue(document.getElementsByName('t[]'));
+      console.log(chosenCoreSecond);
+      if (chosenCoreSecond == chosenCoreFirst){
+        var modal = document.getElementById("myModal");
+        modal.style.display = "block";
+      }
+      else if (chosenCoreSecond != chosenCoreFirst) {
+        var modalContent = document.getElementById("fetchmemberslist");
+        modalContent.innerHTML = "";
+        handleData1();
+      }
+        
+    }
+}
+
+
 //Validate radio button
 function handleData1()
 {
@@ -29,6 +61,7 @@ function getCheckedValue(el) {
   
 //Open Modal
 function openModal(){
+  console.log("open modal");
   // Get the modal
   var modal = document.getElementById("myModal");
 
@@ -75,6 +108,7 @@ function openModal(){
 
 //Fetch Data according to team (Core/Team ID)
 function sortTeam(){
+  console.log("sort team");
   var chosenCore = getCheckedValue(document.getElementsByName('t[]'));
   if (chosenCore=="z"){
     selectAllDataCore();
@@ -86,15 +120,21 @@ function sortTeam(){
 
 //Fetching ALL Member Names in the Modal
 function selectAllDataCore(){
+  console.log("create table");
+  var tableDiv = document.getElementById('fetchmemberslist');
+  var table = document.createElement('table');
+  table.setAttribute("id", "memberslist");
+  tableDiv.appendChild(table);
+  console.log("core selected");
   firebase.database().ref('Users').once('value', function(AllRecords){
     AllRecords.forEach(
       function(CurrentRecord){
         var member = CurrentRecord.val().name;
         var meetuserid = CurrentRecord.val().uid;
-        var memberArr = [];
+        /*var memberArr = [];
         var meetuseridArr = [];
         memberArr.push(member);
-        meetuseridArr.push(meetuserid);
+        meetuseridArr.push(meetuserid);*/
         AddItemsToTable(member, meetuserid);
       }
     );
@@ -103,6 +143,11 @@ function selectAllDataCore(){
 
 //Fetching Data in a table in Modal
 function selectAllData(){
+  console.log("create table");
+  var tableDiv = document.getElementById('fetchmemberslist');
+  var table = document.createElement('table');
+  table.setAttribute("id", "memberslist");
+  tableDiv.appendChild(table);
   var chosenTeam = getCheckedValue(document.getElementsByName('t[]'));
   console.log(chosenTeam);
   firebase.database().ref('Users').once('value', function(AllRecords){
@@ -133,7 +178,8 @@ function AddItemsToTable(member, meetuserid){
   td1.innerHTML = "<input type='checkbox' id='human' class='human' name='item[]' data-value='" + meetuserid + "' value='" + member +"'>" + " " + member;
   trow.appendChild(td1);
   table.appendChild(trow);
-}
+  }
+
 
 //Search bar in Modal
 function searchTable() {
@@ -157,6 +203,7 @@ for (i = 0; i < tr.length; i++) {
 
 //To display names of chosen members
 function test(){
+  document.getElementById("selectedMembers").innerHTML = "";
   var meetuserArr = [];
     $("input[type='checkbox']").each(function(index, el) {
       if (el.checked) {
@@ -204,4 +251,5 @@ $(function() {
       $(this).val('Check All');
     }
   });
-});
+}); 
+//};

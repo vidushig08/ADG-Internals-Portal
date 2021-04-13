@@ -1,21 +1,3 @@
-// Your web app's Firebase configuration
-//const { default: firebase } = require("firebase");
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
-  apiKey: "AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ",
-  authDomain: "internals-app-c0391.firebaseapp.com",
-  databaseURL: "https://internals-app-c0391.firebaseio.com",
-  projectId: "internals-app-c0391",
-  storageBucket: "internals-app-c0391.appspot.com",
-  messagingSenderId: "754737704023",
-  appId: "1:754737704023:web:5ec000ba7b9d08cea48712",
-  measurementId: "G-YYZML2JL2J"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-//document.getElementById("add-task-btn").addEventListener('submit', readData)
-
 //Date Checker to be Greater than Today's
 function TDate() {
   var UserDate = document.getElementById("date").value;
@@ -26,14 +8,13 @@ function TDate() {
     //return false;
   }
   else if (new Date(UserDate).getTime() >= ToDate.getTime()){
-    handleData2();
+    membersCheck();
   }
   else("ERROR!");
 }
 
-function handleData2()
-{
-  var form_data = new FormData(document.querySelector("form"));
+//Check if Members Selected
+function membersCheck(){
   var meetuserArr = [];
   $("input[type='checkbox']").each(function(index, el) {
     if (el.checked) {
@@ -42,8 +23,8 @@ function handleData2()
       return meetuserArr;
     }
   });
-  if(meetuserArr.length === 0)
-  {
+ 
+  if(meetuserArr.length === 0){
     alert("Choose Members");
   }
   else{
@@ -52,9 +33,24 @@ function handleData2()
   }
 }
 
-//Open Modal
-function openModal()
-{
+//Modal Refresh Code Badi BT thi Isme (Dhyaan se Padhna ise)
+var first_click = true;
+var plus = document.getElementById("myBtn");
+plus.onclick = function() {
+    if (first_click) {
+      // do stuff for first click
+      openModal();
+      first_click = false;
+    } else {
+      console.log("2click");
+      var modal = document.getElementById("myModal");
+      modal.style.display = "block";   
+    }
+}
+
+//Open Modal Div
+function openModal(){
+  console.log("open modal");
   // Get the modal
   var modal = document.getElementById("myModal");
 
@@ -71,18 +67,23 @@ function openModal()
   span.onclick = function() {
     modal.style.display = "none";
   }
-  
+
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
   }
-  selectAllData();
+  selectAllDataCore();
   }
 
-//Fetching Member Names in the Modal
-function selectAllData(){
+//Fetching ALL Member Names in the Modal
+function selectAllDataCore(){
+  //console.log("create table");
+  var tableDiv = document.getElementById('fetchmemberslist');
+  var table = document.createElement('table');
+  table.setAttribute("id", "memberslist");
+  tableDiv.appendChild(table);
   firebase.database().ref('Users').once('value', function(AllRecords){
     AllRecords.forEach(
       function(CurrentRecord){
@@ -94,35 +95,101 @@ function selectAllData(){
   });
 }
 
-//Filling Member Names in a table in the Modal
+//Fetching Data in a table in Modal
+function selectAllData(){
+  //console.log("create table");
+  var tableDiv = document.getElementById('fetchmemberslist');
+  var table = document.createElement('table');
+  table.setAttribute("id", "memberslist");
+  tableDiv.appendChild(table);
+  var chosenTeam = getCheckedValue(document.getElementsByName('t[]'));
+  //console.log(chosenTeam);
+  firebase.database().ref('Users').once('value', function(AllRecords){
+    AllRecords.forEach(
+      function(CurrentRecord){
+        var member = CurrentRecord.val().name;
+        var meetuserid = CurrentRecord.val().uid;
+        var teamId = CurrentRecord.val().teams;
+        //console.log(teamId);
+        var n = teamId.includes(parseInt(chosenTeam));
+        if (n==true){
+          //console.log("hi");
+          AddItemsToTable(member, meetuserid);
+        }
+        else{
+          //console.log("bye");
+        }
+      }
+    );
+  });
+}
+//Filling the table in the Modal
 function AddItemsToTable(member, meetuserid){
   var table = document.getElementById('memberslist');
   var trow = document.createElement('tr');
   var td1 = document.createElement('td');
-  td1.innerHTML = "<label><input type='checkbox' id='human' class='human' name='item[]' data-value='" + meetuserid + "' value='" + member +"'></label>" + member;
+  td1.innerHTML = "<input type='checkbox' id='human' class='human' name='item[]' data-value='" + meetuserid + "' value='" + member +"'>" + " " + member;
   trow.appendChild(td1);
   table.appendChild(trow);
+  }
+
+  //Search bar in Modal
+function searchTable() {
+var input, filter, table, tr, th, i, txtValue;
+input = document.getElementById("searchBar");
+filter = input.value.toUpperCase();
+table = document.getElementById("memberslist");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+  th = tr[i].getElementsByTagName("td")[0];
+  if (th) {
+    txtValue = th.textContent || th.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }       
+}
 }
 
-//Search bar in Modal
-function searchTable() {
-  var input, filter, table, tr, th, i, txtValue;
-  input = document.getElementById("searchBar");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("memberslist");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    th = tr[i].getElementsByTagName("td")[0];
-    if (th) {
-      txtValue = th.textContent || th.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
+//To display names of chosen members
+function test(){
+  document.getElementById("selectedMembers").innerHTML = "";
+  var meetuserArr = [];
+    $("input[type='checkbox']").each(function(index, el) {
+      if (el.checked) {
+        var val = $(el).data("value");
+        meetuserArr.push(val);
+        return meetuserArr;
       }
-    }       
-  }
-}
+    });
+  //console.log(meetuserArr);
+
+  var nameuserArr = $("input[name='item[]']:checked").map(function () {
+    return this.value;
+  }).get();
+  //console.log(nameuserArr);
+
+  nameuserArr.forEach(el => {
+    document.getElementById('selectedMembers').innerHTML +=`<button class="pill" type="button">${el}</button>`;
+    // here result is in the id of the div present in the dom
+  });
+
+  var meetteamArr = [];
+    $("input[type='radio']").each(function(index, el) {
+      if (el.checked) {
+        var val = $(el).data("value");
+        meetteamArr.push(val);
+      }
+    });
+    console.log(meetteamArr);
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+    var content = document.getElementById("fetchmemberslist");
+  
+    //console.log("Heyya");    
+  };
 
 //Check All in Modal
 $(function() {
@@ -130,39 +197,14 @@ $(function() {
     if ($(this).val() == 'Check All') {
       $('.fetchmemberslist input[type="checkbox"]').prop('checked', true);
       $(this).val('Uncheck All');
-    } else {
+    } 
+    else {
       $('.fetchmemberslist input[type="checkbox"]').prop('checked', false);
       $(this).val('Check All');
     }
   });
-});
+}); 
 
-//To display names of chosen members 
-function test(){
-  var meetuserArr = [];
-  $("input[type='checkbox']").each(function(index, el) {
-    if (el.checked) {
-      var val = $(el).data("value");
-      meetuserArr.push(val);
-      return meetuserArr;
-    }
-    });
-  console.log(meetuserArr);
-  
-  var nameuserArr = $("input[name='item[]']:checked").map(function () {
-    return this.value;
-  }).get();
-  console.log(nameuserArr);
-  
-  nameuserArr.forEach(el => {
-    document.getElementById('selectedMembers').innerHTML +=`<button class="pill" type="button">${el}</button>`;
-    // here result is in the id of the div present in the dom
-  });
-  
-  var modal = document.getElementById("myModal");
-  modal.style.display = "none";
-  var content = document.getElementById("fetchmemberslist");    
-};
 
 
 //To read values of the form
@@ -171,11 +213,11 @@ function readData() {
   let date = document.getElementById("date").value;
   var unixdate = new Date(date).valueOf();
   let title = document.getElementById("title").value;
-  console.log(title);
+  //console.log(title);
   let venue = document.getElementById("venue").value;
-  console.log(venue);
+  //console.log(venue);
   let link = document.getElementById("link").value;
-  console.log(link);
+  //console.log(link);
   var pushmeetuserArr = [];
     $("input[type='checkbox']").each(function(index, el) {
       if (el.checked) {
@@ -183,7 +225,7 @@ function readData() {
         pushmeetuserArr.push(val);
       }
     });
-    console.log(pushmeetuserArr);
+    //console.log(pushmeetuserArr);
   writeUserData(unixdate,link,venue,title,pushmeetuserArr);
 }
 
@@ -202,8 +244,10 @@ function writeUserData(unixdate,link,venue,title,pushmeetuserArr){
   });
   alert("Task Posted");
 }
-  
+
+/* 
 //Prevent form from refreshing on submit
 $("#newTaskForm").submit(function(e) {
 e.preventDefault();
 });
+*/
