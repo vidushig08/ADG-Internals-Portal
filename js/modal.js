@@ -1,21 +1,22 @@
+//Modal Refresh Thing (Badi BT thi Isme (Dhyaan se Padhna ise))
 var first_click = true;
 var plus = document.getElementById("myBtn");
 var chosenCoreFirst;
 plus.onclick = function() {
     if (first_click) {
         // do stuff for first click
-        console.log("1click");
+        //console.log("1click");
         chosenCoreFirst = getCheckedValue(document.getElementsByName('t[]'));
         //console.log(chosenCoreFirst);
         handleData1();
         first_click = false;
         return chosenCoreFirst;
     } else {
-      console.log("2click");
-      console.log(chosenCoreFirst);
+      //console.log("2click");
+      //console.log(chosenCoreFirst);
       // do stuff for second click
       var chosenCoreSecond = getCheckedValue(document.getElementsByName('t[]'));
-      console.log(chosenCoreSecond);
+      //console.log(chosenCoreSecond);
       if (chosenCoreSecond == chosenCoreFirst){
         var modal = document.getElementById("myModal");
         modal.style.display = "block";
@@ -41,8 +42,7 @@ function handleData1()
   }
   else
   {
-    //document.getElementById("chk_option_error").style.visibility = "hidden";
-    console.log("hehe");
+    //console.log("team selected");
     openModal();
     return true;
   }
@@ -61,7 +61,7 @@ function getCheckedValue(el) {
   
 //Open Modal
 function openModal(){
-  console.log("open modal");
+  //console.log("open modal");
   // Get the modal
   var modal = document.getElementById("myModal");
 
@@ -77,27 +77,9 @@ function openModal(){
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
     modal.style.display = "none";
-
-    /*var tableDel = document.getElementById('memberslist');
-    //var trowDel = document.getElementById("membertable1");
-    //trowDel.remove();   
-    for (var i = 1, row; row = tableDel.rows[i]; i++) {
-      row.remove();
-      console.log(i);
-    } */ 
   }
     
-    // //When the user clicks on add close the modal
-    // button.add.onclick = function() {
-    // modal.style.display = "none";
-    // }
-
-    // var addBtn = document.getElementById("add");
-    // addBtn.onclick = function() {
-    //   modal.style.display = "none";
-    // }
-
-    // When the user clicks anywhere outside of the modal, close it
+  // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
@@ -120,21 +102,17 @@ function sortTeam(){
 
 //Fetching ALL Member Names in the Modal
 function selectAllDataCore(){
-  console.log("create table");
+  //console.log("create table");
   var tableDiv = document.getElementById('fetchmemberslist');
   var table = document.createElement('table');
   table.setAttribute("id", "memberslist");
   tableDiv.appendChild(table);
-  console.log("core selected");
+  //console.log("core selected");
   firebase.database().ref('Users').once('value', function(AllRecords){
     AllRecords.forEach(
       function(CurrentRecord){
         var member = CurrentRecord.val().name;
         var meetuserid = CurrentRecord.val().uid;
-        /*var memberArr = [];
-        var meetuseridArr = [];
-        memberArr.push(member);
-        meetuseridArr.push(meetuserid);*/
         AddItemsToTable(member, meetuserid);
       }
     );
@@ -143,27 +121,27 @@ function selectAllDataCore(){
 
 //Fetching Data in a table in Modal
 function selectAllData(){
-  console.log("create table");
+  //console.log("create table");
   var tableDiv = document.getElementById('fetchmemberslist');
   var table = document.createElement('table');
   table.setAttribute("id", "memberslist");
   tableDiv.appendChild(table);
   var chosenTeam = getCheckedValue(document.getElementsByName('t[]'));
-  console.log(chosenTeam);
+  //console.log(chosenTeam);
   firebase.database().ref('Users').once('value', function(AllRecords){
     AllRecords.forEach(
       function(CurrentRecord){
         var member = CurrentRecord.val().name;
         var meetuserid = CurrentRecord.val().uid;
         var teamId = CurrentRecord.val().teams;
-        console.log(teamId);
+        //console.log(teamId);
         var n = teamId.includes(parseInt(chosenTeam));
         if (n==true){
-          console.log("hi");
+          //console.log("hi");
           AddItemsToTable(member, meetuserid);
         }
         else{
-          console.log("bye");
+          //console.log("bye");
         }
       }
     );
@@ -202,7 +180,7 @@ for (i = 0; i < tr.length; i++) {
 }
 
 //To display names of chosen members
-function test(){
+function selectedMembersDisp(){
   document.getElementById("selectedMembers").innerHTML = "";
   var meetuserArr = [];
     $("input[type='checkbox']").each(function(index, el) {
@@ -233,10 +211,7 @@ function test(){
     });
     console.log(meetteamArr);
     var modal = document.getElementById("myModal");
-    modal.style.display = "none";
-    var content = document.getElementById("fetchmemberslist");
-  
-    console.log("Heyya");    
+    modal.style.display = "none"; 
   };
 
 //Check All in Modal
@@ -252,4 +227,3 @@ $(function() {
     }
   });
 }); 
-//};
