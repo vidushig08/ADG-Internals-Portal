@@ -95,7 +95,7 @@ function selectAllDataCore(){
         var meetuseridArr = [];
         memberArr.push(member);
         meetuseridArr.push(meetuserid);
-        AddItemsToTable(member, meetuserid);
+        AddItemsToTable(memberArr, meetuseridArr);
       }
     );
   });
@@ -126,13 +126,24 @@ function selectAllData(){
 }
 
 //Filling the table in the Modal
-function AddItemsToTable(member, meetuserid){
+function AddItemsToTable(memberArr, meetuseridArr){
+  // var table = document.getElementById('memberslist');
+  // var trow = document.createElement('tr');
+  // var td1 = document.createElement('td');
+  // td1.innerHTML = "<input type='checkbox' id='human' class='human' name='item[]' data-value='" + meetuserid + "' value='" + member +"'>" + " " + member;
+  // trow.appendChild(td1);
+  // table.appendChild(trow);
+  var perrow = 1;
   var table = document.getElementById('memberslist');
-  var trow = document.createElement('tr');
-  var td1 = document.createElement('td');
-  td1.innerHTML = "<input type='checkbox' id='human' class='human' name='item[]' data-value='" + meetuserid + "' value='" + member +"'>" + " " + member;
-  trow.appendChild(td1);
-  table.appendChild(trow);
+  var row = table.insertRow();
+  for (var i = 0; i < memberArr.length; i++) {
+    // ADD "BASIC" CELL
+    var cell = row.insertCell();
+    cell.innerHTML = memberArr[i];
+    var next = i + 1;
+    if (next%perrow==0 && next!=data.length) {
+      row = table.insertRow();
+    }
 }
 
 //Search bar in Modal
@@ -204,4 +215,4 @@ $(function() {
       $(this).val('Check All');
     }
   });
-});
+}); 

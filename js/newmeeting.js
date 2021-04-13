@@ -1,21 +1,3 @@
-// Your web app's Firebase configuration
-
-//const { default: firebase } = require("firebase");
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ",
-    authDomain: "internals-app-c0391.firebaseapp.com",
-    databaseURL: "https://internals-app-c0391.firebaseio.com",
-    projectId: "internals-app-c0391",
-    storageBucket: "internals-app-c0391.appspot.com",
-    messagingSenderId: "754737704023",
-    appId: "1:754737704023:web:5ec000ba7b9d08cea48712",
-    measurementId: "G-YYZML2JL2J"
-  };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
 document.getElementById("newMeetingForm").addEventListener('submit', TDate)
 
 //Date Checker to be Greater than Today's
@@ -30,10 +12,12 @@ function TDate() {
     else if (new Date(UserDate).getTime() >= ToDate.getTime()){
       handleData2();
     }
-    else("Vidu");
+    else("error");
   }
 
-  function handleData2()
+//Check if Team is Selected 
+// Check if Member is Selected
+function handleData2()
   {
   var form_data = new FormData(document.querySelector("form"));
   var meetuserArr = [];
@@ -44,8 +28,6 @@ function TDate() {
       return meetuserArr;
     }
   });
-    //var user_data = document.getElementById('selectedMembers').innerHTML === "";
-    //var meetuserArr.length = 
   if(!form_data.has("t[]"))
   {
     alert('Select a team first');
@@ -53,7 +35,6 @@ function TDate() {
   }
   else if(meetuserArr.length === 0)
   {
-    //document.getElementById("chk_option_error").style.visibility = "hidden";
     alert("Choose Members");
   }
   else{
@@ -80,69 +61,67 @@ function readData() {
   let date = document.getElementById("date").value;
   var unixdate = new Date(date).valueOf();
   let title = document.getElementById("title").value;
-  console.log(title);
+  //console.log(title);
   let venue = document.getElementById("venue").value;
-  console.log(venue);
+  //console.log(venue);
   let link = document.getElementById("link").value;
-  console.log(link);
+  //console.log(link);
   let chosenTeam = getCheckedValue(document.getElementsByName('t[]'));
-  console.log(chosenTeam);
+  //console.log(chosenTeam);
   var pushmeetuserArr = [];
-  // var nameuserArr = [];
-    $("input[type='checkbox']").each(function(index, el) {
-      if (el.checked) {
-        var val = $(el).data("value");
-        //var mname = $(el).data("value");
-        pushmeetuserArr.push(val);
-        //nameuserArr.push(mname);
-      }
-    });
-    console.log(pushmeetuserArr);
-  //let type1 = "Team ID";
+  $("input[type='checkbox']").each(function(index, el) {
+    if (el.checked) {
+      var val = $(el).data("value");
+      pushmeetuserArr.push(val);
+    }
+  });
+  //console.log(pushmeetuserArr);
 
   writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr);
-  }
+}
 
-  //To push values to firebase
-  function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
+//To push values to firebase
+function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
+{
+  if (chosenTeam == "z")
   {
-    if (chosenTeam == "z")
-    {
-      var meetingCore = "Meetings";
-      var newMeetingKey = firebase.database().ref().child('Alerts/Core/').push().key;
-      firebase.database().ref('Alerts/Core/').push({
-      id: newMeetingKey,
-      time: unixdate,
-      title: title,
-      location: venue, 
-      link: link,
-      type: meetingCore,
-      users: pushmeetuserArr
-    });
-    alert("Meeting Posted");
-    }
-
-    else if (chosenTeam == "0"||1||2||3||4||5||6||7||8)
-    {
-      var newMeetingKey = firebase.database().ref().child('Alerts/Team/').push().key;
-      firebase.database().ref('Alerts/Team/').push({
-      id: newMeetingKey,
-      time: unixdate,
-      title: title,
-      location: venue, 
-      link: link,
-      type: chosenTeam,
-      users: pushmeetuserArr
-    });
-    alert("Meeting Posted");
-    }
-    
-    else{
-      alert("Fill");
-    }
+    var meetingCore = "Meetings";
+    var newMeetingKey = firebase.database().ref().child('Alerts/Core/').push().key;
+    firebase.database().ref('Alerts/Core/').push({
+    id: newMeetingKey,
+    time: unixdate,
+    title: title,
+    location: venue, 
+    link: link,
+    type: meetingCore,
+    users: pushmeetuserArr
+  });
+  alert("Meeting Posted");
   }
 
-  //Prevent form from refreshing on submit
-  $("#newMeetingForm").submit(function(e) {
-    e.preventDefault();
+  else if (chosenTeam == "0"||"1"||"2"||"3"||"4"||"5"||"6"||"7"||"8")
+  {
+    var newMeetingKey = firebase.database().ref().child('Alerts/Team/').push().key;
+    firebase.database().ref('Alerts/Team/').push({
+    id: newMeetingKey,
+    time: unixdate,
+    title: title,
+    location: venue, 
+    link: link,
+    type: chosenTeam,
+    users: pushmeetuserArr
   });
+  alert("Meeting Posted");
+  }
+  
+  else{
+    alert("Please fill details");
+  }
+}
+
+/*
+//Prevent form from refreshing on submit
+$("#newMeetingForm").submit(function(e) {
+  e.preventDefault();
+});
+*/

@@ -234,7 +234,7 @@
 
         <br>
         <h3 class="add-members">Add Members
-        <button id="myBtn" type="button" onclick="handleData1()">+</button>
+        <button id="myBtn" type="button">+</button>
         </h3>
     
         <div class="selectedMembers" id="selectedMembers"></div>
@@ -248,11 +248,12 @@
             <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for names.." autofocus title="Type in a name"><br><br>
             
             <div class="fetchmemberslist" id="fetchmemberslist">
-              <table id="memberslist"></table>
+              <!-- <table id="memberslist">
+              </table> -->
             </div>
             <br>
             <input id="checkAll" type="button" value="Check All">
-            <button class="add" id="add" type="button" onclick="test()">Add</button>
+            <button class="add" id="add" type="button" onclick="selectedMembersDisp()">Add</button>
           </div>
         </div>
         <br><br>
@@ -267,7 +268,8 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
-
+    
+    <script src="js/firebase.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/newmeeting.js"></script>
     <script src="js/modal.js"></script>
