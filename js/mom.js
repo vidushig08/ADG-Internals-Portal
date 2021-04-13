@@ -102,7 +102,7 @@ const handleSubmit = async (event) => {
         header,
         points,
         time: meetingDetails.time,
-        user: meetingDetails.users,
+        users: meetingDetails.users,
         team: meetingDetails?.type,
       }),
     }
