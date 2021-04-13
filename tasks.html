@@ -98,7 +98,6 @@
       <div class="out">
         <button class="logout">Log Out</button>
       </div>
-      
     </div>
 
     <form action="" id="newTaskForm">
@@ -129,7 +128,8 @@
       <div class="right">
         <h3 class="add-members">Add Members
           <button id="myBtn" onclick="openModal()">+</button>
-        </h3><br>
+        </h3>
+        <br>
 
         <div class="selectedMembers" id="selectedMembers">
         </div>
@@ -137,33 +137,20 @@
         <!-- The Modal -->
         <div id="myModal" class="modal" style="display: none;">
           <!-- Modal content -->
-          <div class="modal-content">
+          <div class="modal-content" id="modal-container">
             <span class="close">&times;</span>
             
-            <div class="fetchmemberslist">
-              <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for names.." title="Type in a name"><br>
+            <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for names.." autofocus title="Type in a name"><br><br>
+            <div class="fetchmemberslist" id="fetchmemberslist">
               <table id="memberslist">
-                <tr>
-                  <input type="checkbox" name="item[]" id="selectall" class="human"/>
-                  <label>Select All</label>  
-                </tr>
               </table>
             </div>
             <br>
-            <button class="add" onclick="test()">Add</button>
+            <input id="checkAll" type="button" value="Check All">
+            <button class="add" id="add" type="button" onclick="test()">Add</button>
           </div>
         </div>
-        
-        <!--
-        <div class="members">
-          <div>
-            <input type="text" name="search" id="search" />
-            <div id="member-list">
-              
-            </div>
-          </div>
-        </div>
-        -->
+
       </div>
     </form>
 
@@ -177,7 +164,5 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
 
     <script src="./js/tasks.js"></script>
-    <!-- <script src="./js/newmeeting.js"></script> -->
-    <!-- <script src="./js/modal.js"></script> -->
   </body>
 </html>

@@ -71,3 +71,6 @@ label.point {
   font-size: 18px;
   margin-left: 52%;
 }
+.post-mom-btn:hover{
+  cursor: pointer;
+}

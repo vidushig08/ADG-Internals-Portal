@@ -22,8 +22,6 @@
     <!--jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="icons/favicon.png" />
     <!-- title -->
@@ -239,8 +237,7 @@
         <button id="myBtn" type="button" onclick="handleData1()">+</button>
         </h3>
     
-        <div class="selectedMembers" id="selectedMembers">
-        </div>
+        <div class="selectedMembers" id="selectedMembers"></div>
         
         <!-- The Modal -->
         <div id="myModal" class="modal" style="display: none;">
@@ -249,9 +246,9 @@
             <span class="close">&times;</span>
             
             <input type="text" id="searchBar" onkeyup="searchTable()" placeholder="Search for names.." autofocus title="Type in a name"><br><br>
+            
             <div class="fetchmemberslist" id="fetchmemberslist">
-              <table id="memberslist">
-              </table>
+              <table id="memberslist"></table>
             </div>
             <br>
             <input id="checkAll" type="button" value="Check All">
@@ -261,6 +258,7 @@
         <br><br>
       </div>
     </form>
+    
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
