@@ -43,6 +43,7 @@ const getMeetingData = async () => {
     return meetings;
   } catch (err) {
     console.log(err);
+    alert("Failed to fetch meeting data");
   }
 };
 
@@ -50,8 +51,6 @@ let Meetings;
 const renderMeetings = async () => {
   Meetings = await getMeetingData();
   const meetingSelect = document.getElementById("choosemeeting");
-  console.log(Meetings);
-
   let Teams = Object.values(Meetings.Team).map((team) => team);
   TeamsMeetings = Teams.map(
     (t) =>
@@ -77,37 +76,40 @@ const renderMeetings = async () => {
 renderMeetings();
 const handleSubmit = async (event) => {
   event.preventDefault();
-  let meetingDetails;
-  console.log(Meetings);
-  const meeting = document.getElementById("choosemeeting");
-  const id = meeting.value;
-  meetingDetails = Meetings.Core[id] || Meetings.Team[id];
-  // console.log(meetingDetails);
-  const title = meeting.options[meeting.selectedIndex].text;
-  const header = document.getElementById("header").value;
-  let points = [];
-  const pointEls = document.getElementsByClassName("p");
-  for (point of pointEls) {
-    points.push(point.value);
-  }
-
-  console.log(id, title, header, points, Meetings, meetingDetails);
-  const newMoM = await fetch(
-    "https://internals-app-c0391.firebaseio.com/MOMS.json",
-    {
-      method: "POST",
-      body: JSON.stringify({
-        id,
-        title,
-        header,
-        points,
-        time: meetingDetails.time,
-        users: meetingDetails.users,
-        team: meetingDetails?.type,
-      }),
+  try {
+    let meetingDetails;
+    const meeting = document.getElementById("choosemeeting");
+    const id = meeting.value;
+    meetingDetails = Meetings.Core[id] || Meetings.Team[id];
+    const title = meeting.options[meeting.selectedIndex].text;
+    const header = document.getElementById("header").value;
+    let points = [];
+    const pointEls = document.getElementsByClassName("p");
+    for (point of pointEls) {
+      points.push(point.value);
     }
-  );
-  console.log(newMoM);
+    // console.log(id, meetingDetails, title, header, points);
+    const newMoM = await fetch(
+      "https://internals-app-c0391.firebaseio.com/MOMS.json",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          id,
+          title,
+          header,
+          points,
+          time: meetingDetails.time,
+          users: meetingDetails.users,
+          team: meetingDetails?.type,
+        }),
+      }
+    );
+    console.log(await newMoM.json());
+    alert("MoM posted successfully");
+  } catch (error) {
+    console.log(error);
+    alert("Failed to post MoM");
+  }
 };
 
 // Your web app's Firebase configuration
