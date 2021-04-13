@@ -53,10 +53,12 @@ label.point {
   padding-right: 81.7px;
   font-size: 16px;
 }
+.points-change {
+  margin-left: 400px;
+}
 .addpoint {
   width: 135px;
   height: 30px;
-  margin-left: 540px;
 }
 .addpoint:hover {
   cursor: pointer;
