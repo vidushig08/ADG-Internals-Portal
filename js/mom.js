@@ -4,18 +4,33 @@ $(function () {
   function addMore() {
     id++;
     $("#newpoint").append(
-      '<label for="p' + id + '" class="point">Point ' + id + ":</label>"
-    );
-    $("#newpoint").append(
-      '<textarea class="p" name="point' +
+      "<div>" +
+        '<label for="p' +
+        id +
+        '" class="point">Point ' +
+        id +
+        ":</label>" +
+        '<textarea class="p" name="point' +
         id +
         '" id="p' +
         id +
-        '"></textarea><br><br>'
+        '"></textarea><br><br>' +
+        "</div>"
     );
     console.log(id);
   }
   $("#plus").click(addMore);
+});
+
+$(function () {
+  function deletePoint() {
+    if (id == 1) id = 1;
+    else {
+      id--;
+      $("#newpoint").children().last().remove();
+    }
+  }
+  $("#minus").click(deletePoint);
 });
 
 const getMeetingData = async () => {
@@ -31,14 +46,13 @@ const getMeetingData = async () => {
   }
 };
 
+let Meetings;
 const renderMeetings = async () => {
+  Meetings = await getMeetingData();
   const meetingSelect = document.getElementById("choosemeeting");
-  let Meetings = await getMeetingData();
   console.log(Meetings);
 
-  let Teams = Object.values(Meetings.Core).filter(
-    (team) => team.type === "Meetings"
-  );
+  let Teams = Object.values(Meetings.Team).map((team) => team);
   TeamsMeetings = Teams.map(
     (t) =>
       `<option value="${t.id}">
@@ -61,65 +75,40 @@ const renderMeetings = async () => {
 };
 
 renderMeetings();
-
 const handleSubmit = async (event) => {
   event.preventDefault();
+  let meetingDetails;
+  console.log(Meetings);
   const meeting = document.getElementById("choosemeeting");
   const id = meeting.value;
+  meetingDetails = Meetings.Core[id] || Meetings.Team[id];
+  // console.log(meetingDetails);
   const title = meeting.options[meeting.selectedIndex].text;
   const header = document.getElementById("header").value;
-  let time = document.getElementById("time").value;
-  time = Math.round(new Date(time).getTime() / 1000).toString();
   let points = [];
   const pointEls = document.getElementsByClassName("p");
   for (point of pointEls) {
     points.push(point.value);
   }
 
-  console.log(id, title, header, time, points);
+  console.log(id, title, header, points, Meetings, meetingDetails);
   const newMoM = await fetch(
     "https://internals-app-c0391.firebaseio.com/MOMS.json",
     {
       method: "POST",
-      body: JSON.stringify({ id, title, header, points, time }),
+      body: JSON.stringify({
+        id,
+        title,
+        header,
+        points,
+        time: meetingDetails.time,
+        user: meetingDetails.users,
+        team: meetingDetails?.type,
+      }),
     }
   );
   console.log(newMoM);
 };
-
-// const getUsers = async () => {
-//   try {
-//     let users = await fetch(
-//       "https://internals-app-c0391.firebaseio.com/Users.json"
-//     );
-//     users = await users.json();
-//     console.log(users);
-//     return users;
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-
-// // getUsers();
-
-// const renderUsers = async () => {
-//   var userList = await getUsers();
-//   const teams = document.getElementsByClassName("team");
-//   console.log(teams);
-//   userList = Object.values(userList);
-//   console.log(userList);
-
-//   userList.forEach((user) => {
-//     user.teams.forEach((team) => {
-//       teams[team].innerHTML += `<div class="member-card">
-//       <div class="member-name">${user.name}</div>
-//       <div class="member-details">${user.regNo}</div>
-//     </div>`;
-//     });
-//   });
-// };
-
-// renderUsers();
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional

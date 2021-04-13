@@ -5,7 +5,7 @@
   float: right;
   height: 100vh;
   padding-left: 5%;
-  background-color: #F4FBFF;  
+  background-color: #f4fbff;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -61,6 +61,12 @@ label.point {
 .addpoint:hover {
   cursor: pointer;
 }
+#minus {
+  color: red;
+}
+#minus:hover {
+  cursor: pointer;
+}
 .post-mom-btn {
   width: 240px;
   height: 40px;
@@ -71,6 +77,6 @@ label.point {
   font-size: 18px;
   margin-left: 52%;
 }
-.post-mom-btn:hover{
+.post-mom-btn:hover {
   cursor: pointer;
 }
