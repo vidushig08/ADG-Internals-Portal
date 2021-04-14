@@ -16,6 +16,21 @@ plus.onclick = function() {
       //console.log(chosenCoreFirst);
       // do stuff for second click
       var chosenCoreSecond = getCheckedValue(document.getElementsByName('t[]'));
+
+      var form_data = new FormData(document.querySelector("form"));
+      var meetuserArr = [];
+      $("input[type='checkbox']").each(function(index, el) {
+        if (el.checked) {
+          var val = $(el).data("value");
+          meetuserArr.push(val);
+          return meetuserArr;
+        }
+      });
+      if(!form_data.has("t[]"))
+      {
+        alert('Select a team first');
+        return false;
+      }
       //console.log(chosenCoreSecond);
       if (chosenCoreSecond == chosenCoreFirst){
         var modal = document.getElementById("myModal");
