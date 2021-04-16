@@ -15,7 +15,7 @@ function TDate() {
     else("error");
   }
 
-//Check if Team is Selected 
+// Check if Team is Selected 
 // Check if Member is Selected
 function handleData2()
   {

@@ -12,20 +12,20 @@ togglePassword.addEventListener("click", function (e) {
   this.classList.toggle("fa-eye-slash");
 });
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyATTBiIr3ejGcjXlpLz_mIFV-D3uTv_hnU",
-    authDomain: "internal-demo-f3701.firebaseapp.com",
-    databaseURL: "https://internal-demo-f3701-default-rtdb.firebaseio.com",
-    projectId: "internal-demo-f3701",
-    storageBucket: "internal-demo-f3701.appspot.com",
-    messagingSenderId: "981293967243",
-    appId: "1:981293967243:web:3f3d4c137d12018cb3b18e",
-    measurementId: "G-GMC40LHFBJ"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  // // Your web app's Firebase configuration
+  // // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  // var firebaseConfig = {
+  //   apiKey: "AIzaSyATTBiIr3ejGcjXlpLz_mIFV-D3uTv_hnU",
+  //   authDomain: "internal-demo-f3701.firebaseapp.com",
+  //   databaseURL: "https://internal-demo-f3701-default-rtdb.firebaseio.com",
+  //   projectId: "internal-demo-f3701",
+  //   storageBucket: "internal-demo-f3701.appspot.com",
+  //   messagingSenderId: "981293967243",
+  //   appId: "1:981293967243:web:3f3d4c137d12018cb3b18e",
+  //   measurementId: "G-GMC40LHFBJ"
+  // };
+  // // Initialize Firebase
+  // firebase.initializeApp(firebaseConfig);
 
 
 //Authentication - Firebase - Login 
