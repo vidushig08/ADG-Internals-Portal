@@ -52,4 +52,17 @@
   letter-spacing: normal;
   align-items: left;
   text-align: left;
+  position: relative;
+  display: inline-block;
+}
+
+.team h2:before{
+  position: absolute;
+  height: 1.5px;
+  width: 55%;
+  left: 0;
+  bottom: 0;
+  background: #000000;
+  display: block;
+  content: "";
 }

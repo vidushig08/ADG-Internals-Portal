@@ -59,7 +59,7 @@ function getCheckedValue(el) {
 function readData() {
   // Get input values from each of the form elements    
   let date = document.getElementById("date").value;
-  var unixdate = new Date(date).valueOf();
+  var unixdate = new Date(date).valueOf()/1000;
   let title = document.getElementById("title").value;
   //console.log(title);
   let venue = document.getElementById("venue").value;

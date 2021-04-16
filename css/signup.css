@@ -78,10 +78,24 @@ label.confirmpassword {
 }
 
 h3.add-teams-text {
-  float: left;
-  width: 100%;
-  padding-right: 80%;
+  /* float: left; */
+  /* width: 100%; */
+  margin-left: 3%;
+  position: relative;
+  display: inline-block; 
 }
+
+h3.add-teams-text:before{
+  position: absolute;
+  height: 1.5px;
+  width: 55%;
+  left: 0;
+  bottom: 0;
+  background: #000000;
+  display: block;
+  content: "";
+}
+
 
 .container {
   display: block;

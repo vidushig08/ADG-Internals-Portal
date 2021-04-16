@@ -50,7 +50,7 @@ img.logo {
 }
 li {
   padding-left: 15%;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
   padding-top: 5%;
   font-size: 16px;
   letter-spacing: 0.5px;
@@ -96,10 +96,10 @@ a {
 li.inner {
   padding: 2%;
 }
-li.inner input[type="radio"]:checked {
+/* li.inner input[type="radio"]:checked {
   margin-right: 3%;
   background-color: #000000;
-}
+} */
 
 input[type="text"],
 input[type="password"],
