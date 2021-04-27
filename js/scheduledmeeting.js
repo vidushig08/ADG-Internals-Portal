@@ -6,8 +6,8 @@ const getMeetings = async () => {
     meetings = await meetings.json();
     // console.log(meetings);
     return meetings;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.error(error);
     alert("Failed to fetch meeting data");
   }
 };
@@ -40,7 +40,6 @@ const renderMeetings = async () => {
         </div>`
     )
     .forEach((m) => (fetchedMeetings.innerHTML += m));
-  console.log(allMeetings);
 
   // fetchedMeetings.innerHTML += TeamsMeetings + CoreMeetings;
 };
@@ -55,29 +54,23 @@ const selectMeeting = async (mId) => {
   try {
     const ackMarkup = document.querySelector(".available");
     const nonAckMarkup = document.querySelector(".unavailable");
-    console.log(meetingId);
     const dbRef = firebase.database().ref();
     let attendance = await dbRef
       .child("AlertAttendance")
       .child(meetingId)
       .get();
     let snapshot = await attendance.val();
-    console.log(snapshot);
 
     Users = await Promise.all(
       Object.entries(snapshot).map(async ([key, value]) => {
         let user = await dbRef.child("Users").child(key).get();
         let snap = await user.val();
-        console.log(snap);
         return { ...snap };
       })
     );
-    console.log(Users);
 
     acknowledged = Users.filter((u) => snapshot[u.uid] === "available");
-    console.log(acknowledged);
 
-    console.log(ackMarkup);
     ackMarkup.innerHTML = `<h3>Acknowledged</h3>`;
     if (acknowledged) {
       acknowledged.forEach((user, i) => {
@@ -91,7 +84,6 @@ const selectMeeting = async (mId) => {
       nonAckMarkup.innerHTML = `<p>No members</p>`;
     }
     unavailable = Users.filter((u) => snapshot[u.uid] !== "available");
-    console.log(nonAckMarkup);
     nonAckMarkup.innerHTML = `<h3>Unavailable</h3>`;
     if (unavailable) {
       unavailable.forEach((user, i) => {
@@ -115,9 +107,7 @@ async function changeStatus(id, status) {
   let update = {};
   status = parseInt(status);
   if (status == 0) {
-    console.log(acknowledged);
     let currUser = acknowledged[id];
-    console.log(currUser);
     let currUserId = currUser["uid"];
     update[currUserId] = "unavailable";
   } else {
