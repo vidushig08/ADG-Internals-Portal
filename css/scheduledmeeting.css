@@ -12,6 +12,12 @@ h3 {
   border-right: 1px solid lightgray;
   min-height: 100%;
 }
+.middle{
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  display: none;
+}
 .right {
   padding-top: 10%;
   text-align: left;
