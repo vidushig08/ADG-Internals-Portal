@@ -75,6 +75,7 @@ const selectMeeting = async (mId) => {
     console.log(Users);
 
     acknowledged = Users.filter((u) => snapshot[u.uid] === "available");
+    console.log(acknowledged);
 
     console.log(ackMarkup);
     ackMarkup.innerHTML = `<h3>Acknowledged</h3>`;
@@ -112,13 +113,16 @@ renderMeetings();
 // Mark
 async function changeStatus(id, status) {
   let update = {};
-  if ((status = 0)) {
+  status = parseInt(status);
+  if (status == 0) {
+    console.log(acknowledged);
     let currUser = acknowledged[id];
-    let currUserId = currUser.uid;
+    console.log(currUser);
+    let currUserId = currUser["uid"];
     update[currUserId] = "unavailable";
   } else {
     let currUser = unavailable[id];
-    let currUserId = currUser.uid;
+    let currUserId = currUser["uid"];
     update[currUserId] = "available";
   }
   const dbRef = firebase.database().ref();
