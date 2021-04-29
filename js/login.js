@@ -49,6 +49,8 @@ function login(){
             // Signed in
             var user = userCredential.user;
             alert("Signed in Successfully");
+            console.log("redirect");
+            window.location.href = "newmeet.html";
             // ...
           })
           .catch((error) => {
@@ -65,17 +67,16 @@ function login(){
     });
 }
 
+/*
 auth.onAuthStateChanged(function(user){
     if(user){
-        //window.location.replace("new-meeting.html");
-        //alert("Signed in Successfully");
-        //is signed in
+        window.location = "newmeet.html";
     }else{   
         //alert("User not found");
         //no user is signed in
     }
 });
-
+*/
     
 function logout(){
   firebase.auth().signOut();
