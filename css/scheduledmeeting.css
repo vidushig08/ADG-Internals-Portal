@@ -10,10 +10,13 @@ h3 {
 .fetchedMeetings {
   padding-top: 1.5em;
   border-right: 1px solid lightgray;
-  min-height: 100%;
-}
-.middle{
+  max-height: 85%;
   overflow-y: scroll;
+  padding-bottom: 1.5em;
+}
+.right{
+  overflow-y: scroll;
+  
 }
 ::-webkit-scrollbar {
   display: none;
