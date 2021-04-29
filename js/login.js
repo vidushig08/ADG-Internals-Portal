@@ -47,10 +47,10 @@ function login(){
           firebase.auth().signInWithEmailAndPassword(loginID, loginPass)
           .then((userCredential) => {
             // Signed in
-            var user = userCredential.user;
+            //var user = userCredential.user;
             alert("Signed in Successfully");
             console.log("redirect");
-            window.location.href = "newmeet.html";
+            window.location.assign("newmeet.html");
             // ...
           })
           .catch((error) => {
