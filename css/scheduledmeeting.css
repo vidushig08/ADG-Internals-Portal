@@ -18,9 +18,7 @@ h3 {
   overflow-y: scroll;
   
 }
-::-webkit-scrollbar {
-  display: none;
-}
+
 .right {
   padding-top: 10%;
   text-align: left;

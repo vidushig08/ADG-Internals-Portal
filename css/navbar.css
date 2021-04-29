@@ -162,3 +162,26 @@ button.privacy{
   cursor: pointer;
   padding: 2%;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f4f6ff;
+  border: none;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(230, 227, 227); 
+  border-radius : 10px
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(210, 207, 207);
+}
