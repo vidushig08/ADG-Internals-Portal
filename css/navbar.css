@@ -120,7 +120,7 @@ select {
 
 /* Logout button */
 .out {
-  margin-top: 25vh;
+  margin-top: 50%;
   text-align: center;
   align-items: center;
   align-content: center;
@@ -142,7 +142,7 @@ button.logout {
 }
 
 .out1{
-  margin-top: 55vh;
+  margin-top: 150%;
   text-align: center;
   align-items: center;
   align-content: center;
