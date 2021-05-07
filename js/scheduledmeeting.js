@@ -32,12 +32,15 @@ const renderMeetings = async () => {
     .map(
       (m) =>
         `<div class="meeting" onclick="selectMeeting('${m.id}')">
+          <div style="display: flex; justify-content: space-between;">
           <p class="bold">
-            ${m.scope} Meeting
-            <a class="post" href="">Post Attendance</a>
+            ${m.title} Meeting
           </p>
+          <a class="post" href="">Post Attendance</a>
+          </div>
           <p>${new Date(m.time * 1000).toLocaleDateString()}</p>
-        </div>`
+        </div>
+          `
     )
     .forEach((m) => (fetchedMeetings.innerHTML += m));
 
