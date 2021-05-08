@@ -36,7 +36,6 @@ const renderMeetings = async () => {
           <p class="bold">
             ${m.title} Meeting
           </p>
-          <a class="post" href="">Post Attendance</a>
           </div>
           <p>${new Date(m.time * 1000).toLocaleDateString()}</p>
         </div>
