@@ -49,15 +49,23 @@ const selectMOM = async (mId) => {
 
     MOM = snapshot;
     right.innerHTML = "";
-    right.innerHTML += `
-      <h1>${MOM.header}</h1>
-      <h4>${new Date(MOM.time)}</h4>
-      <br />
-      <h4>Points Discussed</h4>
-    `;
+    let points = "";
     MOM.points.forEach((p) => {
-      right.innerHTML += `<p>${p}</p>`;
+      points += `<li class="mompoint">${p}</li>`;
     });
+    right.innerHTML += `
+    <div class="momdetails">
+      <h4 class="momheading">${MOM.header}</h4>
+      <p>${new Date(MOM.time * 1000).toLocaleString()}</p>
+      <br />
+      <p>${MOM.title}</p>
+      <br />
+      <p class="bold">Points Discussed</p>
+      <ul>
+        ${points}
+      </ul>
+    </div>
+    `;
   } catch (error) {
     console.error(error);
   }
