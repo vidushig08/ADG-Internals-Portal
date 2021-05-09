@@ -79,7 +79,7 @@ const selectMeeting = async (mId) => {
         ackMarkup.innerHTML += `<div class="user">
           <h4>${user.name}</h4>
           <p>${user.regNo}</p>
-          <div id="${i}"onclick="changeStatus(this.id, 0)">Change Status</div>
+          <div class="changestatus-btn" id="${i}"onclick="changeStatus(this.id, 0)">Change Status</div>
         </div>`;
       });
     } else {
@@ -92,7 +92,7 @@ const selectMeeting = async (mId) => {
         nonAckMarkup.innerHTML += `<div class="user">
           <h4>${user.name}</h4>
           <p>${user.regNo}</p>
-          <div id="${i}"onclick="changeStatus(this.id, 1)">Change Status</div>
+          <div class="changestatus-btn" id="${i}"onclick="changeStatus(this.id, 1)">Change Status</div>
         </div>`;
       });
     } else {

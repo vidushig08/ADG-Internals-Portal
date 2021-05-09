@@ -64,3 +64,12 @@ a.post {
 .user h4 {
   font-weight: bold;
 }
+.changestatus-btn{
+  border: black 0.5px solid;
+  border-radius: 5px;
+  width: fit-content;
+  padding: 1%;
+  margin: 1%;
+  margin-bottom: 5%;
+  cursor: pointer;
+}
