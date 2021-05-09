@@ -11,9 +11,9 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
+/*
 // FCM
- const messaging=firebase.messaging();
+ const messaging = firebase.messaging();
  messaging.requestPermission()
  .then(function(){
    console.log('Have permission');
@@ -81,3 +81,10 @@ firebase.initializeApp(firebaseConfig);
 //   });
 //   // [END messaging_delete_token]
 // }
+
+/*
+curl --header "Authorization: key=AAAAr7nfbFc:APA91bGWqLXS0-KTcy0YyhD6BtjyioIPYAx21746YtM4nKMU4dYKOgc6dp1rETiS73CYWswXMjk9viSMQ6giQri2Mwz8Nf_ImnZ3eDOxCFxGuJe7_mnvAdiu11Du7VXGnLbqeJk0aByA" --header "Content-Type: application/json" -d'{"to": "ebXRXRiOMBDFjCz4m8R282:APA91bFsMGGH6I3EAZ3Z9OtrReDhWAnsrLQCF_PI7CGdZaagqMZiBMjZ1FXC6HfFKplbKO2GGAhax9QGVLSMw-s2QzeNs6nUkHWKfScXM7OUUfd2tEKxErSpKmyypEItdTaWmpCzi381", "notification": {"title": "Hello","body": "Yellow"}}' https://fcm.googleapis.com/fcm/send
+
+curl --header "Authorization: key=AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ" --header "Content-Type: application/json" -d'{"to": "ebXRXRiOMBDFjCz4m8R282:APA91bFsMGGH6I3EAZ3Z9OtrReDhWAnsrLQCF_PI7CGdZaagqMZiBMjZ1FXC6HfFKplbKO2GGAhax9QGVLSMw-s2QzeNs6nUkHWKfScXM7OUUfd2tEKxErSpKmyypEItdTaWmpCzi381", "notification": {"title": "Hello","body": "Yellow"}}' https://fcm.googleapis.com/fcm/send
+curl --header "Authorization: key=AIzaSyAgHtxEJqKVsXItchYAZ8pvCyR38ReYhzQ" --header "Content-Type: application/json" -d'{"to": "ebXRXRiOMBDFjCz4m8R282:APA91bFsMGGH6I3EAZ3Z9OtrReDhWAnsrLQCF_PI7CGdZaagqMZiBMjZ1FXC6HfFKplbKO2GGAhax9QGVLSMw-s2QzeNs6nUkHWKfScXM7OUUfd2tEKxErSpKmyypEItdTaWmpCzi381", "notification": {"title": "Hello","body": "Yellow"}}' https://fcm.googleapis.com/fcm/send
+*/

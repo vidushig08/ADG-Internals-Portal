@@ -40,9 +40,13 @@ h3 {
 }
 .meeting {
   padding: 15px;
+  cursor: pointer;
 }
 .meeting:hover {
   background-color: #ecf5fc;
+}
+.activeMeeting{
+  background-color: cornflowerblue;
 }
 .meeting p {
   cursor: pointer;
