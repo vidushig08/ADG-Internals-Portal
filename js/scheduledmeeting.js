@@ -13,12 +13,14 @@ const getMeetings = async () => {
 };
 
 let Meetings;
+let allMeetings;
 const renderMeetings = async () => {
   Meetings = await getMeetings();
   const fetchedMeetings = document.querySelector(".fetchedMeetings");
   let Teams = Object.values(Meetings.Team).map((team) => {
     return { ...team, scope: "Team" };
   });
+  console.log(Meetings);
 
   let Core = Object.values(Meetings.Core)
     .map((core) => {
@@ -26,7 +28,7 @@ const renderMeetings = async () => {
     })
     .filter((Core) => Core.type === "Meetings");
 
-  let allMeetings = [...Teams, ...Core];
+  allMeetings = [...Teams, ...Core];
   allMeetings.sort((a, b) => b.time - a.time);
   allMeetings
     .map(
@@ -62,6 +64,7 @@ const selectMeeting = async (mId) => {
       .child(meetingId)
       .get();
     let snapshot = await attendance.val();
+    console.log(snapshot);
 
     Users = await Promise.all(
       Object.entries(snapshot).map(async ([key, value]) => {
@@ -71,6 +74,8 @@ const selectMeeting = async (mId) => {
       })
     );
 
+    let title = Meetings.Core[mId].title ?? Meetings.Team[mId].title;
+    document.querySelector(".meeting-title").innerHTML = `<h4>${title}</h4>`;
     acknowledged = Users.filter((u) => snapshot[u.uid] === "available");
 
     ackMarkup.innerHTML = `<h3>Acknowledged</h3>`;
