@@ -9,7 +9,7 @@ var regNoArr = [
     "19BCEtest",
     "19BCE2227",
     "19BCE0001",
-    "19BCE0000"
+    "19BCE0630"
 ];
 
 var emailArr = [
@@ -21,7 +21,7 @@ var emailArr = [
     "testuser@gmail.com",
     "panshul.jindal2019@vitstudent.ac.in",
     "vidushig08@gmail.com",
-    "demouser@vitstudent.ac.in"
+    "anmol.bansal2019@vitstudent.ac.in"
 ];
 
 
