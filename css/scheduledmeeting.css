@@ -45,7 +45,7 @@ h3 {
 .meeting:hover {
   background-color: #ecf5fc;
 }
-.active{
+.active {
   background-color: cornflowerblue;
 }
 .meeting p {
@@ -74,9 +74,9 @@ a.post {
   cursor: pointer;
 }
 
-p.title{
-    font-size: 22px;
-    font-weight: bold;
-    padding-left: 5%;
-    margin-bottom: 1em;
+p.title {
+  font-size: 22px;
+  font-weight: bold;
+  padding-left: 5%;
+  margin-bottom: 1em;
 }

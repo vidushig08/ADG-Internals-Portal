@@ -45,7 +45,7 @@ i {
 }
 
 @media screen and (max-width: 700px) {
-  .loginLink{
+  .loginLink {
     display: none;
   }
 }
