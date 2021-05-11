@@ -36,7 +36,7 @@ const renderMeetings = async () => {
         `<div class="meeting" onclick="selectMeeting('${m.id}')">
           <div style="display: flex; justify-content: space-between;">
           <p class="bold">
-            ${m.title} Meeting
+            ${m.title}
           </p>
           </div>
           <p>${new Date(m.time * 1000).toLocaleDateString()}</p>
@@ -75,7 +75,7 @@ const selectMeeting = async (mId) => {
     );
 
     let title = Meetings.Core[mId].title ?? Meetings.Team[mId].title;
-    document.querySelector(".meeting-title").innerHTML = `<h4>${title}</h4>`;
+    document.querySelector(".meeting-title").innerHTML = `<p class="title">${title}</p>`;
     acknowledged = Users.filter((u) => snapshot[u.uid] === "available");
 
     ackMarkup.innerHTML = `<h3>Acknowledged</h3>`;
@@ -106,6 +106,7 @@ const selectMeeting = async (mId) => {
   } catch (error) {
     console.error(error);
   }
+  //document.getElementById("meeting").classList.toggle("active");
 };
 renderMeetings();
 
