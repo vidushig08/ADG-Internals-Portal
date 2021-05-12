@@ -233,7 +233,7 @@ function readData() {
 function writeUserData(unixdate,link,venue,title,pushmeetuserArr){
   var taskType = "Duties";
   var newTaskKey = firebase.database().ref().child('Alerts/Core/').push().key;
-  firebase.database().ref('Alerts/Core/').push({
+  firebase.database().ref('Alerts/Core/' + newTaskKey).set({
   id: newTaskKey,
   time: unixdate,
   title: title,
@@ -243,7 +243,7 @@ function writeUserData(unixdate,link,venue,title,pushmeetuserArr){
   users: pushmeetuserArr
   });
 
-  firebase.database().ref('Home/Notification/').push({
+  firebase.database().ref('Home/Notification/' + newTaskKey).set({
     id: newTaskKey,
     time: unixdate,
     title: title,

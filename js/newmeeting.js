@@ -87,7 +87,8 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
   {
     var meetingCore = "Meetings";
     var newMeetingKey = firebase.database().ref().child('Alerts/Core/').push().key;
-    firebase.database().ref('Alerts/Core/').push({
+    //firebase.database().ref('Alerts/Core/').child(key).push({
+    firebase.database().ref('Alerts/Core/' + newMeetingKey).set({
     id: newMeetingKey,
     time: unixdate,
     title: title,
@@ -97,7 +98,7 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
     users: pushmeetuserArr
   });
   
-    firebase.database().ref('Home/Notification/').push({
+    firebase.database().ref('Home/Notification/' + newMeetingKey).set({
     id: newMeetingKey,
     time: unixdate,
     title: title,
@@ -107,12 +108,13 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
     users: pushmeetuserArr
     });
   alert("Meeting Posted");
+  window.location.reload();
   }
 
   else if (chosenTeam == "0"||"1"||"2"||"3"||"4"||"5"||"6"||"7"||"8")
   {
     var newMeetingKey = firebase.database().ref().child('Alerts/Team/').push().key;
-    firebase.database().ref('Alerts/Team/').push({
+    firebase.database().ref('Alerts/Team/' + newMeetingKey).set({
     id: newMeetingKey,
     time: unixdate,
     title: title,
@@ -122,7 +124,7 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
     users: pushmeetuserArr
   });
   
-  firebase.database().ref('Home/Notification/').push({
+  firebase.database().ref('Home/Notification/' + newMeetingKey).set({
     id: newMeetingKey,
     time: unixdate,
     title: title,

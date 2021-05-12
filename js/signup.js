@@ -132,6 +132,7 @@ function sendMail(){
     let regNo = document.getElementById("signupRegno").value;
     let phone = document.getElementById("signupContact").value;
     let fcm = "";
+    let os = "";
     var x;
     let bestFuture = Boolean(x);
     var isAdmin = Boolean(x);
@@ -150,10 +151,10 @@ function sendMail(){
     console.log(isAdmin);
     console.log(userID);
     console.log(teamArr);
-    writeUserData(userID, name, email, regNo, phone, fcm, bestFuture, isAdmin, teamArr);
+    writeUserData(userID, name, email, regNo, phone, fcm, os, bestFuture, isAdmin, teamArr);
   }
 
-function writeUserData(userID, name, email, regNo, phone, fcm, bestFuture, isAdmin, teamArr){
+function writeUserData(userID, name, email, regNo, phone, fcm, os, bestFuture, isAdmin, teamArr){
   console.log("3");
   firebase.database().ref('Users/' + userID).set({
     uid: userID,
@@ -162,6 +163,7 @@ function writeUserData(userID, name, email, regNo, phone, fcm, bestFuture, isAdm
     regNo: regNo, 
     phone: phone,
     fcm: fcm,
+    os: os,
     bestFuture: bestFuture,
     isAdmin: isAdmin, 
     teams: teamArr
