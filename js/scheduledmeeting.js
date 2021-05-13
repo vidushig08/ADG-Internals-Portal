@@ -75,7 +75,7 @@ const selectMeeting = async (mId) => {
     );
 
     let title = Meetings.Core[mId].title ?? Meetings.Team[mId].title;
-    document.querySelector(".meeting-title").innerHTML = `<p class="title">${title}</p>`;
+    document.querySelector(".meeting-title").innerHTML = `${title}`;
     acknowledged = Users.filter((u) => snapshot[u.uid] === "available");
 
     ackMarkup.innerHTML = `<h3>Acknowledged</h3>`;
