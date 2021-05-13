@@ -15,12 +15,11 @@ h3 {
   padding-bottom: 1.5em;
 }
 .right {
-  /* margin-top: 10%; */
+  padding-top: 10%;
   text-align: left;
   width: 50%;
-  height: 100vh;
+  height: 100%;
   padding-bottom: 5%;
-  overflow-y: scroll;
 }
 .available {
   float: left;
@@ -28,7 +27,8 @@ h3 {
   height: 100%;
   padding-left: 5%;
   padding-bottom: 5%;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
+  overflow: auto;
 }
 .unavailable {
   float: right;
@@ -38,7 +38,8 @@ h3 {
   height: 100%;
   padding-left: 5%;
   padding-bottom: 5%;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
+  overflow: auto;
 }
 .meeting {
   padding: 15px;
@@ -83,10 +84,10 @@ a.post {
   margin-bottom: 1em;
 }
 
-.blank{
+.blank {
   height: 20%;
   width: 50%;
-  background-color: aqua;
+  background-color: #f4fbff;
   /* position: fixed; */
   float: right;
 }
