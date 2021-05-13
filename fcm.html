@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="send()">Click</button>
+    <input type="datetime-local" id="date" name="date" required/><br /><br />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+    
+    <script src="js/firebase.js"></script>
+    <script>
+
+        function send(){
+            //console.log("1");
+            var panshul = "j8wRGcEgJrMCUAchjfTrD466iFp2";
+            var fcmArr = [];
+            var userfcm;
+            var pushmeetuserArr = ["j8wRGcEgJrMCUAchjfTrD466iFp2", "8YUM5A4T5NaATiU2OKmrx4kQ4BS2", "NE0SB62uEubuo5BGaQy0X6Q4xkD2"];
+            //console.log("2");
+            for (var i =0; i < pushmeetuserArr.length; i++){
+                //console.log(i);
+                //console.log(pushmeetuserArr[i]);
+                var ref = firebase.database().ref("Users/" + pushmeetuserArr[i]);
+                ref.once("value")
+                .then(function(snapshot) {
+                userfcm = snapshot.child("fcm").val();
+                fcmArr.push(userfcm);
+            });
+            }
+            console.log(fcmArr);
+            hey();
+            alert("HEYYA");
+            var titleNotif = "HiHihi"
+            let date = document.getElementById("date").value;
+            var time = new Date(date);
+            var meetTime = time.toLocaleString();
+            var notif = titleNotif + " on " + meetTime;
+            document.write(notif);
+        }
+
+        function hey(){
+            console.log("HEYY");
+        }
+    </script>
+</body>
+</html>
+
+"ckPs_n_XRsaBQbhmUUOxRo:APA91bH2Do4VGxBNmWaDrGen96pyH2MKomcm4rYuQ2iNs7PySETAHzhIOSXjlwBBAAmKBSvIXNkqnbohQ2mq422rYyJio3ug-aXDcw3-5uzSGlyFttcXBIiKsGd22orlAsEfFCK6iMoH"

@@ -96,6 +96,10 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
     link: link,
     type: meetingCore,
     users: pushmeetuserArr
+  }, (error) => {
+    if (error) {
+      alert(error);
+    }
   });
   
     firebase.database().ref('Home/Notification/' + newMeetingKey).set({
@@ -106,9 +110,15 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
     link: link,
     type: meetingCore,
     users: pushmeetuserArr
+  }, (error) => {
+    if (error) {
+      alert(error);
+    }
     });
-  alert("Meeting Posted");
-  window.location.reload();
+  
+  // alert("Meeting Posted");
+  // window.location.reload();
+  sendNotif(pushmeetuserArr);
   }
 
   else if (chosenTeam == "0"||"1"||"2"||"3"||"4"||"5"||"6"||"7"||"8")
@@ -122,6 +132,10 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
     link: link,
     type: chosenTeam,
     users: pushmeetuserArr
+  }, (error) => {
+    if (error) {
+      alert(error);
+    }
   });
   
   firebase.database().ref('Home/Notification/' + newMeetingKey).set({
@@ -132,9 +146,14 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
     link: link,
     type: chosenTeam,
     users: pushmeetuserArr
+  }, (error) => {
+    if (error) {
+      alert(error);
+    }
   });
-  alert("Meeting Posted");
-  window.location.reload();
+  // alert("Meeting Posted");
+  // window.location.reload();
+  sendNotif(pushmeetuserArr);
   }
   
   else{
@@ -142,6 +161,59 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
   }
 }
 
+
+function sendNotif(pushmeetuserArr){
+  console.log(pushmeetuserArr);
+  var fcmArr = [];
+  var userfcm;
+  //var pushmeetuserArr = ["j8wRGcEgJrMCUAchjfTrD466iFp2", "8YUM5A4T5NaATiU2OKmrx4kQ4BS2", "NE0SB62uEubuo5BGaQy0X6Q4xkD2"];
+  //console.log("2");
+  for (var i =0; i < pushmeetuserArr.length; i++){
+      //console.log(i);
+      //console.log(pushmeetuserArr[i]);
+      var ref = firebase.database().ref("Users/" + pushmeetuserArr[i]);
+      ref.once("value")
+      .then(function(snapshot) {
+      userfcm = snapshot.child("fcm").val();
+      fcmArr.push(userfcm);
+  });
+  }
+  console.log(fcmArr);
+  var titleNotif =  document.getElementById("title").value;
+  let date = document.getElementById("date").value;
+  var time = new Date(date);
+  var timeNotif = time.toLocaleString();
+  var notif = titleNotif + " on " + timeNotif;
+
+  var myHeaders = new Headers();
+            myHeaders.append("Authorization", "key=AAAAr7nfbFc:APA91bEcfhCAcXHNpLBCRwWu5MlJc9BrSZebZ_UmhlT-onKNRI2GuMGGCnN9wo2DhqZ7aj-52lxg-X1tIfvKu8hDS7gb9A8LUc7Wf8YDewqvQ-OBNvk_PWlTMvf3cFeWilYWpTD58jsr");
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({
+            "registration_ids": fcmArr,
+            "priority": "high",
+            "content_available": true,
+            "mutable_content": true,
+            "notification": {
+                "title": "New Meeting Scheduled",
+                "body": notif,
+                "sound": "default"
+            },
+            "sound": "default"
+            });
+
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+
+            fetch("https://fcm.googleapis.com/fcm/send", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => alert('error', error));
+}
 
 //Prevent form from refreshing on submit
 $("#newMeetingForm").submit(function(e) {
