@@ -15,14 +15,11 @@ h3 {
   padding-bottom: 1.5em;
 }
 .right {
-  overflow-y: scroll;
-}
-
-.right {
   padding-top: 10%;
   text-align: left;
   width: 50%;
   height: 100vh;
+  overflow-y: scroll;
 }
 .available {
   float: left;
