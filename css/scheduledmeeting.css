@@ -19,16 +19,26 @@ h3 {
   text-align: left;
   width: 50%;
   height: 100%;
+<<<<<<< Updated upstream
   padding-bottom: 5%;
+=======
+>>>>>>> Stashed changes
 }
 .available {
   float: left;
   width: 50%;
+<<<<<<< Updated upstream
   height: 100%;
   padding-left: 5%;
   padding-bottom: 5%;
   overflow-y: scroll;
   overflow: auto;
+=======
+  padding-left: 5%;
+  height: 100%;
+  overflow: scroll;
+  padding-bottom: 5%;
+>>>>>>> Stashed changes
 }
 .unavailable {
   float: right;
@@ -37,10 +47,16 @@ h3 {
   text-align: left;
   height: 100%;
   padding-left: 5%;
+<<<<<<< Updated upstream
   padding-bottom: 5%;
   overflow-y: scroll;
   overflow: auto;
+=======
+  overflow: scroll;
+  padding-bottom: 5%;
+>>>>>>> Stashed changes
 }
+
 .meeting {
   padding: 15px;
   cursor: pointer;
