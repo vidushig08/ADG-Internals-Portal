@@ -27,6 +27,8 @@ function logout(){
   }
 
 
+
+
   var adminId = "";
   var adminName = "";
   var position = "";
@@ -70,6 +72,8 @@ function logout(){
         var initials = adminName.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase();
         console.log(initials);
         document.getElementById("initial").innerHTML = initials;
+        document.cookie = "name=" + adminName;
+        document.cookie = "position" + position;
     }
 
   
@@ -130,3 +134,7 @@ var third = 2;
   consF();
 
 */  
+
+
+
+

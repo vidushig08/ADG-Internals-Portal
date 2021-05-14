@@ -10,7 +10,7 @@ function TDate() {
         //return false;
     }
     else if (new Date(UserDate).getTime() >= ToDate.getTime()){
-      handleData2();
+      handleData2();  
     }
     else("error");
   }
@@ -263,4 +263,6 @@ async function sendNotif(){
 $("#newMeetingForm").submit(function(e) {
   e.preventDefault();
 });
+
+
 
