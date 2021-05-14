@@ -164,6 +164,7 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
 
 function sendNotif(pushmeetuserArr){
   console.log(pushmeetuserArr);
+
   var fcmArr = [];
   var userfcm;
   //var pushmeetuserArr = ["j8wRGcEgJrMCUAchjfTrD466iFp2", "8YUM5A4T5NaATiU2OKmrx4kQ4BS2", "NE0SB62uEubuo5BGaQy0X6Q4xkD2"];
@@ -175,6 +176,7 @@ function sendNotif(pushmeetuserArr){
       ref.once("value")
       .then(function(snapshot) {
       userfcm = snapshot.child("fcm").val();
+      console.log(userfcm);
       fcmArr.push(userfcm);
   });
   }
@@ -184,35 +186,35 @@ function sendNotif(pushmeetuserArr){
   var time = new Date(date);
   var timeNotif = time.toLocaleString();
   var notif = titleNotif + " on " + timeNotif;
-
+  
   var myHeaders = new Headers();
-            myHeaders.append("Authorization", "key=AAAAr7nfbFc:APA91bEcfhCAcXHNpLBCRwWu5MlJc9BrSZebZ_UmhlT-onKNRI2GuMGGCnN9wo2DhqZ7aj-52lxg-X1tIfvKu8hDS7gb9A8LUc7Wf8YDewqvQ-OBNvk_PWlTMvf3cFeWilYWpTD58jsr");
-            myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Authorization", "key=AAAAr7nfbFc:APA91bEcfhCAcXHNpLBCRwWu5MlJc9BrSZebZ_UmhlT-onKNRI2GuMGGCnN9wo2DhqZ7aj-52lxg-X1tIfvKu8hDS7gb9A8LUc7Wf8YDewqvQ-OBNvk_PWlTMvf3cFeWilYWpTD58jsr");
+  myHeaders.append("Content-Type", "application/json");
 
-            var raw = JSON.stringify({
-            "registration_ids": fcmArr,
-            "priority": "high",
-            "content_available": true,
-            "mutable_content": true,
-            "notification": {
-                "title": "New Meeting Scheduled",
-                "body": notif,
-                "sound": "default"
-            },
-            "sound": "default"
-            });
+  var raw = JSON.stringify({
+  "registration_ids": fcmArr,
+  "priority": "high",
+  "content_available": true,
+  "mutable_content": true,
+  "notification": {
+      "title": "New Meeting Scheduled",
+      "body": notif,
+      "sound": "default"
+  },
+  "sound": "default"
+  });
 
-            var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-            };
+  var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+  };
 
-            fetch("https://fcm.googleapis.com/fcm/send", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => alert('error', error));
+  fetch("https://fcm.googleapis.com/fcm/send", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => alert('error', error));
 }
 
 //Prevent form from refreshing on submit
