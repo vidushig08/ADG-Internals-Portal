@@ -20,7 +20,7 @@
     
     <script src="js/firebase.js"></script>
     <script>
-
+/*
         function send(){
             //console.log("1");
             // var panshul = "j8wRGcEgJrMCUAchjfTrD466iFp2";
@@ -81,6 +81,19 @@
             .then(result => console.log(result))
             .catch(error => alert('error', error));
         }
+
+        */
+       pushmeetuserArr = ["j8wRGcEgJrMCUAchjfTrD466iFp2"];
+        var fcmArr = [];
+        var ref = firebase.database().ref("Users");
+        ref.orderByChild("uid").equalTo(pushmeetuserArr[0]).on("child_added", function(snapshot) {
+        console.log(snapshot.val().name);
+        console.log(snapshot.val().fcm);
+        var userfcm = snapshot.val().fcm;
+        console.log(userfcm);
+        fcmArr.push(userfcm);
+        console.log(fcmArr);
+        })
     </script>
 </body>
 </html>
