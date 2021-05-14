@@ -76,13 +76,14 @@ function readData() {
       pushmeetuserArr.push(val);
     }
   });
+  let isMom=false;
   //console.log(pushmeetuserArr);
 
-  writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr);
+  writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr, isMom);
 }
 
 //To push values to firebase
-function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
+function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr, isMom)
 {
   if (chosenTeam == "z")
   {
@@ -96,7 +97,8 @@ function writeUserData(unixdate,link,venue,title,chosenTeam,pushmeetuserArr)
     location: venue, 
     link: link,
     type: meetingCore,
-    users: pushmeetuserArr
+    users: pushmeetuserArr,
+    isMom: isMom
   }, (error) => {
     if (error) {
       alert(error);
