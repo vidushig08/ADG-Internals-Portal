@@ -42,6 +42,11 @@ h3 {
   overflow: auto;
 }
 
+.reason {
+  cursor: pointer;
+  font-style: italic;
+}
+
 .meeting {
   padding: 15px;
   cursor: pointer;
