@@ -175,8 +175,8 @@ function writeUserData(userID, name, email, regNo, phone, fcm, os, position, bes
 function signOut(){
   console.log("Logged Out");
   firebase.auth().signOut();
-  alert('A Verification Email has been sent');
-  window.location.reload();
+  window.location.assign("instructions.html");
+  //window.location.reload();
 }
 
 $("#signupForm").submit(function(e) {
