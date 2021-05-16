@@ -50,8 +50,11 @@ const getMeetingData = async () => {
 let Meetings;
 const renderMeetings = async () => {
   Meetings = await getMeetingData();
+  console.log(Meetings);
   const meetingSelect = document.getElementById("choosemeeting");
-  let Teams = Object.values(Meetings.Team).map((team) => team);
+  let Teams = Object.values(Meetings.Team)
+    .filter((team) => team.isMOM != true)
+    .sort((a, b) => b.time - a.time);
   TeamsMeetings = Teams.map(
     (t) =>
       `<option value="${t.id}">
@@ -59,9 +62,9 @@ const renderMeetings = async () => {
       </option>`
   );
 
-  let Core = Object.values(Meetings.Core).filter(
-    (Core) => Core.type === "Meetings"
-  );
+  let Core = Object.values(Meetings.Core)
+    .filter((Core) => Core.type === "Meetings" && Core.isMOM != true)
+    .sort((a, b) => b.time - a.time);
   CoreMeetings = Core.map(
     (c) =>
       `<option value="${c.id}">
@@ -80,7 +83,14 @@ const handleSubmit = async (event) => {
     let meetingDetails;
     const meeting = document.getElementById("choosemeeting");
     const id = meeting.value;
-    meetingDetails = Meetings.Core[id] || Meetings.Team[id];
+    let meetingScope;
+    if (Meetings.Core[id]) {
+      meetingDetails = Meetings.Core[id];
+      meetingScope = "Core";
+    } else {
+      meetingDetails = Meetings.Team[id];
+      meetingScope = "Team";
+    }
     const title = meeting.options[meeting.selectedIndex].text.split("on")[0];
     const header = document.getElementById("header").value;
     let points = [];
@@ -105,6 +115,12 @@ const handleSubmit = async (event) => {
       }
     );
     console.log(await newMoM.json());
+
+    let updateAlert = true;
+    let updates = {};
+    updates["/Alerts/" + meetingScope + "/" + id + "/" + "isMOM"] = updateAlert;
+
+    await firebase.database().ref().update(updates);
     alert("MoM posted successfully");
     window.location.reload();
   } catch (error) {
