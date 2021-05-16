@@ -133,6 +133,7 @@ function sendMail(){
     let phone = document.getElementById("signupContact").value;
     let fcm = "";
     let os = "";
+    let position ="";
     var x;
     let bestFuture = Boolean(x);
     var isAdmin = Boolean(x);
@@ -151,10 +152,10 @@ function sendMail(){
     console.log(isAdmin);
     console.log(userID);
     console.log(teamArr);
-    writeUserData(userID, name, email, regNo, phone, fcm, os, bestFuture, isAdmin, teamArr);
+    writeUserData(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr);
   }
 
-function writeUserData(userID, name, email, regNo, phone, fcm, os, bestFuture, isAdmin, teamArr){
+function writeUserData(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr){
   console.log("3");
   firebase.database().ref('Users/' + userID).set({
     uid: userID,
@@ -164,6 +165,7 @@ function writeUserData(userID, name, email, regNo, phone, fcm, os, bestFuture, i
     phone: phone,
     fcm: fcm,
     os: os,
+    position: position,
     bestFuture: bestFuture,
     isAdmin: isAdmin, 
     teams: teamArr
@@ -173,8 +175,8 @@ function writeUserData(userID, name, email, regNo, phone, fcm, os, bestFuture, i
 function signOut(){
   console.log("Logged Out");
   firebase.auth().signOut();
-  alert('A Verification Email has been sent');
-  window.location.reload();
+  window.location.assign("instructions.html");
+  //window.location.reload();
 }
 
 $("#signupForm").submit(function(e) {
