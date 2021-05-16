@@ -205,11 +205,6 @@ const handleSubmit = async (event) => {
     }
 
     sendNotif();
-
-    alert("MoM posted successfully");
-    window.location.reload();
-
-    alert("MoM posted successfully");
     window.location.reload();
   } catch (error) {
     console.log(error);
