@@ -205,7 +205,8 @@ const handleSubmit = async (event) => {
     }
 
     sendNotif();
-    window.location.reload();
+    //alert("MOM Posted");
+    //window.location.reload();
   } catch (error) {
     console.log(error);
     alert("Failed to post MoM");
@@ -214,19 +215,19 @@ const handleSubmit = async (event) => {
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
-  apiKey: "AIzaSyATTBiIr3ejGcjXlpLz_mIFV-D3uTv_hnU",
-  authDomain: "internal-demo-f3701.firebaseapp.com",
-  databaseURL: "https://internal-demo-f3701-default-rtdb.firebaseio.com",
-  projectId: "internal-demo-f3701",
-  storageBucket: "internal-demo-f3701.appspot.com",
-  messagingSenderId: "981293967243",
-  appId: "1:981293967243:web:3f3d4c137d12018cb3b18e",
-  measurementId: "G-GMC40LHFBJ",
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+// var firebaseConfig = {
+//   apiKey: "AIzaSyATTBiIr3ejGcjXlpLz_mIFV-D3uTv_hnU",
+//   authDomain: "internal-demo-f3701.firebaseapp.com",
+//   databaseURL: "https://internal-demo-f3701-default-rtdb.firebaseio.com",
+//   projectId: "internal-demo-f3701",
+//   storageBucket: "internal-demo-f3701.appspot.com",
+//   messagingSenderId: "981293967243",
+//   appId: "1:981293967243:web:3f3d4c137d12018cb3b18e",
+//   measurementId: "G-GMC40LHFBJ",
+// };
+// // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
+// firebase.analytics();
 
 function userData() {
   console.log("2");
