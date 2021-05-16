@@ -40,6 +40,17 @@ p {
   font-weight: bold;
   cursor: pointer;
 }
+.admin-login {
+  width: 300px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: #f4fbff;
+  border: black solid 0.5px;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
 @media only screen and (max-width: 600px) {
   .main {
