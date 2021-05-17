@@ -79,8 +79,12 @@ togglePassword1.addEventListener("click", function (e) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // Signed in 
-        //var user = userCredential.user;
+        var user = userCredential.user;
+        console.log("auth done");
         waitTime();
+        .then(function hi(){
+          console.log("Hi");
+        })
         // ...
       })
       .catch((error) => {
@@ -90,7 +94,6 @@ togglePassword1.addEventListener("click", function (e) {
         alert(errorMessage);
         // ..
       });
-    // waitTime();
   }
 
 function waitTime(){
@@ -100,84 +103,98 @@ function waitTime(){
     }, delayInMilliseconds);
 }
 
-function sendMail(){
-  console.log("mail");
-  var user = firebase.auth().currentUser;
-  console.log(user);
-  user.sendEmailVerification().then(function() {
-    // Email sent.
-    console.log("Sent");
-  }).catch(function(error) {
-    // An error happened.
-    console.log("Not Sent");
-  });
-  userData();
-}
 
   function userData(){
     console.log("2");
-    var user = firebase.auth().currentUser;
-    if (user != null){
-       var userID = user.uid;
-       /*user.sendEmailVerification().then(function() {
-        // Email sent.
-        console.log("sent");
-      }).catch(function(error) {
-        // An error happened.
-        console.log("naah");
-      });*/
-    }
-    let name = document.getElementById("signupName").value;
-    let email = document.getElementById("signupEmail").value;
-    let regNo = document.getElementById("signupRegno").value;
-    let phone = document.getElementById("signupContact").value;
-    let fcm = "";
-    let os = "";
-    let position ="";
-    var x;
-    let bestFuture = Boolean(x);
-    var isAdmin = Boolean(x);
-    var teamArr = [];
-    $("input").each(function(index, el) {
-      if (el.checked) {
-        var val = $(el).data("value");
-        teamArr.push(val);
+    return new Promise(function(resolve, reject){
+      var user = firebase.auth().currentUser;
+      var userID;
+      if (user != null){
+        userID = user.uid;
       }
-    });
-    console.log(name);
-    console.log(email);
-    console.log(phone);
-    console.log(fcm);
-    console.log(bestFuture);
-    console.log(isAdmin);
-    console.log(userID);
-    console.log(teamArr);
-    writeUserData(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr);
+      let name = document.getElementById("signupName").value;
+      let email = document.getElementById("signupEmail").value;
+      let regNo = document.getElementById("signupRegno").value;
+      let phone = document.getElementById("signupContact").value;
+      let fcm = "";
+      let os = "";
+      let position ="";
+      var x;
+      let bestFuture = Boolean(x);
+      var isAdmin = Boolean(x);
+      var teamArr = [];
+      $("input").each(function(index, el) {
+        if (el.checked) {
+          var val = $(el).data("value");
+          teamArr.push(val);
+        }
+      });
+      console.log(name);
+      console.log(email);
+      console.log(phone);
+      console.log(fcm);
+      console.log(bestFuture);
+      console.log(isAdmin);
+      console.log(userID);
+      console.log(teamArr);
+      resolve(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr)
+    }) 
+    //writeUserData(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr);
   }
 
 function writeUserData(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr){
   console.log("3");
-  firebase.database().ref('Users/' + userID).set({
-    uid: userID,
-    name: name,
-    email: email, 
-    regNo: regNo, 
-    phone: phone,
-    fcm: fcm,
-    os: os,
-    position: position,
-    bestFuture: bestFuture,
-    isAdmin: isAdmin, 
-    teams: teamArr
-  });
-  signOut();
+  return new Promise(function(resolve, reject){
+    // var data;
+    firebase.database().ref('Users/' + userID).set({
+      uid: userID,
+      name: name,
+      email: email, 
+      regNo: regNo, 
+      phone: phone,
+      fcm: fcm,
+      os: os,
+      position: position,
+      bestFuture: bestFuture,
+      isAdmin: isAdmin, 
+      teams: teamArr
+    });
+    resolve();
+  })
+  //signOut();
 }
+
 function signOut(){
-  firebase.auth().signOut();
-  console.log("Logged Out");
-  alert("An email has been sent for verification");
-  //window.location("instructions.html");
-  //window.location.reload();
+    firebase.auth().signOut();
+    console.log("Logged Out");
+    // alert("An email has been sent for verification");
+    //window.location("instructions.html");
+    //window.location.reload();
+}
+
+function sendMail(){
+  console.log("mail");
+  return new Promise(function(resolve, reject){
+    var user = firebase.auth().currentUser;
+    console.log(user);
+    user.sendEmailVerification().then(function() {
+      // Email sent.
+      console.log("Sent");
+      alert("Email sent");
+    }).catch(function(error) {
+      // An error happened.
+      console.log("Not Sent");
+    });
+    resolve();
+  })
+}
+
+async function createUser(){
+  await authSignup();
+  await userData();
+  await writeUserData(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr);
+  await sendMail();
+  signOut();
 }
 
 $("#signupForm").submit(function(e) {
