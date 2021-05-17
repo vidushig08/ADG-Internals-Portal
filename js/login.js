@@ -20,6 +20,9 @@ const auth = firebase.auth();
 document.getElementById("signinForm").addEventListener('submit', login);
 
 function login(){
+  console.log("0");
+  //document.querySelector("body").style.visibility = "hidden";
+  document.querySelector("#loader1").style.display = "block";
   console.log("1");
     var ref = firebase.database().ref().child("Users");
     var loginID = document.getElementById("loginID").value;
@@ -34,6 +37,7 @@ function login(){
               console.log(snapshot.val().isAdmin);
               var admin = snapshot.val().isAdmin;
               if (admin == true){
+                document.querySelector("#loader1").style.display = "none";
                 alert("Signed in Successfully");
                 console.log("redirect");
                 window.location.assign("newmeet.html");
@@ -48,6 +52,7 @@ function login(){
             });
           })
           .catch((error) => {
+            document.querySelector("#loader1").style.display = "none";
             var errorCode = error.code;
             var errorMessage = error.message;
             alert(errorMessage);

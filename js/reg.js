@@ -5,6 +5,9 @@ var regNoArr = [
     "19BCE2227",
     "19BCE0922",
     "19BCE0630",
+    "19BEC0596",
+    "19BCE0496",
+    "19BEC0629",
     "18BCE0265",
     "18BCE2018",
     "18BCE0796",
@@ -16,15 +19,44 @@ var regNoArr = [
     "18BCE0761",
     "18BIT0093",
     "18BCE2146",
-    "18BCE2026", 
+    "18BCE2026",
     "19BCE0600"
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 var emailArr = [
     "dev.sharma2019@vitstudent.ac.in",
     "panshul.jindal2019@vitstudent.ac.in",
     "vidushi.gupta2019@vitstudent.ac.in",
     "anmol.bansal2019@vitstudent.ac.in",
+    "riddhi.gupta2019@vitstudent.ac.in",
+    "harshvivek.londhekar2019@vitstudent.ac.in",
+    "utkarsh.dixit2019@vitstudent.ac.in",
     "ishaan.ohri2018@vitstudent.ac.in",
     "ritik.suryawanshi2018@vitstudent.ac.in",
     "keshav.periwal2018@vitstudent.ac.in",
