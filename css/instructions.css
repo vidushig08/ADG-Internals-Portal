@@ -30,7 +30,7 @@ p {
   font-size: 18px;
 }
 
-p#title{
+p#title {
   font-size: 22px;
   font-weight: bold;
   padding-bottom: 5%;
@@ -60,7 +60,7 @@ p#title{
   cursor: pointer;
 }
 
-input{
+input {
   width: 400px;
   height: 32px;
   font-size: 14px;
@@ -91,7 +91,10 @@ input{
   display: inline-flex;
 }
 i {
-  margin-left: -18px;
+  position: fixed;
+  align-items: center;
+  margin-left: -25px;
+  margin-top: 8px;
   cursor: pointer;
 }
 
