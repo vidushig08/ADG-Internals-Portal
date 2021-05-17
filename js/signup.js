@@ -173,10 +173,11 @@ function writeUserData(userID, name, email, regNo, phone, fcm, os, position, bes
   signOut();
 }
 function signOut(){
-  console.log("Logged Out");
   firebase.auth().signOut();
-  window.location.assign("instructions.html");
-  //window.location.reload();
+  console.log("Logged Out");
+  alert("Signed In Successfully");
+  //window.location("instructions.html");
+  window.location.reload();
 }
 
 $("#signupForm").submit(function(e) {
