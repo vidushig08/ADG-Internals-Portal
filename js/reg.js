@@ -8,7 +8,8 @@ var regNoArr = [
     "19BEC0596",
     "19BCE0496",
     "19BEC0629",
-    "19MIC0106", //Internals Team
+    "19MIC0106",
+    "19BDS0063", //Internals Team
     "18BCE0265", //Board
     "18BCE2018",
     "18BCE0796",
@@ -135,7 +136,8 @@ var emailArr = [
     "riddhi.gupta2019@vitstudent.ac.in",
     "harshvivek.londhekar2019@vitstudent.ac.in",
     "utkarsh.dixit2019@vitstudent.ac.in",
-    "arupamkumar.saha2019@vitstudent.ac.in",        //Internals Team
+    "arupamkumar.saha2019@vitstudent.ac.in",        
+    "aaryan.kothari2019@vitstudent.ac.in",         //Internals Team
     "ishaan.ohri2018@vitstudent.ac.in",            //Board
     "ritik.suryawanshi2018@vitstudent.ac.in",
     "keshav.periwal2018@vitstudent.ac.in",
