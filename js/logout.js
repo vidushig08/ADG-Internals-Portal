@@ -272,7 +272,7 @@ var third = 2;
     console.log(first);
     return new Promise(function(resolve, reject){
       setTimeout(() => {
-        //first = "1st";
+        first = "1st";
         console.log("First");
         console.log(first);
         resolve(first);

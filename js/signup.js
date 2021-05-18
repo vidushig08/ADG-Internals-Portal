@@ -58,12 +58,13 @@ togglePassword1.addEventListener("click", function (e) {
       else
       {
         //document.getElementById("chk_option_error").style.visibility = "hidden";
-        authSignup();
+        createUser();
         return true;
       }
   }
   function authSignup(){
     console.log("1");
+    return new Promise(function(resolve, reject){
       //Taking Values from Form
       let email = document.getElementById("signupEmail").value;
       let password = document.getElementById("signupPass").value;
@@ -73,7 +74,8 @@ togglePassword1.addEventListener("click", function (e) {
         // Signed in 
         var user = userCredential.user;
         console.log("auth done");
-        waitTime();
+        //waitTime();
+        resolve();
         // ...
       })
       .catch((error) => {
@@ -83,6 +85,7 @@ togglePassword1.addEventListener("click", function (e) {
         alert(errorMessage);
         // ..
       });
+    })
   }
 
 function waitTime(){
@@ -92,33 +95,41 @@ function waitTime(){
     }, delayInMilliseconds);
 }
 
-
+  var userID;
+  let username;
+  let email;
+  let regno;
+  let fcm;
+  let os;
+  var x;
+  let bestFuture;
+  var isAdmin;
+  var teamArr;
   function userData(){
     console.log("2");
     return new Promise(function(resolve, reject){
       var user = firebase.auth().currentUser;
-      var userID;
+      
       if (user != null){
         userID = user.uid;
       }
-      let name = document.getElementById("signupName").value;
-      let email = document.getElementById("signupEmail").value;
-      let regNo = document.getElementById("signupRegno").value;
-      let phone = document.getElementById("signupContact").value;
-      let fcm = "";
-      let os = "";
-      let position ="";
-      var x;
-      let bestFuture = Boolean(x);
-      var isAdmin = Boolean(x);
-      var teamArr = [];
+      username = document.getElementById("signupName").value;
+      email = document.getElementById("signupEmail").value;
+      regNo = document.getElementById("signupRegno").value;
+      phone = document.getElementById("signupContact").value;
+      fcm = "";
+      os = "";
+      position ="";
+      bestFuture = Boolean(x);
+      isAdmin = Boolean(x);
+      teamArr = [];
       $("input").each(function(index, el) {
         if (el.checked) {
           var val = $(el).data("value");
           teamArr.push(val);
         }
       });
-      console.log(name);
+      console.log(username);
       console.log(email);
       console.log(phone);
       console.log(fcm);
@@ -126,18 +137,26 @@ function waitTime(){
       console.log(isAdmin);
       console.log(userID);
       console.log(teamArr);
-      resolve(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr)
+      resolve(userID, username, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr)
     }) 
     //writeUserData(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr);
   }
 
-function writeUserData(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr){
+function writeUserData(userID, username, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr){
   console.log("3");
+  console.log(username);
+  console.log(email);
+  console.log(phone);
+  console.log(fcm);
+  console.log(bestFuture);
+  console.log(isAdmin);
+  console.log(userID);
+  console.log(teamArr);
   return new Promise(function(resolve, reject){
     // var data;
     firebase.database().ref('Users/' + userID).set({
       uid: userID,
-      name: name,
+      name: username,
       email: email, 
       regNo: regNo, 
       phone: phone,
@@ -147,8 +166,10 @@ function writeUserData(userID, name, email, regNo, phone, fcm, os, position, bes
       bestFuture: bestFuture,
       isAdmin: isAdmin, 
       teams: teamArr
-    });
+    }
+    );
     resolve();
+    
   })
   //signOut();
 }
@@ -169,20 +190,23 @@ function sendMail(){
     user.sendEmailVerification().then(function() {
       // Email sent.
       console.log("Sent");
-      alert("Email sent");
+      resolve();
     }).catch(function(error) {
       // An error happened.
       console.log("Not Sent");
     });
-    resolve();
+    
   })
 }
 
 async function createUser(){
-  await userData(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr);
-  await writeUserData(userID, name, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr);
+  await authSignup();
+  await userData();
+  await writeUserData(userID, username, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr);
   await sendMail();
   signOut();
+  alert("A verification email has been sent. Verify your email to Login");
+  window.location.reload();
 }
 
 $("#signupForm").submit(function(e) {
