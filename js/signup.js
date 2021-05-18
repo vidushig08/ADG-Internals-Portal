@@ -1,18 +1,33 @@
 //Validate password
-var password = document.getElementById("signupPass"),
-confirm_password = document.getElementById("signupPassConfirm");
-
+//var password = document.getElementById("signupPass"),
+//confirm_password = document.getElementById("signupPassConfirm");
+/*
 function validatePassword(){
-  if(signupPass.value != signupPassConfirm.value) {
+  if(password.value != confirm_password.value) {
     confirm_password.setCustomValidity("Passwords Don't Match");
+    console.log("Password Error");
   } 
   else {
     confirm_password.setCustomValidity('');
   }
 }
-signupPass.onchange = validatePassword;
-signupPassConfirm.onkeyup = validatePassword;
+password.onchange = validatePassword();
+confirm_password.onkeyup = validatePassword();
+*/
+function checkPasswordMatch() {
+  var password = $("#signupPass").val();
+  var confirmPassword = $("#signupPassConfirm").val();
 
+  if (password != confirmPassword)
+      $("#divCheckPasswordMatch").html("Passwords do not match!");
+  else
+      $("#divCheckPasswordMatch").html("");
+}
+
+$(document).ready(function () {
+ $("#signupPassConfirm").keyup(checkPasswordMatch);
+ $("#signupPass").keyup(checkPasswordMatch);
+});
 
 // JS for Password Visibility
 // fa-eye fa-eye-slash
@@ -34,6 +49,7 @@ togglePassword1.addEventListener("click", function (e) {
 
   //validate reg no
   function regValidation(){
+    document.getElementById("sign-up").innerHTML = "Loading...";
     var regNoCheck = document.getElementById("signupRegno").value;
     var n = regNoArr.includes(regNoCheck);
     var i = regNoArr.indexOf(regNoCheck);
@@ -205,6 +221,7 @@ async function createUser(){
   await writeUserData(userID, username, email, regNo, phone, fcm, os, position, bestFuture, isAdmin, teamArr);
   await sendMail();
   signOut();
+  document.getElementById("sign-up").innerHTML = "Sign Up";
   alert("A verification email has been sent. Verify your email to Login");
   window.location.reload();
 }
