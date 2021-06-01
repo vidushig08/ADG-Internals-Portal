@@ -99,11 +99,11 @@ const handleSubmit = async (event) => {
       points.push(point.value);
     }
     // console.log(id, meetingDetails, title, header, points);
-    const newMoM = await fetch(
-      "https://internals-app-c0391.firebaseio.com/MOMS.json",
-      {
-        method: "POST",
-        body: JSON.stringify({
+    const newMoM = () =>
+      firebase
+        .database()
+        .ref("MOMS/" + id)
+        .set({
           id,
           title,
           header,
@@ -111,10 +111,24 @@ const handleSubmit = async (event) => {
           time: meetingDetails.time,
           users: meetingDetails.users,
           team: meetingDetails?.type,
-        }),
-      }
-    );
-    console.log(await newMoM.json());
+        });
+
+    // await fetch(D
+    //   "https://internals-app-c0391.firebaseio.com/MOMS.json",
+    //   {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       id,
+    //       title,
+    //       header,
+    //       points,
+    //       time: meetingDetails.time,
+    //       users: meetingDetails.users,
+    //       team: meetingDetails?.type,
+    //     }),
+    //   }E
+    // );
+    // console.log(V await newMoM.json());
 
     let updateAlert = true;
     let updates = {};
